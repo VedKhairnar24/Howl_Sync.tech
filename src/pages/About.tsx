@@ -27,7 +27,7 @@ const About: React.FC = () => {
       {/* Team Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
         <TeamMember 
-          name="Alex Morgan"
+          name="Ved Khairnar"
           role="Full Stack Developer"
           bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
           imageUrl="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
@@ -38,7 +38,7 @@ const About: React.FC = () => {
           }}
         />
         <TeamMember 
-          name="Jordan Taylor"
+          name="Tejas Paithne"
           role="Python Developer"
           bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
           imageUrl="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
