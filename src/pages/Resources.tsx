@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -242,7 +241,7 @@ const Resources = () => {
                   <Video className="h-4 w-4" /> Videos
                 </TabsTrigger>
                 <TabsTrigger value="Tool" className="flex items-center gap-1">
-                  <Tool className="h-4 w-4" /> Tools
+                  <Code className="h-4 w-4" /> Tools
                 </TabsTrigger>
                 <TabsTrigger value="Cheatsheet" className="flex items-center gap-1">
                   <Download className="h-4 w-4" /> Cheat Sheets
