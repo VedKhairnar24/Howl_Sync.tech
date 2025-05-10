@@ -11,7 +11,7 @@ import ResourceCard from '@/components/ResourceCard';
 const tools = [
   {
     title: 'Visual Studio Code (VS Code)',
-    description: 'A lightweight, open-source code editor by Microsoft, ideal for web development. It supports HTML, CSS, JavaScript, React, and more with extensions like ESLint, Prettier, and React Snippets.',
+    description: 'A lightweight, open-source code editor by Microsoft with powerful features for web development including IntelliSense, debugging, and Git integration.',
     type: 'Tool' as const,
     rating: 5,
     author: 'Microsoft',
@@ -20,12 +20,13 @@ const tools = [
     url: 'https://code.visualstudio.com/',
     isPremium: false,
     platform: 'Microsoft',
-    note: 'Free and open-source. Features include IntelliSense, debugging, Git integration, and a built-in terminal.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159'
+    note: 'Free and open-source. Perfect for beginners and professionals alike.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png'
   },
   {
     title: 'WebStorm',
-    description: 'A powerful IDE by JetBrains tailored for JavaScript, React, and web development. It offers advanced code completion, refactoring, and debugging for HTML, CSS, and JavaScript.',
+    description: 'A powerful IDE by JetBrains specifically designed for JavaScript and web development with advanced code completion and debugging tools.',
     type: 'Tool' as const,
     rating: 5,
     author: 'JetBrains',
@@ -34,12 +35,13 @@ const tools = [
     url: 'https://www.jetbrains.com/webstorm/',
     isPremium: true,
     platform: 'JetBrains',
-    note: 'Premium IDE with built-in tools for testing and Git/GitHub integration.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
+    note: 'Premium IDE with built-in testing and Git/GitHub integration.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3',
+    logoUrl: 'https://resources.jetbrains.com/storage/products/webstorm/img/meta/webstorm_logo_300x300.png'
   },
   {
     title: 'IntelliJ IDEA (Community Edition)',
-    description: 'A versatile, open-source IDE by JetBrains supporting JavaScript, HTML, CSS, and React via plugins. It provides robust code navigation, refactoring, and Git integration.',
+    description: 'A versatile IDE supporting multiple languages with robust features for code navigation, refactoring, and Git integration.',
     type: 'Tool' as const,
     rating: 4,
     author: 'JetBrains',
@@ -48,12 +50,13 @@ const tools = [
     url: 'https://www.jetbrains.com/idea/',
     isPremium: false,
     platform: 'JetBrains',
-    note: 'Free Community Edition available. Primarily for Java but strong web development capabilities via plugins.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97'
+    note: 'Free Community Edition available. Strong web development capabilities via plugins.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
+    logoUrl: 'https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png'
   },
   {
     title: 'CodePen',
-    description: 'A web-based IDE for front-end development, focusing on HTML, CSS, and JavaScript. It allows real-time code editing and previewing, making it ideal for prototyping and learning.',
+    description: 'An online playground for front-end developers to prototype, experiment, and share HTML, CSS, and JavaScript code in real-time.',
     type: 'Tool' as const,
     rating: 5,
     author: 'CodePen Team',
@@ -62,12 +65,13 @@ const tools = [
     url: 'https://codepen.io/',
     isPremium: false,
     platform: 'Web',
-    note: 'Free to use with basic features. Pro plans available for additional features.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713'
+    note: 'Free to use with basic features. Great for quick prototyping.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713',
+    logoUrl: 'https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg'
   },
   {
     title: 'Git',
-    description: 'A distributed version control system for tracking code changes, essential for collaborative projects. It\'s the backbone of GitHub workflows.',
+    description: 'A distributed version control system essential for tracking code changes and collaborating on software development projects.',
     type: 'Tool' as const,
     rating: 5,
     author: 'Linus Torvalds & Git Community',
@@ -76,12 +80,13 @@ const tools = [
     url: 'https://git-scm.com/',
     isPremium: false,
     platform: 'Cross-platform',
-    note: 'Free and open-source. Commands like commit, push, and pull streamline teamwork.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb'
+    note: 'Free and open-source. Essential for collaborative development.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb',
+    logoUrl: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png'
   },
   {
     title: 'GitHub',
-    description: 'A platform for hosting and collaborating on Git repositories. It integrates with IDEs like VS Code and WebStorm, supporting pull requests, code reviews, and CI/CD pipelines.',
+    description: 'A cloud-based platform for Git repositories that enables collaboration, pull requests, code reviews, and CI/CD workflows.',
     type: 'Tool' as const,
     rating: 5,
     author: 'GitHub, Inc. (Microsoft)',
@@ -90,12 +95,13 @@ const tools = [
     url: 'https://github.com/',
     isPremium: false,
     platform: 'Web',
-    note: 'Free for public repositories. Pro plans available for private repositories and additional features.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb'
+    note: 'Free for public repositories. Industry standard for open source.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb',
+    logoUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
   },
   {
     title: 'Chrome DevTools',
-    description: 'Built-in browser tools for debugging and optimizing web applications. Features include inspecting HTML/CSS, analyzing JavaScript performance, and simulating mobile devices.',
+    description: 'Built-in browser tools for debugging, inspecting elements, analyzing performance, and optimizing web applications.',
     type: 'Tool' as const,
     rating: 4,
     author: 'Google Developers',
@@ -104,12 +110,13 @@ const tools = [
     url: 'https://developer.chrome.com/docs/devtools/',
     isPremium: false,
     platform: 'Chrome Browser',
-    note: 'Free and built into Chrome browser. Accessible via F12 or right-click > Inspect.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef'
+    note: 'Free and accessible via F12 or right-click > Inspect.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef',
+    logoUrl: 'https://developer.chrome.com/static/images/chrome-logo-m100.svg'
   },
   {
     title: 'Node.js',
-    description: 'A runtime for executing JavaScript outside the browser, crucial for React development and server-side scripting. It powers tools like Create React App and supports package management via npm.',
+    description: 'A JavaScript runtime environment that executes code outside a web browser, enabling server-side scripting and command-line tools.',
     type: 'Tool' as const,
     rating: 5,
     author: 'Node.js Foundation',
@@ -118,12 +125,13 @@ const tools = [
     url: 'https://nodejs.org/',
     isPremium: false,
     platform: 'Cross-platform',
-    note: 'Free and open-source. Essential for modern JavaScript and React development.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1560800245-eae5049e1320'
+    note: 'Free and open-source. Powers modern JavaScript development.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1560800245-eae5049e1320',
+    logoUrl: 'https://nodejs.org/static/images/logo.svg'
   },
   {
     title: 'ESLint',
-    description: 'A linting tool for identifying and fixing JavaScript and React code issues. It enforces coding standards, improving code quality in projects.',
+    description: 'A static code analysis tool that identifies and fixes problems in JavaScript code, ensuring consistency and preventing errors.',
     type: 'Tool' as const,
     rating: 4,
     author: 'ESLint Team',
@@ -132,12 +140,13 @@ const tools = [
     url: 'https://eslint.org/',
     isPremium: false,
     platform: 'Node.js Package',
-    note: 'Free and open-source. Integrates seamlessly with VS Code and other IDEs.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea'
+    note: 'Free and integrates with most editors and IDEs.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea',
+    logoUrl: 'https://eslint.org/assets/img/favicon.512x512.png'
   },
   {
     title: 'Prettier',
-    description: 'An opinionated code formatter for HTML, CSS, JavaScript, and React. It ensures consistent code style across projects, complementing tutorials like "JavaScript for Absolute Beginners."',
+    description: 'An opinionated code formatter that enforces consistent style across your codebase, supporting many languages and integrating with editors.',
     type: 'Tool' as const,
     rating: 5,
     author: 'Prettier Team',
@@ -146,8 +155,9 @@ const tools = [
     url: 'https://prettier.io/',
     isPremium: false,
     platform: 'Node.js Package',
-    note: 'Free and open-source. Works as a VS Code extension for automatic formatting.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97'
+    note: 'Free and works as an extension for most popular editors.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
+    logoUrl: 'https://prettier.io/icon.png'
   }
 ];
 
@@ -168,6 +178,71 @@ const Tools = () => {
     
     return matchesSearch && matchesTag;
   });
+
+  // Modified ResourceCard component specific for tools with logo
+  const ToolCard = ({ tool }: { tool: typeof tools[0] }) => (
+    <div className="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col border border-gray-200">
+      <div className="p-6 flex items-start space-x-4">
+        <div className="flex-shrink-0">
+          <img 
+            src={tool.logoUrl} 
+            alt={`${tool.title} logo`} 
+            className="w-16 h-16 object-contain"
+          />
+        </div>
+        <div className="flex-1">
+          <div className="flex items-center justify-between">
+            <Badge className={tool.isPremium ? 'bg-amber-100 text-amber-800' : 'bg-orange-100 text-orange-800'}>
+              {tool.isPremium ? 'Premium' : 'Free'}
+            </Badge>
+            <div className="flex items-center text-amber-500">
+              {Array(5).fill(0).map((_, i) => (
+                <svg 
+                  key={i} 
+                  className={`h-4 w-4 ${i < tool.rating ? 'fill-current' : 'stroke-current fill-none'}`}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+          <h3 className="text-lg font-medium mt-2">
+            <a 
+              href={tool.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 hover:underline transition-colors"
+            >
+              {tool.title}
+            </a>
+          </h3>
+          <p className="text-gray-500 text-sm mt-1">{tool.author}</p>
+          <p className="text-gray-700 mt-2">{tool.description}</p>
+          <div className="mt-3 flex flex-wrap gap-1">
+            {tool.tags.map(tag => (
+              <Badge 
+                key={tag} 
+                variant="outline" 
+                className="text-xs cursor-pointer hover:bg-gray-100"
+                onClick={() => setTagFilter(tag)}
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <div className="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+            <span className="text-sm text-gray-500">{tool.platform}</span>
+            <Button asChild size="sm" variant="outline" className="text-blue-600">
+              <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                Visit Website
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div>
@@ -245,25 +320,13 @@ const Tools = () => {
             </div>
 
             <TabsContent value="all" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                 {filteredTools.length > 0 ? (
                   filteredTools.map((tool, index) => (
-                    <ResourceCard 
-                      key={index}
-                      title={tool.title}
-                      description={tool.description}
-                      type={tool.type}
-                      rating={tool.rating}
-                      author={tool.author}
-                      url={tool.url}
-                      isPremium={tool.isPremium}
-                      platform={tool.platform}
-                      note={tool.note}
-                      thumbnailUrl={tool.thumbnailUrl}
-                    />
+                    <ToolCard key={index} tool={tool} />
                   ))
                 ) : (
-                  <div className="col-span-3 text-center py-12">
+                  <div className="col-span-full text-center py-12">
                     <p className="text-xl text-gray-500">No tools found matching your criteria.</p>
                     <Button 
                       variant="outline" 
@@ -281,67 +344,31 @@ const Tools = () => {
             </TabsContent>
 
             <TabsContent value="ide" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                 {filteredTools
                   .filter(tool => ['IDE', 'Code Editor'].some(tag => tool.tags.includes(tag)))
                   .map((tool, index) => (
-                    <ResourceCard 
-                      key={index}
-                      title={tool.title}
-                      description={tool.description}
-                      type={tool.type}
-                      rating={tool.rating}
-                      author={tool.author}
-                      url={tool.url}
-                      isPremium={tool.isPremium}
-                      platform={tool.platform}
-                      note={tool.note}
-                      thumbnailUrl={tool.thumbnailUrl}
-                    />
+                    <ToolCard key={index} tool={tool} />
                   ))}
               </div>
             </TabsContent>
 
             <TabsContent value="git" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                 {filteredTools
                   .filter(tool => ['Git', 'Version Control', 'GitHub'].some(tag => tool.tags.includes(tag)))
                   .map((tool, index) => (
-                    <ResourceCard 
-                      key={index}
-                      title={tool.title}
-                      description={tool.description}
-                      type={tool.type}
-                      rating={tool.rating}
-                      author={tool.author}
-                      url={tool.url}
-                      isPremium={tool.isPremium}
-                      platform={tool.platform}
-                      note={tool.note}
-                      thumbnailUrl={tool.thumbnailUrl}
-                    />
+                    <ToolCard key={index} tool={tool} />
                   ))}
               </div>
             </TabsContent>
 
             <TabsContent value="quality" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
                 {filteredTools
                   .filter(tool => ['Code Quality', 'Code Formatting', 'Linting'].some(tag => tool.tags.includes(tag)))
                   .map((tool, index) => (
-                    <ResourceCard 
-                      key={index}
-                      title={tool.title}
-                      description={tool.description}
-                      type={tool.type}
-                      rating={tool.rating}
-                      author={tool.author}
-                      url={tool.url}
-                      isPremium={tool.isPremium}
-                      platform={tool.platform}
-                      note={tool.note}
-                      thumbnailUrl={tool.thumbnailUrl}
-                    />
+                    <ToolCard key={index} tool={tool} />
                   ))}
               </div>
             </TabsContent>
