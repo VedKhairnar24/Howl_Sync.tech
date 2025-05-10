@@ -1,15 +1,33 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Code, Menu, X, BookOpen, HelpCircle, Library, Users, FileText, Info, Search } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const navLinks = [
     { name: 'Learning Paths', path: '/learning-paths', icon: <BookOpen className="h-4 w-4 mr-2" /> },
@@ -22,13 +40,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
+    <nav className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
+      <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <Code className="h-8 w-8 text-tech-blue" />
-            <span className="ml-2 text-xl font-bold text-tech-blue">TechJourney</span>
+            <Code className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-tech-blue" />
+            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">TechJourney</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,7 +55,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-3 py-2 text-sm rounded-md hover:bg-gray-100 flex items-center text-gray-700 hover:text-tech-blue transition-colors"
+                className="px-2 py-2 text-sm rounded-md hover:bg-gray-100 flex items-center text-gray-700 hover:text-tech-blue transition-colors"
               >
                 {link.icon}
                 {link.name}
@@ -50,7 +68,13 @@ const Navbar = () => {
             <Button variant="ghost" size="icon">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="default" className="bg-tech-blue text-white hover:bg-tech-blue/90">Get Started</Button>
+            <Button 
+              variant="default" 
+              size={isMobile ? "sm" : "default"}
+              className="bg-tech-blue text-white hover:bg-tech-blue/90"
+            >
+              Get Started
+            </Button>
           </div>
 
           {/* Mobile menu button */}
