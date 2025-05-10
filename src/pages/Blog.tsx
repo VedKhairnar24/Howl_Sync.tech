@@ -4,7 +4,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Search } from "lucide-react";
+import { BookOpen, Search, Users } from "lucide-react";
+import TeamMember from "../components/TeamMember";
 
 interface BlogPost {
   id: number;
@@ -89,6 +90,7 @@ const blogPosts: BlogPost[] = [
 
 const Blog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState<'posts' | 'about'>('posts');
   
   const filteredPosts = blogPosts.filter(post => 
     post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -103,110 +105,188 @@ const Blog: React.FC = () => {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Insights, tutorials, and resources to help you on your tech journey. Explore our latest articles below.
         </p>
-      </div>
-
-      {/* Search */}
-      <div className="max-w-md mx-auto mb-12">
-        <div className="relative flex items-center">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-          <Input
-            type="text"
-            placeholder="Search articles..."
-            className="pl-10 pr-4 py-2 border rounded-lg"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          {searchQuery && (
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="absolute right-2"
-              onClick={() => setSearchQuery('')}
-            >
-              Clear
-            </Button>
-          )}
+        
+        {/* Tabs */}
+        <div className="flex justify-center mt-8 mb-4 border-b">
+          <button 
+            className={`px-6 py-3 font-medium ${activeTab === 'posts' ? 'text-tech-blue border-b-2 border-tech-blue' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('posts')}
+          >
+            Articles
+          </button>
+          <button 
+            className={`px-6 py-3 font-medium flex items-center gap-2 ${activeTab === 'about' ? 'text-tech-blue border-b-2 border-tech-blue' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('about')}
+          >
+            <Users size={18} />
+            About Us
+          </button>
         </div>
       </div>
 
-      {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => (
-            <Card key={post.id} className="card-hover overflow-hidden">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={post.imageUrl} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-500">{post.date}</span>
-                  <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{post.category}</span>
-                </div>
-                <CardTitle className="text-xl hover:text-tech-blue transition-colors">
-                  <a href={`/blog/${post.id}`}>{post.title}</a>
-                </CardTitle>
-                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <BookOpen className="h-4 w-4 mr-2 text-gray-500" />
-                  <span className="text-sm text-gray-500">{post.readTime}</span>
-                </div>
-                <span className="text-sm text-gray-600">By {post.author}</span>
-              </CardFooter>
-            </Card>
-          ))
-        ) : (
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
-            <h3 className="text-lg font-medium text-gray-700">No articles found matching your search.</h3>
-            <p className="text-gray-500 mt-2">Try a different search term or browse all articles.</p>
-            <Button 
-              variant="outline" 
-              className="mt-4" 
-              onClick={() => setSearchQuery('')}
-            >
-              View all articles
-            </Button>
+      {activeTab === 'posts' ? (
+        <>
+          {/* Search */}
+          <div className="max-w-md mx-auto mb-12">
+            <div className="relative flex items-center">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                className="pl-10 pr-4 py-2 border rounded-lg"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="absolute right-2"
+                  onClick={() => setSearchQuery('')}
+                >
+                  Clear
+                </Button>
+              )}
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* Pagination */}
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive>1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+          {/* Blog Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {filteredPosts.length > 0 ? (
+              filteredPosts.map((post) => (
+                <Card key={post.id} className="card-hover overflow-hidden">
+                  <div className="h-48 overflow-hidden">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs text-gray-500">{post.date}</span>
+                      <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{post.category}</span>
+                    </div>
+                    <CardTitle className="text-xl hover:text-tech-blue transition-colors">
+                      <a href={`/blog/${post.id}`}>{post.title}</a>
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag, index) => (
+                        <span 
+                          key={index}
+                          className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <BookOpen className="h-4 w-4 mr-2 text-gray-500" />
+                      <span className="text-sm text-gray-500">{post.readTime}</span>
+                    </div>
+                    <span className="text-sm text-gray-600">By {post.author}</span>
+                  </CardFooter>
+                </Card>
+              ))
+            ) : (
+              <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
+                <h3 className="text-lg font-medium text-gray-700">No articles found matching your search.</h3>
+                <p className="text-gray-500 mt-2">Try a different search term or browse all articles.</p>
+                <Button 
+                  variant="outline" 
+                  className="mt-4" 
+                  onClick={() => setSearchQuery('')}
+                >
+                  View all articles
+                </Button>
+              </div>
+            )}
+          </div>
+
+          {/* Pagination */}
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious href="#" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" isActive>1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">2</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext href="#" />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </>
+      ) : (
+        <div className="animate-fade-in">
+          {/* About Section */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="text-center mb-12">
+              <div className="flex justify-center mb-6">
+                <div className="bg-gradient-to-r from-tech-blue to-tech-purple p-4 rounded-full">
+                  <img 
+                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" 
+                    alt="Syntax Squad Logo" 
+                    className="h-24 w-24 object-cover rounded-full border-4 border-white"
+                  />
+                </div>
+              </div>
+              <h2 className="text-3xl font-bold mb-4 gradient-text">Syntax Squad</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                We are a dynamic duo of passionate developers driven by innovation and a shared commitment to building impactful, user-centric digital solutions. With expertise spanning full-stack web development and core programming, our team blends creativity with technical precision.
+              </p>
+            </div>
+          </div>
+
+          {/* Team Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            <TeamMember 
+              name="Alex Morgan"
+              role="Full Stack Developer"
+              bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
+              imageUrl="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+              socials={{
+                github: "https://github.com",
+                twitter: "https://twitter.com",
+                linkedin: "https://linkedin.com"
+              }}
+            />
+            <TeamMember 
+              name="Jordan Taylor"
+              role="Python Developer"
+              bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
+              imageUrl="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+              socials={{
+                github: "https://github.com",
+                linkedin: "https://linkedin.com"
+              }}
+            />
+          </div>
+
+          {/* Team Description */}
+          <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold mb-4">Our Approach</h3>
+            <p className="text-gray-700 mb-4">
+              Together, we bring a balanced mix of frontend design, backend logic, and algorithmic thinking—ready to tackle any challenge with a focus on clean code, performance, and user experience.
+            </p>
+            <p className="text-gray-700">
+              Adaptable, curious, and solution-oriented, we thrive in collaborative environments and are excited to innovate under pressure.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
