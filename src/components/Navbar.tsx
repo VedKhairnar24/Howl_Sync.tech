@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Code, Menu, X, BookOpen, HelpCircle, Library, Users, FileText, Tool, Info, Search } from 'lucide-react';
+import { Code, Menu, X, BookOpen, HelpCircle, Library, Users, FileText, Info, Search } from 'lucide-react';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
     { name: 'Resources', path: '/resources', icon: <Library className="h-4 w-4 mr-2" /> },
     { name: 'Community', path: '/community', icon: <Users className="h-4 w-4 mr-2" /> },
     { name: 'Blog', path: '/blog', icon: <FileText className="h-4 w-4 mr-2" /> },
-    { name: 'Tools', path: '/tools', icon: <Tool className="h-4 w-4 mr-2" /> },
+    { name: 'Tools', path: '/tools', icon: <Code className="h-4 w-4 mr-2" /> },
     { name: 'About', path: '/about', icon: <Info className="h-4 w-4 mr-2" /> },
   ];
 
