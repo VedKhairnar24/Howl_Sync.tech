@@ -13,6 +13,8 @@ interface ResourceCardProps {
   author: string;
   url: string;
   isPremium?: boolean;
+  platform?: string;
+  note?: string;
 }
 
 const ResourceCard = ({
@@ -23,6 +25,8 @@ const ResourceCard = ({
   author,
   url,
   isPremium = false,
+  platform,
+  note,
 }: ResourceCardProps) => {
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -46,12 +50,17 @@ const ResourceCard = ({
   return (
     <Card className="overflow-hidden card-hover h-full flex flex-col">
       <CardHeader>
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex flex-wrap items-center gap-2 mb-2">
           <Badge className={`${getTypeColor(type)}`}>
             {type}
           </Badge>
+          {platform && (
+            <Badge variant="outline" className="text-gray-600">
+              {platform}
+            </Badge>
+          )}
           {isPremium && (
-            <Badge className="bg-amber-100 text-amber-800">Premium</Badge>
+            <Badge className="bg-amber-100 text-amber-800 ml-auto">Premium</Badge>
           )}
         </div>
         <CardTitle>{title}</CardTitle>
@@ -69,6 +78,11 @@ const ResourceCard = ({
       </CardHeader>
       <CardContent>
         <CardDescription className="line-clamp-3">{description}</CardDescription>
+        {note && (
+          <div className="mt-3 text-sm text-muted-foreground italic">
+            {note}
+          </div>
+        )}
       </CardContent>
       <CardFooter className="mt-auto">
         <Button asChild className="w-full" variant="outline">
