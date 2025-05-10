@@ -11,7 +11,8 @@ import LearningPaths from "./pages/LearningPaths";
 import ProblemSolving from "./pages/ProblemSolving";
 import Resources from "./pages/Resources";
 import Community from "./pages/Community";
-import Tools from "./pages/Tools"; // Added the Tools import
+import Tools from "./pages/Tools";
+import Blog from "./pages/Blog"; // Added Blog import
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -56,7 +57,8 @@ const App = () => {
                 <Route path="/learning-paths" element={<LearningPaths />} />
                 <Route path="/problem-solving" element={<ProblemSolving />} />
                 <Route path="/resources" element={<Resources />} />
-                <Route path="/tools" element={<Tools />} /> {/* Added new route */}
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/blog" element={<Blog />} /> {/* Added new route */}
                 <Route path="/community" element={<Community />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
