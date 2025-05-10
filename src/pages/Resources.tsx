@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Filter, BookOpen, Video, Code, Download, GitBranch } from 'lucide-react';
+import { Search, Filter, BookOpen, Video, Code, Download, GitBranch, Youtube } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
 
 const resources = [
@@ -74,6 +75,92 @@ const resources = [
     isPremium: false,
     platform: 'YouTube',
     note: 'Free resource.'
+  },
+  
+  // YouTube Playlists - New Section
+  {
+    title: 'HTML & CSS Crash Course Playlist',
+    description: 'A beginner-friendly guide to building your first webpage with HTML and CSS. This playlist covers the essentials of HTML structure and CSS styling, perfect for those starting their web development journey.',
+    type: 'Playlist' as const,
+    rating: 5,
+    author: 'Web Dev Simplified',
+    category: 'playlists',
+    tags: ['HTML', 'CSS', 'Web Development', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLZlA0Gpn_vH8SV8jiOr6pvm37QnOZdG9W',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'This playlist includes tutorials like "Learn HTML & CSS – Full Course for Beginners" and related videos from Web Dev Simplified\'s channel.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
+  },
+  {
+    title: 'JavaScript for Absolute Beginners Playlist',
+    description: 'Start your JavaScript journey with this easy-to-follow tutorial series. Designed for beginners, it covers core JavaScript concepts like variables, functions, and DOM manipulation in a clear, engaging way.',
+    type: 'Playlist' as const,
+    rating: 4,
+    author: 'Programming with Mosh',
+    category: 'playlists',
+    tags: ['JavaScript', 'Web Development', 'Beginner', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLTjRvDozrdlz3_FPXwbHvo0KzKo9Wz0dW',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Includes Mosh\'s free JavaScript tutorials, such as "JavaScript Tutorial for Beginners." Additional premium content may be available on his website.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b'
+  },
+  {
+    title: 'React Crash Course 2024 Playlist',
+    description: 'Learn React.js fundamentals in this in-depth video tutorial series for beginners. Covers components, props, state, and hooks to build dynamic user interfaces.',
+    type: 'Playlist' as const,
+    rating: 5,
+    author: 'Traversy Media',
+    category: 'playlists',
+    tags: ['React', 'JavaScript', 'Frontend', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLillGF-RfqbYeckUaD1S8e0emc4r9r_al',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Traversy Media\'s React tutorials, including the 2024 crash course, are free on YouTube. Check for the latest videos in the playlist for updates.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158'
+  },
+  {
+    title: 'Git & GitHub - The Complete Guide Playlist',
+    description: 'Master version control with Git and GitHub in this comprehensive video course. Learn branching, merging, pull requests, and collaboration workflows for real-world projects.',
+    type: 'Playlist' as const,
+    rating: 5,
+    author: 'FreeCodeCamp',
+    category: 'playlists',
+    tags: ['Git', 'GitHub', 'Version Control', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLWKjhJtqVAbkzvvpY12jH4BxNEjP7B4U3',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'FreeCodeCamp\'s Git and GitHub tutorials are free and include the popular "Git and GitHub for Beginners" crash course.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7'
+  },
+  {
+    title: 'VS Code for Beginners Playlist',
+    description: 'Set up and customize Visual Studio Code for an optimal coding experience. This series covers extensions, debugging, and productivity tips for beginners.',
+    type: 'Playlist' as const,
+    rating: 5,
+    author: 'Microsoft Dev Team',
+    category: 'playlists',
+    tags: ['VS Code', 'IDE', 'Productivity', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLlrxD0HtieHje-_8OLUGM3Y3jT3h2wfwK',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Microsoft\'s official YouTube channel offers free VS Code tutorials. This playlist includes beginner-friendly content from the Microsoft Developer team.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
+  },
+  {
+    title: 'Chrome DevTools Deep Dive Playlist',
+    description: 'Learn how to leverage Chrome DevTools for debugging and optimizing web applications. Covers inspecting elements, analyzing network activity, and improving performance.',
+    type: 'Playlist' as const,
+    rating: 4,
+    author: 'Google Developers',
+    category: 'playlists',
+    tags: ['DevTools', 'Debugging', 'Web Development', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLNYkxOF6rcIAKIQFsNbV0JDws_G_bnNo9',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Google Chrome Developers\' YouTube channel provides free DevTools tutorials, including deep dives into debugging and performance tools.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
   },
   
   // Tools - IDEs
@@ -358,6 +445,9 @@ const Resources = () => {
                 <TabsTrigger value="Video" className="flex items-center gap-1">
                   <Video className="h-4 w-4" /> Videos
                 </TabsTrigger>
+                <TabsTrigger value="Playlist" className="flex items-center gap-1">
+                  <Youtube className="h-4 w-4" /> Playlists
+                </TabsTrigger>
                 <TabsTrigger value="Tool" className="flex items-center gap-1">
                   <Code className="h-4 w-4" /> Tools & IDEs
                 </TabsTrigger>
@@ -385,6 +475,7 @@ const Resources = () => {
                       isPremium={resource.isPremium}
                       platform={resource.platform}
                       note={resource.note}
+                      thumbnailUrl={resource.thumbnailUrl}
                     />
                   ))
                 ) : (
@@ -409,6 +500,7 @@ const Resources = () => {
             {/* Other tabs work through the filtering logic above */}
             <TabsContent value="Tutorial" className="mt-0"></TabsContent>
             <TabsContent value="Video" className="mt-0"></TabsContent>
+            <TabsContent value="Playlist" className="mt-0"></TabsContent>
             <TabsContent value="Tool" className="mt-0"></TabsContent>
             <TabsContent value="Cheatsheet" className="mt-0"></TabsContent>
             <TabsContent value="Course" className="mt-0"></TabsContent>
