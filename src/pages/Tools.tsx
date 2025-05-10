@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Code, GitBranch, Terminal } from 'lucide-react';
+import { Search, Code, GitBranch, Terminal, Bot, Brain, Wand } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
 
 // Development Tools
@@ -160,11 +160,144 @@ const tools = [
   }
 ];
 
+// AI Research and Development Tools
+const aiTools = [
+  {
+    title: 'OpenAI GPT-4o',
+    description: 'Advanced large language model with multimodal capabilities. Ideal for natural language processing, code generation, and content creation.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'OpenAI',
+    category: 'ai',
+    tags: ['AI', 'LLM', 'Natural Language Processing', 'Code Generation'],
+    url: 'https://openai.com/gpt-4o',
+    isPremium: true,
+    platform: 'API & Web',
+    note: 'Premium API with usage-based pricing. Powers many AI applications.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1677442135126-21d0d0e8e292',
+    logoUrl: 'https://seeklogo.com/images/O/open-ai-logo-8B9BFEDC26-seeklogo.com.png'
+  },
+  {
+    title: 'Hugging Face Transformers',
+    description: 'Open-source library providing thousands of pre-trained models for NLP, computer vision, speech processing, and more.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Hugging Face',
+    category: 'ai',
+    tags: ['AI', 'Machine Learning', 'Open Source', 'NLP', 'Computer Vision'],
+    url: 'https://huggingface.co/docs/transformers',
+    isPremium: false,
+    platform: 'JavaScript, Python',
+    note: 'Free open-source library. Extensive documentation and community support.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1655720033654-a4239dd42d10',
+    logoUrl: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg'
+  },
+  {
+    title: 'TensorFlow.js',
+    description: 'JavaScript library for training and deploying machine learning models in the browser and Node.js.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'Google',
+    category: 'ai',
+    tags: ['AI', 'Machine Learning', 'JavaScript', 'Browser ML'],
+    url: 'https://www.tensorflow.org/js',
+    isPremium: false,
+    platform: 'JavaScript',
+    note: 'Free and open-source. Enables ML directly in web applications.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f',
+    logoUrl: 'https://www.tensorflow.org/static/site-assets/images/project-logos/tensorflow-js-logo-social.png'
+  },
+  {
+    title: 'Perplexity AI',
+    description: 'AI-powered search engine that provides answers by analyzing multiple sources and generating comprehensive responses.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Perplexity AI',
+    category: 'ai',
+    tags: ['AI', 'Research', 'Search Engine', 'Information Retrieval'],
+    url: 'https://www.perplexity.ai/',
+    isPremium: false,
+    platform: 'Web & API',
+    note: 'Free with premium options. Great for research and fact-checking.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1639322537504-6427a16b0a28',
+    logoUrl: 'https://assets-global.website-files.com/64760069e93084646c9ee428/64cbaecf601ec37f3434ff8b_Icon%20(bloated)%20(1).png'
+  },
+  {
+    title: 'Claude',
+    description: 'Advanced AI assistant with strong reasoning capabilities, extensive context handling, and careful output filtering.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Anthropic',
+    category: 'ai',
+    tags: ['AI', 'LLM', 'Assistant', 'Research'],
+    url: 'https://www.anthropic.com/claude',
+    isPremium: true,
+    platform: 'API & Web',
+    note: 'Free tier with premium options. Excellent for complex reasoning tasks.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1673002084129-3148452f9e44',
+    logoUrl: 'https://images.ctfassets.net/x7nx2r7d3pz4/7pnilxn2iAy5NSFli2Q8BC/a5cc8a8615e39e11b106398222480943/claude-logo.png'
+  },
+  {
+    title: 'LangChain',
+    description: 'Framework for developing applications powered by language models through composable components that integrate with other tools.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'LangChain',
+    category: 'ai',
+    tags: ['AI', 'LLM', 'Framework', 'Development'],
+    url: 'https://langchain.com/',
+    isPremium: false,
+    platform: 'JavaScript, Python',
+    note: 'Open-source framework for building LLM-powered applications.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1675271591211-626f278fb1c1',
+    logoUrl: 'https://avatars.githubusercontent.com/u/126733545'
+  },
+  {
+    title: 'Midjourney',
+    description: 'AI image generation tool that creates stunning visuals from text descriptions using advanced diffusion techniques.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Midjourney',
+    category: 'ai',
+    tags: ['AI', 'Image Generation', 'Diffusion Models', 'Creative Tools'],
+    url: 'https://www.midjourney.com/',
+    isPremium: true,
+    platform: 'Discord & Web',
+    note: 'Subscription-based service. Excellent for design and creative work.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1686826658744-84e0988c4dca',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png'
+  },
+  {
+    title: 'Stable Diffusion',
+    description: 'Open-source AI model that generates detailed images from text descriptions, deployable on local hardware.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Stability AI',
+    category: 'ai',
+    tags: ['AI', 'Image Generation', 'Open Source', 'Self-hosting'],
+    url: 'https://stability.ai/stable-diffusion',
+    isPremium: false,
+    platform: 'Python, Web',
+    note: 'Free and open-source. Can be self-hosted for privacy.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1678749985115-634dd376e16e',
+    logoUrl: 'https://avatars.githubusercontent.com/u/100950301'
+  }
+];
+
 const Tools = () => {
   const [searchQuery, setSearchQuery] = useState('');
   
   // Filter tools based on search only
   const filteredTools = tools.filter(tool => {
+    const matchesSearch = tool.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          tool.description.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          tool.author.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    return matchesSearch;
+  });
+
+  // Filter AI tools based on search only
+  const filteredAiTools = aiTools.filter(tool => {
     const matchesSearch = tool.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           tool.description.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           tool.author.toLowerCase().includes(searchQuery.toLowerCase());
@@ -241,10 +374,10 @@ const Tools = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-tech-indigo to-tech-purple text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Developer Tools</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Essential Development Tools</h1>
+          <Badge className="bg-white/20 text-white mb-4">Development & AI Tools</Badge>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">Essential Tools for Developers</h1>
           <p className="text-xl max-w-2xl mx-auto mb-6 text-blue-100">
-            Discover the best tools to enhance your coding workflow and productivity.
+            Discover the best development and AI tools to enhance your workflow, productivity, and innovation.
           </p>
         </div>
       </section>
@@ -283,6 +416,9 @@ const Tools = () => {
                 </TabsTrigger>
                 <TabsTrigger value="quality" className="flex items-center gap-1">
                   <Code className="h-4 w-4" /> Code Quality
+                </TabsTrigger>
+                <TabsTrigger value="ai" className="flex items-center gap-1">
+                  <Brain className="h-4 w-4" /> AI Tools
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -339,6 +475,16 @@ const Tools = () => {
                   ))}
               </div>
             </TabsContent>
+
+            <TabsContent value="ai" className="mt-0">
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+                {filteredAiTools
+                  .filter(tool => ['AI', 'LLM', 'Machine Learning'].some(tag => tool.tags.includes(tag)))
+                  .map((tool, index) => (
+                    <ToolCard key={index} tool={tool} />
+                  ))}
+              </div>
+            </TabsContent>
           </Tabs>
         </div>
       </section>
@@ -349,14 +495,14 @@ const Tools = () => {
           <div className="bg-gradient-to-r from-tech-blue to-tech-lightblue text-white rounded-xl p-8 md:p-12">
             <div className="md:flex items-center">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2">Set up your development environment</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">Enhance your workflow with AI</h3>
                 <p className="text-blue-100">
-                  Get started quickly with our recommended tools. Follow our setup guides to create an optimal coding environment for web development.
+                  Leverage powerful AI tools to boost your productivity and unlock new possibilities in your development projects.
                 </p>
               </div>
               <div className="md:w-1/3 flex justify-center md:justify-end">
                 <Button className="bg-white text-tech-blue hover:bg-blue-50">
-                  View Setup Guides
+                  Explore AI Guides
                 </Button>
               </div>
             </div>
