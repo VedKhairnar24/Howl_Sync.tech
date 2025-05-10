@@ -27,7 +27,7 @@ const About: React.FC = () => {
       {/* Team Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12 px-2 md:px-0">
         <TeamMember 
-          name="Alex Morgan"
+          name="Ved Khairnar"
           role="Full Stack Developer"
           bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
           imageUrl="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
