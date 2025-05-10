@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Star, Play, Youtube } from 'lucide-react';
+import { ExternalLink, Star, Play, Youtube, BookOpen, Video, Code, Download, Link } from 'lucide-react';
 
 interface ResourceCardProps {
   title: string;
@@ -51,10 +51,31 @@ const ResourceCard = ({
     }
   };
 
+  const getTypeIcon = () => {
+    switch (type) {
+      case 'Article':
+        return <BookOpen className="h-4 w-4" />;
+      case 'Video':
+        return <Video className="h-4 w-4" />;
+      case 'Tutorial':
+        return <BookOpen className="h-4 w-4" />;
+      case 'Tool':
+        return <Code className="h-4 w-4" />;
+      case 'Cheatsheet':
+        return <Download className="h-4 w-4" />;
+      case 'Course':
+        return <BookOpen className="h-4 w-4" />;
+      case 'Playlist':
+        return <Youtube className="h-4 w-4" />;
+      default:
+        return <ExternalLink className="h-4 w-4" />;
+    }
+  };
+
   return (
     <Card className="overflow-hidden card-hover h-full flex flex-col">
-      {thumbnailUrl && (
-        <div className="relative w-full h-40 overflow-hidden">
+      {thumbnailUrl ? (
+        <a href={url} target="_blank" rel="noopener noreferrer" className="block relative w-full h-40 overflow-hidden">
           <img 
             src={thumbnailUrl} 
             alt={title}
@@ -65,6 +86,10 @@ const ResourceCard = ({
               <Youtube className="h-5 w-5 text-white" />
             </div>
           )}
+        </a>
+      ) : (
+        <div className="h-12 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
+          {getTypeIcon()}
         </div>
       )}
       <CardHeader>
@@ -81,7 +106,17 @@ const ResourceCard = ({
             <Badge className="bg-amber-100 text-amber-800 ml-auto">Premium</Badge>
           )}
         </div>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>
+          <a 
+            href={url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 hover:underline transition-colors flex items-center gap-1"
+          >
+            {title}
+            <ExternalLink className="h-4 w-4 inline-block opacity-70" />
+          </a>
+        </CardTitle>
         <div className="flex items-center text-sm text-muted-foreground">
           <span>By {author}</span>
           <div className="flex items-center ml-auto text-amber-500">
@@ -99,6 +134,18 @@ const ResourceCard = ({
         {note && (
           <div className="mt-3 text-sm text-muted-foreground italic">
             {note}
+          </div>
+        )}
+        {platform && url && (
+          <div className="mt-3 text-sm">
+            <a 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline flex items-center gap-1"
+            >
+              <Link className="h-4 w-4" /> Visit on {platform}
+            </a>
           </div>
         )}
       </CardContent>
