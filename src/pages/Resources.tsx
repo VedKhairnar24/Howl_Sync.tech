@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -267,8 +266,7 @@ const resources = [
   platform: 'Microsoft',
   note: 'Free and open-source. Features include IntelliSense, debugging, Git integration, and a built-in terminal.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159'
-},
-{
+}, {
   title: 'WebStorm',
   description: 'A powerful IDE by JetBrains tailored for JavaScript, React, and web development. It offers advanced code completion, refactoring, and debugging for HTML, CSS, and JavaScript.',
   type: 'Tool' as const,
@@ -281,8 +279,7 @@ const resources = [
   platform: 'JetBrains',
   note: 'Premium IDE with built-in tools for testing and Git/GitHub integration.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
-},
-{
+}, {
   title: 'IntelliJ IDEA (Community Edition)',
   description: 'A versatile, open-source IDE by JetBrains supporting JavaScript, HTML, CSS, and React via plugins. It provides robust code navigation, refactoring, and Git integration.',
   type: 'Tool' as const,
@@ -295,8 +292,7 @@ const resources = [
   platform: 'JetBrains',
   note: 'Free Community Edition available. Primarily for Java but strong web development capabilities via plugins.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97'
-},
-{
+}, {
   title: 'CodePen',
   description: 'A web-based IDE for front-end development, focusing on HTML, CSS, and JavaScript. It allows real-time code editing and previewing, making it ideal for prototyping and learning.',
   type: 'Tool' as const,
@@ -324,8 +320,7 @@ const resources = [
   platform: 'Cross-platform',
   note: 'Free and open-source. Commands like commit, push, and pull streamline teamwork.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb'
-},
-{
+}, {
   title: 'GitHub',
   description: 'A platform for hosting and collaborating on Git repositories. It integrates with IDEs like VS Code and WebStorm, supporting pull requests, code reviews, and CI/CD pipelines.',
   type: 'Tool' as const,
@@ -338,8 +333,7 @@ const resources = [
   platform: 'Web',
   note: 'Free for public repositories. Pro plans available for private repositories and additional features.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb'
-},
-{
+}, {
   title: 'Node.js',
   description: 'A runtime for executing JavaScript outside the browser, crucial for React development and server-side scripting. It powers tools like Create React App and supports package management via npm.',
   type: 'Tool' as const,
@@ -352,8 +346,7 @@ const resources = [
   platform: 'Cross-platform',
   note: 'Free and open-source. Essential for modern JavaScript and React development.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1560800245-eae5049e1320'
-},
-{
+}, {
   title: 'ESLint',
   description: 'A linting tool for identifying and fixing JavaScript and React code issues. It enforces coding standards, improving code quality in projects.',
   type: 'Tool' as const,
@@ -366,8 +359,7 @@ const resources = [
   platform: 'Node.js Package',
   note: 'Free and open-source. Integrates seamlessly with VS Code and other IDEs.',
   thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea'
-},
-{
+}, {
   title: 'Prettier',
   description: 'An opinionated code formatter for HTML, CSS, JavaScript, and React. It ensures consistent code style across projects, complementing tutorials like "JavaScript for Absolute Beginners."',
   type: 'Tool' as const,
@@ -519,18 +511,10 @@ const Resources = () => {
                 <TabsTrigger value="Video" className="flex items-center gap-1">
                   <Video className="h-4 w-4" /> Videos
                 </TabsTrigger>
-                <TabsTrigger value="Playlist" className="flex items-center gap-1">
-                  <Youtube className="h-4 w-4" /> Playlists
-                </TabsTrigger>
-                <TabsTrigger value="Tool" className="flex items-center gap-1">
-                  <Code className="h-4 w-4" /> Development Tools
-                </TabsTrigger>
-                <TabsTrigger value="Cheatsheet" className="flex items-center gap-1">
-                  <Download className="h-4 w-4" /> Cheat Sheets
-                </TabsTrigger>
-                <TabsTrigger value="Course" className="flex items-center gap-1">
-                  <BookOpen className="h-4 w-4" /> Courses
-                </TabsTrigger>
+                
+                
+                
+                
               </TabsList>
             </div>
 
