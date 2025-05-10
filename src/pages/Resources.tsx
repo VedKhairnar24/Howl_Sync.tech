@@ -17,8 +17,10 @@ const resources = [
     author: 'Web Dev Simplified',
     category: 'tutorials',
     tags: ['HTML', 'CSS', 'Web Development'],
-    url: 'https://example.com/html-css-crash-course',
+    url: 'https://www.youtube.com/watch?v=G3e-cpL7ofc',
     isPremium: false,
+    platform: 'YouTube',
+    note: 'Free tutorial series.'
   },
   {
     title: 'JavaScript for Absolute Beginners',
@@ -28,8 +30,10 @@ const resources = [
     author: 'Programming with Mosh',
     category: 'tutorials',
     tags: ['JavaScript', 'Web Development', 'Beginner'],
-    url: 'https://example.com/js-beginners',
+    url: 'https://www.youtube.com/watch?v=W6NZfCO5SIk',
     isPremium: false,
+    platform: 'YouTube',
+    note: 'Free; premium versions at https://codewithmosh.com/.'
   },
   {
     title: 'Python in 100 Days',
@@ -39,8 +43,10 @@ const resources = [
     author: 'Angela Yu',
     category: 'tutorials',
     tags: ['Python', 'Programming', 'Complete Guide'],
-    url: 'https://example.com/python-100-days',
+    url: 'https://www.udemy.com/course/100-days-of-code/',
     isPremium: true,
+    platform: 'Udemy',
+    note: 'Premium course, requires purchase.'
   },
   
   // Videos
@@ -52,8 +58,10 @@ const resources = [
     author: 'Traversy Media',
     category: 'videos',
     tags: ['React', 'JavaScript', 'Frontend'],
-    url: 'https://example.com/react-crash-course',
+    url: 'https://www.youtube.com/watch?v=w7ejDZ8SWv8',
     isPremium: false,
+    platform: 'YouTube',
+    note: 'Free; check for 2024 updates on Traversy Media\'s channel.'
   },
   {
     title: 'Git & GitHub - The Complete Guide',
@@ -63,8 +71,10 @@ const resources = [
     author: 'FreeCodeCamp',
     category: 'videos',
     tags: ['Git', 'GitHub', 'Version Control'],
-    url: 'https://example.com/git-github-guide',
+    url: 'https://www.youtube.com/watch?v=RGOj5yH7evk',
     isPremium: false,
+    platform: 'YouTube',
+    note: 'Free resource.'
   },
   
   // Tools
@@ -76,8 +86,10 @@ const resources = [
     author: 'Microsoft Dev Team',
     category: 'tools',
     tags: ['VS Code', 'IDE', 'Productivity'],
-    url: 'https://example.com/vscode-beginners',
+    url: 'https://learn.microsoft.com/en-us/training/paths/get-started-vscode/',
     isPremium: false,
+    platform: 'Microsoft Learn',
+    note: 'Free learning path.'
   },
   {
     title: 'Chrome DevTools Deep Dive',
@@ -87,8 +99,10 @@ const resources = [
     author: 'Google Developers',
     category: 'tools',
     tags: ['DevTools', 'Debugging', 'Web Development'],
-    url: 'https://example.com/chrome-devtools',
+    url: 'https://developer.chrome.com/docs/devtools/',
     isPremium: false,
+    platform: 'Google Developers',
+    note: 'Free; video tutorials at https://www.youtube.com/c/GoogleChromeDevelopers.'
   },
   
   // Cheatsheets
@@ -100,8 +114,10 @@ const resources = [
     author: 'WebDevHub',
     category: 'cheatsheets',
     tags: ['HTML', 'Reference', 'Web Development'],
-    url: 'https://example.com/html-cheatsheet',
+    url: 'https://www.geeksforgeeks.org/html-cheat-sheet-a-basic-guide-to-html/',
     isPremium: false,
+    platform: 'GeeksforGeeks',
+    note: 'Free; original WebDevHub sheet may require searching their site.'
   },
   {
     title: 'CSS Flexbox & Grid Cheatsheet',
@@ -111,8 +127,10 @@ const resources = [
     author: 'CSS Tricks',
     category: 'cheatsheets',
     tags: ['CSS', 'Flexbox', 'Grid', 'Layout'],
-    url: 'https://example.com/css-layout-cheatsheet',
+    url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
     isPremium: false,
+    platform: 'CSS Tricks',
+    note: 'Free resources. Grid guide: https://css-tricks.com/snippets/css/complete-guide-grid/'
   },
   
   // Courses
@@ -124,8 +142,10 @@ const resources = [
     author: 'Dr. Angela Yu',
     category: 'courses',
     tags: ['Full Stack', 'Web Development', 'MERN'],
-    url: 'https://example.com/web-dev-bootcamp',
+    url: 'https://www.udemy.com/course/the-complete-web-development-bootcamp/',
     isPremium: true,
+    platform: 'Udemy',
+    note: 'Premium course, requires purchase.'
   },
   {
     title: 'Data Structures & Algorithms Masterclass',
@@ -135,8 +155,10 @@ const resources = [
     author: 'Colt Steele',
     category: 'courses',
     tags: ['Algorithms', 'Data Structures', 'Computer Science'],
-    url: 'https://example.com/dsa-masterclass',
+    url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
     isPremium: true,
+    platform: 'Udemy',
+    note: 'Premium course, requires purchase.'
   },
 ];
 
@@ -229,8 +251,8 @@ const Resources = () => {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="all" onValueChange={(value) => setTypeFilter(value === 'all' ? null : value as any)}>
-            <div className="flex justify-center mb-8">
-              <TabsList>
+            <div className="flex justify-center mb-8 overflow-x-auto">
+              <TabsList className="flex-nowrap">
                 <TabsTrigger value="all" className="flex items-center gap-1">
                   <BookOpen className="h-4 w-4" /> All Resources
                 </TabsTrigger>
@@ -265,6 +287,8 @@ const Resources = () => {
                       author={resource.author}
                       url={resource.url}
                       isPremium={resource.isPremium}
+                      platform={resource.platform}
+                      note={resource.note}
                     />
                   ))
                 ) : (
