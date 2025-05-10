@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Filter, Code, GitBranch, Terminal } from 'lucide-react';
+import { Search, Code, GitBranch, Terminal } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
 
 // Development Tools
@@ -163,20 +162,14 @@ const tools = [
 
 const Tools = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [tagFilter, setTagFilter] = useState<string | null>(null);
   
-  // Extract unique tags from tools
-  const allTags = Array.from(new Set(tools.flatMap(tool => tool.tags)));
-  
-  // Filter tools based on search and tag
+  // Filter tools based on search only
   const filteredTools = tools.filter(tool => {
     const matchesSearch = tool.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           tool.description.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           tool.author.toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesTag = tagFilter ? tool.tags.includes(tagFilter) : true;
-    
-    return matchesSearch && matchesTag;
+    return matchesSearch;
   });
 
   // Modified ResourceCard component specific for tools with logo
@@ -225,7 +218,6 @@ const Tools = () => {
                 key={tag} 
                 variant="outline" 
                 className="text-xs cursor-pointer hover:bg-gray-100"
-                onClick={() => setTagFilter(tag)}
               >
                 {tag}
               </Badge>
@@ -257,10 +249,10 @@ const Tools = () => {
         </div>
       </section>
 
-      {/* Search and Filters */}
+      {/* Search */}
       <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="flex items-center justify-center">
             <div className="relative w-full md:w-96">
               <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
               <Input 
@@ -269,30 +261,6 @@ const Tools = () => {
                 onChange={e => setSearchQuery(e.target.value)} 
                 className="pl-10" 
               />
-            </div>
-            
-            <div className="flex flex-wrap items-center gap-2">
-              <Filter className="h-5 w-5 text-gray-500" />
-              <span className="text-sm font-medium">Filter by tag:</span>
-              <div className="flex flex-wrap gap-2">
-                <Button 
-                  variant={tagFilter === null ? 'secondary' : 'outline'} 
-                  size="sm" 
-                  onClick={() => setTagFilter(null)}
-                >
-                  All
-                </Button>
-                {allTags.slice(0, 8).map(tag => (
-                  <Button 
-                    key={tag} 
-                    variant={tagFilter === tag ? 'secondary' : 'outline'} 
-                    size="sm" 
-                    onClick={() => setTagFilter(tag)}
-                  >
-                    {tag}
-                  </Button>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -333,7 +301,6 @@ const Tools = () => {
                       className="mt-4" 
                       onClick={() => {
                         setSearchQuery('');
-                        setTagFilter(null);
                       }}
                     >
                       Reset Filters
