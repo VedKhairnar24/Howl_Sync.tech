@@ -77,7 +77,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-4 border-t">
-                <Button variant="outline" className="w-full">Get Started</Button>
+                <Button variant="outline" className="w-full border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white">Get Started</Button>
               </div>
             </div>
           </div>

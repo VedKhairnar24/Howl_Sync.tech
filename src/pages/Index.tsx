@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -102,7 +103,7 @@ const Index = () => {
                     Start Learning <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 hover:border-white">
                   <Link to="/community">Join Community</Link>
                 </Button>
               </div>
@@ -169,7 +170,7 @@ const Index = () => {
               </p>
             </div>
             <Link to="/learning-paths" className="mt-4 md:mt-0">
-              <Button variant="outline">
+              <Button variant="outline" className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white">
                 View All Paths <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -235,7 +236,7 @@ const Index = () => {
             <Button size="lg" className="bg-white text-tech-indigo hover:bg-blue-50">
               <Link to="/learning-paths">Explore Learning Paths</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 hover:border-white">
               <Link to="/problem-solving">Visit Problem-Solving Hub</Link>
             </Button>
           </div>
