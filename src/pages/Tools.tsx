@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -37,6 +38,66 @@ const tools = [
     note: 'Premium IDE with built-in testing and Git/GitHub integration.',
     thumbnailUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3',
     logoUrl: 'https://resources.jetbrains.com/storage/products/webstorm/img/meta/webstorm_logo_300x300.png'
+  },
+  {
+    title: 'Sublime Text',
+    description: 'A sophisticated, lightweight code editor with a sleek interface and powerful features including split editing, multiple selections, and a command palette.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'Sublime HQ',
+    category: 'tools',
+    tags: ['Code Editor', 'Text Editor', 'Cross-platform', 'Fast'],
+    url: 'https://www.sublimetext.com/',
+    isPremium: true,
+    platform: 'Cross-platform',
+    note: 'Free to try with perpetual license available. Known for speed and performance.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea',
+    logoUrl: 'https://www.sublimetext.com/images/sublime_text.png'
+  },
+  {
+    title: 'Atom',
+    description: 'A hackable text editor built with web technologies, offering easy customization and a rich ecosystem of packages and themes.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'GitHub (Microsoft)',
+    category: 'tools',
+    tags: ['Code Editor', 'Text Editor', 'Open Source', 'Customizable'],
+    url: 'https://atom.io/',
+    isPremium: false,
+    platform: 'Cross-platform',
+    note: 'Free and open-source. Great for customization with JavaScript/CSS.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Atom_editor_logo.svg/1200px-Atom_editor_logo.svg.png'
+  },
+  {
+    title: 'Vim',
+    description: 'A highly configurable, efficient text editor for programming built to enable fast text editing through keyboard commands.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Bram Moolenaar',
+    category: 'tools',
+    tags: ['Text Editor', 'Terminal', 'Command Line', 'Advanced'],
+    url: 'https://www.vim.org/',
+    isPremium: false,
+    platform: 'Cross-platform',
+    note: 'Free and open-source. Steep learning curve but extremely powerful once mastered.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1544654803-b69140b285a1',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1200px-Vimlogo.svg.png'
+  },
+  {
+    title: 'Neovim',
+    description: 'A hyperextensible Vim-based text editor that improves on Vim with better defaults, built-in terminal emulator, and a focus on extensibility.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'Neovim Team',
+    category: 'tools',
+    tags: ['Text Editor', 'Terminal', 'Lua', 'Advanced'],
+    url: 'https://neovim.io/',
+    isPremium: false,
+    platform: 'Cross-platform',
+    note: 'Free and open-source. Modern alternative to Vim with enhanced features.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1544654803-b69140b285a1',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/1200px-Neovim-logo.svg.png'
   },
   {
     title: 'IntelliJ IDEA (Community Edition)',
