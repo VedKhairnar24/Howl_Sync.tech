@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Filter, BookOpen, Video, Code, Download } from 'lucide-react';
+import { Search, Filter, BookOpen, Video, Code, Download, GitBranch } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
 
 const resources = [
@@ -77,7 +76,7 @@ const resources = [
     note: 'Free resource.'
   },
   
-  // Tools
+  // Tools - IDEs
   {
     title: 'VS Code for Beginners',
     description: 'Set up and customize Visual Studio Code for optimal coding experience.',
@@ -103,6 +102,88 @@ const resources = [
     isPremium: false,
     platform: 'Google Developers',
     note: 'Free; video tutorials at https://www.youtube.com/c/GoogleChromeDevelopers.'
+  },
+  
+  // Newly Added IDE Tools
+  {
+    title: 'JetBrains WebStorm',
+    description: 'A powerful JavaScript IDE with intelligent code assistance and debugging tools.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'JetBrains',
+    category: 'tools',
+    tags: ['IDE', 'JavaScript', 'Web Development'],
+    url: 'https://www.jetbrains.com/webstorm/',
+    isPremium: true,
+    platform: 'JetBrains',
+    note: 'Free trial available; student licenses free.'
+  },
+  {
+    title: 'Sublime Text',
+    description: 'A sophisticated text editor for code with a fast and customizable interface.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'Sublime HQ',
+    category: 'tools',
+    tags: ['Text Editor', 'Code Editor', 'Productivity'],
+    url: 'https://www.sublimetext.com/',
+    isPremium: true,
+    platform: 'Sublime HQ',
+    note: 'Free evaluation; license purchase required for continued use.'
+  },
+  {
+    title: 'Atom',
+    description: 'A hackable text editor for the 21st century with integrated package management.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'GitHub',
+    category: 'tools',
+    tags: ['Text Editor', 'Open Source', 'GitHub'],
+    url: 'https://atom.io/',
+    isPremium: false,
+    platform: 'GitHub',
+    note: 'Free and open-source.'
+  },
+  
+  // Newly Added Git & GitHub Tools
+  {
+    title: 'GitHub Desktop',
+    description: 'Simplify your Git workflow with a visual interface for common Git operations.',
+    type: 'Tool' as const,
+    rating: 5,
+    author: 'GitHub',
+    category: 'tools',
+    tags: ['Git', 'GitHub', 'Version Control'],
+    url: 'https://desktop.github.com/',
+    isPremium: false,
+    platform: 'GitHub',
+    note: 'Free tool for all platforms.'
+  },
+  {
+    title: 'GitKraken',
+    description: 'A powerful Git GUI client for Windows, Mac & Linux with intuitive visualization.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'Axosoft',
+    category: 'tools',
+    tags: ['Git', 'GUI', 'Version Control'],
+    url: 'https://www.gitkraken.com/',
+    isPremium: true,
+    platform: 'Axosoft',
+    note: 'Free version available; Pro features require subscription.'
+  },
+  {
+    title: 'Sourcetree',
+    description: 'A free Git client for Windows and Mac with a simple visual interface.',
+    type: 'Tool' as const,
+    rating: 4,
+    author: 'Atlassian',
+    category: 'tools',
+    tags: ['Git', 'GUI', 'Atlassian'],
+    url: 'https://www.sourcetreeapp.com/',
+    isPremium: false,
+    platform: 'Atlassian',
+    note: 'Free Git client from Atlassian.'
   },
   
   // Cheatsheets
@@ -131,6 +212,21 @@ const resources = [
     isPremium: false,
     platform: 'CSS Tricks',
     note: 'Free resources. Grid guide: https://css-tricks.com/snippets/css/complete-guide-grid/'
+  },
+  
+  // Git & GitHub Cheatsheets
+  {
+    title: 'Git Command Line Cheatsheet',
+    description: 'Quick reference for common Git command line operations and workflows.',
+    type: 'Cheatsheet' as const,
+    rating: 5,
+    author: 'GitHub',
+    category: 'cheatsheets',
+    tags: ['Git', 'Command Line', 'Version Control'],
+    url: 'https://education.github.com/git-cheat-sheet-education.pdf',
+    isPremium: false,
+    platform: 'GitHub Education',
+    note: 'Free downloadable PDF.'
   },
   
   // Courses
@@ -263,7 +359,7 @@ const Resources = () => {
                   <Video className="h-4 w-4" /> Videos
                 </TabsTrigger>
                 <TabsTrigger value="Tool" className="flex items-center gap-1">
-                  <Code className="h-4 w-4" /> Tools
+                  <Code className="h-4 w-4" /> Tools & IDEs
                 </TabsTrigger>
                 <TabsTrigger value="Cheatsheet" className="flex items-center gap-1">
                   <Download className="h-4 w-4" /> Cheat Sheets
