@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Filter, BookOpen, Video, Code, Tool, Download } from 'lucide-react';
+import { Search, Filter, BookOpen, Video, Code, Download } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
 
 const resources = [
