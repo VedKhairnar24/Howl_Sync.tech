@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -170,7 +169,7 @@ const Index = () => {
               </p>
             </div>
             <Link to="/learning-paths" className="mt-4 md:mt-0">
-              <Button variant="outline" className="tech-btn-outline">
+              <Button variant="outline">
                 View All Paths <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -260,7 +259,7 @@ const Index = () => {
                 placeholder="Enter your email"
                 className="px-4 py-3 border border-gray-300 rounded-md flex-grow focus:outline-none focus:ring-2 focus:ring-tech-blue"
               />
-              <Button className="tech-btn-primary whitespace-nowrap">
+              <Button className="bg-tech-blue text-white hover:bg-tech-blue/90 whitespace-nowrap">
                 Subscribe
               </Button>
             </div>

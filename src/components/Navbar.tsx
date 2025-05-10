@@ -50,7 +50,7 @@ const Navbar = () => {
             <Button variant="ghost" size="icon">
               <Search className="h-5 w-5" />
             </Button>
-            <Button className="tech-btn-primary">Get Started</Button>
+            <Button variant="default" className="bg-tech-blue text-white hover:bg-tech-blue/90">Get Started</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -77,7 +77,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-4 border-t">
-                <Button className="w-full tech-btn-primary">Get Started</Button>
+                <Button variant="outline" className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
