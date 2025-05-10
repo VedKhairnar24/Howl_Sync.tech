@@ -38,7 +38,7 @@ const About: React.FC = () => {
           }}
         />
         <TeamMember 
-          name="Tejas Paithne"
+          name="Tejas Paithane"
           role="Python Developer"
           bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
           imageUrl="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
