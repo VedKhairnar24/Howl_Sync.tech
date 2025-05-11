@@ -120,13 +120,13 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.beginner.concepts.join(', ')}
+                            HTML, CSS, Basic JavaScript, Responsive Design
                           </p>
                         </div>
                         <div>
                           <h4 className="text-sm font-medium">Projects:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.beginner.projects.join(', ')}
+                            Personal Portfolio, Landing Page
                           </p>
                         </div>
                       </div>
@@ -142,13 +142,13 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.intermediate.concepts.join(', ')}
+                            JavaScript (DOM, Events, Async), CSS Frameworks, APIs
                           </p>
                         </div>
                         <div>
                           <h4 className="text-sm font-medium">Projects:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.intermediate.projects.join(', ')}
+                            Weather App, Task Manager with API Integration
                           </p>
                         </div>
                       </div>
@@ -164,13 +164,13 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.advanced.concepts.join(', ')}
+                            Full-Stack Development, Server-Side Rendering, Authentication
                           </p>
                         </div>
                         <div>
                           <h4 className="text-sm font-medium">Projects:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.advanced.projects.join(', ')}
+                            E-Commerce Platform, Social Media Dashboard
                           </p>
                         </div>
                       </div>
