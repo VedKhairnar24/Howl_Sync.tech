@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,6 +38,16 @@ const learningPaths = [
     learningPath: 'Web Development',
     category: 'web',
     url: '/learning-paths/react',
+  },
+  {
+    title: 'Node.js Backend Development',
+    description: 'Master server-side JavaScript to build robust APIs and web applications.',
+    imageSrc: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31',
+    level: 'Intermediate' as const,
+    duration: '10 weeks',
+    learningPath: 'Web Development',
+    category: 'web',
+    url: '/learning-paths/nodejs',
   },
   
   // Programming
@@ -115,6 +124,16 @@ const learningPaths = [
     learningPath: 'Data Science',
     category: 'data',
     url: '/learning-paths/machine-learning',
+  },
+  {
+    title: 'Deep Learning Specialization',
+    description: 'Dive into neural networks, computer vision, and advanced AI concepts.',
+    imageSrc: 'https://images.unsplash.com/photo-1516110833967-0b5716ca1387',
+    level: 'Advanced' as const,
+    duration: '16 weeks',
+    learningPath: 'Data Science',
+    category: 'data',
+    url: '/learning-paths/deep-learning',
   },
 ];
 
