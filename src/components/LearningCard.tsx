@@ -6,7 +6,6 @@ import { ArrowRight, Clock, BookOpen } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import LearningPathModal from './LearningPathModal';
 import { learningPathsData, LearningPathCategory } from '@/data/learningPathsData';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { 
   Drawer,
   DrawerClose,
