@@ -4,180 +4,153 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent } from '@/components/ui/card';
-import { Search, Filter } from 'lucide-react';
-import LearningCard from '@/components/LearningCard';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Search, Filter, BookOpen, Code, Database, Layers, PenTool, Terminal } from 'lucide-react';
+import { LearningPathCategory, learningPathsData } from '@/data/learningPathsData';
+import { Link } from 'react-router-dom';
 
-const learningPaths = [
-  // Web Development
+// Define the domain categories we want to display
+const domainCategories: { id: LearningPathCategory; title: string; icon: React.ReactNode; description: string; color: string }[] = [
   {
-    title: 'HTML & CSS Foundations',
-    description: 'Learn the building blocks of web pages and style them beautifully.',
-    imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-    level: 'Beginner' as const,
-    duration: '4 weeks',
-    learningPath: 'Web Development',
-    category: 'web',
-    url: '/learning-paths/html-css',
+    id: 'web',
+    title: 'Web Development',
+    description: 'Build dynamic, responsive websites and web applications',
+    icon: <Code className="h-6 w-6" />,
+    color: 'bg-blue-500'
   },
   {
-    title: 'JavaScript Essentials',
-    description: 'Make your websites interactive with JavaScript programming.',
-    imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-    level: 'Beginner' as const,
-    duration: '6 weeks',
-    learningPath: 'Web Development',
-    category: 'web',
-    url: '/learning-paths/javascript',
+    id: 'programming',
+    title: 'Programming',
+    description: 'Learn to write efficient, scalable code and solve computational problems',
+    icon: <Terminal className="h-6 w-6" />,
+    color: 'bg-green-500'
   },
   {
-    title: 'React Frontend Development',
-    description: 'Build modern web applications with React and related technologies.',
-    imageSrc: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-    level: 'Intermediate' as const,
-    duration: '8 weeks',
-    learningPath: 'Web Development',
-    category: 'web',
-    url: '/learning-paths/react',
+    id: 'design',
+    title: 'UI/UX Design',
+    description: 'Design intuitive, user-centered interfaces and experiences',
+    icon: <PenTool className="h-6 w-6" />,
+    color: 'bg-purple-500'
   },
   {
-    title: 'Node.js Backend Development',
-    description: 'Master server-side JavaScript to build robust APIs and web applications.',
-    imageSrc: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31',
-    level: 'Intermediate' as const,
-    duration: '10 weeks',
-    learningPath: 'Web Development',
-    category: 'web',
-    url: '/learning-paths/nodejs',
+    id: 'data',
+    title: 'Data Science',
+    description: 'Analyze data to derive insights and build predictive models',
+    icon: <Database className="h-6 w-6" />,
+    color: 'bg-yellow-500'
   },
   {
-    title: 'Full Stack Web Development',
-    description: 'Learn to build complete web applications from front-end to back-end with modern technologies.',
-    imageSrc: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
-    level: 'Advanced' as const,
-    duration: '12 weeks',
-    learningPath: 'Web Development',
-    category: 'web',
-    url: '/learning-paths/full-stack',
-  },
-  
-  // Programming
-  {
-    title: 'Python Programming Fundamentals',
-    description: 'Learn Python from scratch and build your first programs.',
-    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-    level: 'Beginner' as const,
-    duration: '6 weeks',
-    learningPath: 'Programming',
-    category: 'programming',
-    url: '/learning-paths/python-basics',
-  },
-  {
-    title: 'Java for Beginners',
-    description: 'Start your journey with Java, a versatile programming language.',
-    imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-    level: 'Beginner' as const,
-    duration: '8 weeks',
-    learningPath: 'Programming',
-    category: 'programming',
-    url: '/learning-paths/java',
-  },
-  {
-    title: 'Data Structures & Algorithms',
-    description: 'Master the fundamentals of efficient programming and problem-solving.',
-    imageSrc: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-    level: 'Intermediate' as const,
-    duration: '10 weeks',
-    learningPath: 'Programming',
-    category: 'programming',
-    url: '/learning-paths/dsa',
-  },
-  {
-    title: 'Advanced Software Architecture',
-    description: 'Learn design patterns, system architecture, and code quality principles for enterprise applications.',
-    imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-    level: 'Advanced' as const,
-    duration: '10 weeks',
-    learningPath: 'Programming',
-    category: 'programming',
-    url: '/learning-paths/software-architecture',
-  },
-  
-  // Mobile Development
-  {
-    title: 'React Native Mobile Apps',
-    description: 'Build cross-platform mobile applications using JavaScript.',
-    imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-    level: 'Intermediate' as const,
-    duration: '8 weeks',
-    learningPath: 'Mobile Development',
-    category: 'mobile',
-    url: '/learning-paths/react-native',
-  },
-  {
-    title: 'Flutter App Development',
-    description: 'Create beautiful native apps for iOS and Android with Flutter.',
-    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-    level: 'Intermediate' as const,
-    duration: '10 weeks',
-    learningPath: 'Mobile Development',
-    category: 'mobile',
-    url: '/learning-paths/flutter',
-  },
-  
-  // Data Science
-  {
-    title: 'Data Science Basics',
-    description: 'Introduction to data analysis, visualization, and basic statistics.',
-    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-    level: 'Beginner' as const,
-    duration: '6 weeks',
-    learningPath: 'Data Science',
-    category: 'data',
-    url: '/learning-paths/data-science-basics',
-  },
-  {
-    title: 'Machine Learning Fundamentals',
-    description: 'Learn the core concepts of machine learning and build simple models.',
-    imageSrc: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-    level: 'Intermediate' as const,
-    duration: '12 weeks',
-    learningPath: 'Data Science',
-    category: 'data',
-    url: '/learning-paths/machine-learning',
-  },
-  {
-    title: 'Deep Learning Specialization',
-    description: 'Dive into neural networks, computer vision, and advanced AI concepts.',
-    imageSrc: 'https://images.unsplash.com/photo-1516110833967-0b5716ca1387',
-    level: 'Advanced' as const,
-    duration: '16 weeks',
-    learningPath: 'Data Science',
-    category: 'data',
-    url: '/learning-paths/deep-learning',
-  },
+    id: 'devops',
+    title: 'DevOps',
+    description: 'Automate and manage infrastructure for scalable applications',
+    icon: <Layers className="h-6 w-6" />,
+    color: 'bg-red-500'
+  }
 ];
+
+// Helper component to display a learning path level
+interface PathLevelProps {
+  level: 'beginner' | 'intermediate' | 'advanced';
+  levelData: any;
+  domainColor: string;
+}
+
+const PathLevel = ({ level, levelData, domainColor }: PathLevelProps) => {
+  const levelTitle = level.charAt(0).toUpperCase() + level.slice(1);
+  const badgeClass = level === 'beginner' 
+    ? 'bg-green-100 text-green-800' 
+    : level === 'intermediate' 
+      ? 'bg-blue-100 text-blue-800' 
+      : 'bg-purple-100 text-purple-800';
+  
+  return (
+    <div className="mb-4">
+      <div className="flex items-center mb-2">
+        <Badge className={badgeClass}>{levelTitle}</Badge>
+        {level === 'beginner' && <span className="text-xs text-gray-500 ml-2">(0-3 Months)</span>}
+        {level === 'intermediate' && <span className="text-xs text-gray-500 ml-2">(3-9 Months)</span>}
+        {level === 'advanced' && <span className="text-xs text-gray-500 ml-2">(9+ Months)</span>}
+      </div>
+      
+      <div className="pl-1 border-l-2" style={{borderColor: domainColor}}>
+        {/* Core concepts */}
+        <div className="mb-2">
+          <span className="text-sm font-medium">Core concepts:</span>
+          <span className="text-sm text-gray-600 ml-1">
+            {levelData.concepts.join(', ')}
+          </span>
+        </div>
+        
+        {/* Projects */}
+        <div className="mb-2">
+          <span className="text-sm font-medium">Projects:</span>
+          <span className="text-sm text-gray-600 ml-1">
+            {levelData.projects.join(', ')}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Domain Card Component
+interface DomainCardProps {
+  category: LearningPathCategory;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  onClick: () => void;
+}
+
+const DomainCard = ({ category, title, description, icon, color, onClick }: DomainCardProps) => {
+  const pathData = learningPathsData[category];
+  if (!pathData) return null;
+  
+  return (
+    <Card className="h-full">
+      <CardHeader>
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 text-white ${color}`}>
+          {icon}
+        </div>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <PathLevel level="beginner" levelData={pathData.beginner} domainColor={color} />
+        <PathLevel level="intermediate" levelData={pathData.intermediate} domainColor={color} />
+        <PathLevel level="advanced" levelData={pathData.advanced} domainColor={color} />
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full" onClick={onClick}>
+          View Complete Path
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+};
 
 const LearningPaths = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [levelFilter, setLevelFilter] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState<LearningPathCategory | 'all'>('all');
+  const [selectedPath, setSelectedPath] = useState<LearningPathCategory | null>(null);
 
-  // Filter learning paths based on search, level, and category
-  const filteredPaths = learningPaths.filter((path) => {
-    // Search filter
-    const matchesSearch =
-      path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      path.description.toLowerCase().includes(searchQuery.toLowerCase());
-
-    // Level filter
-    const matchesLevel = levelFilter ? path.level === levelFilter : true;
-
-    // Category filter
-    const matchesCategory = activeTab === 'all' ? true : path.category === activeTab;
-
-    return matchesSearch && matchesLevel && matchesCategory;
+  // Filter domains based on search and tab
+  const filteredDomains = domainCategories.filter((domain) => {
+    const matchesSearch = 
+      domain.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      domain.description.toLowerCase().includes(searchQuery.toLowerCase());
+      
+    const matchesTab = activeTab === 'all' ? true : domain.id === activeTab;
+    
+    return matchesSearch && matchesTab;
   });
+
+  const handlePathSelect = (category: LearningPathCategory) => {
+    setSelectedPath(category);
+    // You could redirect to a detailed path page or open a modal here
+    // For now, we'll just set the selected path state
+  };
 
   return (
     <div>
@@ -195,49 +168,14 @@ const LearningPaths = () => {
       {/* Search and Filters */}
       <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
-              <Input
-                placeholder="Search learning paths..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            
-            <div className="flex items-center space-x-2">
-              <Filter className="h-5 w-5 text-gray-500" />
-              <span className="text-sm font-medium">Level:</span>
-              <Button
-                variant={levelFilter === null ? 'secondary' : 'outline'} 
-                size="sm"
-                onClick={() => setLevelFilter(null)}
-              >
-                All
-              </Button>
-              <Button
-                variant={levelFilter === 'Beginner' ? 'secondary' : 'outline'} 
-                size="sm"
-                onClick={() => setLevelFilter('Beginner')}
-              >
-                Beginner
-              </Button>
-              <Button
-                variant={levelFilter === 'Intermediate' ? 'secondary' : 'outline'} 
-                size="sm"
-                onClick={() => setLevelFilter('Intermediate')}
-              >
-                Intermediate
-              </Button>
-              <Button
-                variant={levelFilter === 'Advanced' ? 'secondary' : 'outline'} 
-                size="sm"
-                onClick={() => setLevelFilter('Advanced')}
-              >
-                Advanced
-              </Button>
-            </div>
+          <div className="relative w-full md:w-96 mx-auto">
+            <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+            <Input
+              placeholder="Search learning paths..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
           </div>
         </div>
       </section>
@@ -245,31 +183,30 @@ const LearningPaths = () => {
       {/* Learning Paths Tabs */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
+          <Tabs defaultValue="all" value={activeTab} onValueChange={(value) => setActiveTab(value as LearningPathCategory | 'all')}>
             <div className="flex justify-center mb-8">
               <TabsList>
                 <TabsTrigger value="all">All Paths</TabsTrigger>
                 <TabsTrigger value="web">Web Development</TabsTrigger>
                 <TabsTrigger value="programming">Programming</TabsTrigger>
-                <TabsTrigger value="mobile">Mobile Development</TabsTrigger>
+                <TabsTrigger value="design">UI/UX Design</TabsTrigger>
                 <TabsTrigger value="data">Data Science</TabsTrigger>
+                <TabsTrigger value="devops">DevOps</TabsTrigger>
               </TabsList>
             </div>
 
             <TabsContent value="all" className="mt-0">
-              {filteredPaths.length > 0 ? (
+              {filteredDomains.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredPaths.map((path, index) => (
-                    <LearningCard
-                      key={index}
-                      title={path.title}
-                      description={path.description}
-                      imageSrc={path.imageSrc}
-                      level={path.level}
-                      duration={path.duration}
-                      learningPath={path.learningPath}
-                      url={path.url}
-                      category={path.category}
+                  {filteredDomains.map((domain) => (
+                    <DomainCard
+                      key={domain.id}
+                      category={domain.id}
+                      title={domain.title}
+                      description={domain.description}
+                      icon={domain.icon}
+                      color={domain.color}
+                      onClick={() => handlePathSelect(domain.id)}
                     />
                   ))}
                 </div>
@@ -281,7 +218,6 @@ const LearningPaths = () => {
                     className="mt-4"
                     onClick={() => {
                       setSearchQuery('');
-                      setLevelFilter(null);
                       setActiveTab('all');
                     }}
                   >
@@ -294,8 +230,9 @@ const LearningPaths = () => {
             {/* Content for other tabs is handled by the filter logic */}
             <TabsContent value="web" className="mt-0"></TabsContent>
             <TabsContent value="programming" className="mt-0"></TabsContent>
-            <TabsContent value="mobile" className="mt-0"></TabsContent>
+            <TabsContent value="design" className="mt-0"></TabsContent>
             <TabsContent value="data" className="mt-0"></TabsContent>
+            <TabsContent value="devops" className="mt-0"></TabsContent>
           </Tabs>
         </div>
       </section>
