@@ -49,6 +49,16 @@ const learningPaths = [
     category: 'web',
     url: '/learning-paths/nodejs',
   },
+  {
+    title: 'Full Stack Web Development',
+    description: 'Learn to build complete web applications from front-end to back-end with modern technologies.',
+    imageSrc: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+    level: 'Advanced' as const,
+    duration: '12 weeks',
+    learningPath: 'Web Development',
+    category: 'web',
+    url: '/learning-paths/full-stack',
+  },
   
   // Programming
   {
@@ -80,6 +90,16 @@ const learningPaths = [
     learningPath: 'Programming',
     category: 'programming',
     url: '/learning-paths/dsa',
+  },
+  {
+    title: 'Advanced Software Architecture',
+    description: 'Learn design patterns, system architecture, and code quality principles for enterprise applications.',
+    imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+    level: 'Advanced' as const,
+    duration: '10 weeks',
+    learningPath: 'Programming',
+    category: 'programming',
+    url: '/learning-paths/software-architecture',
   },
   
   // Mobile Development
