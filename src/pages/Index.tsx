@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,6 +16,7 @@ const featuredPaths = [
     duration: '8 weeks',
     learningPath: 'Web Development',
     url: '/learning-paths/web-development',
+    category: 'web',
   },
   {
     title: 'Python Programming Essentials',
@@ -26,6 +26,7 @@ const featuredPaths = [
     duration: '6 weeks',
     learningPath: 'Programming',
     url: '/learning-paths/python',
+    category: 'programming',
   },
   {
     title: 'Mobile App Development with React Native',
@@ -35,6 +36,7 @@ const featuredPaths = [
     duration: '10 weeks',
     learningPath: 'Mobile Development',
     url: '/learning-paths/react-native',
+    category: 'web',
   },
 ];
 
@@ -190,6 +192,7 @@ const Index = () => {
                 duration={path.duration}
                 learningPath={path.learningPath}
                 url={path.url}
+                category={path.category}
               />
             ))}
           </div>
