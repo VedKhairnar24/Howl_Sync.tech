@@ -40,6 +40,7 @@ const LearningCard = ({
 }: LearningCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [showPathContent, setShowPathContent] = useState(false);
   
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -109,73 +110,81 @@ const LearningCard = ({
                 </DrawerHeader>
                 
                 <div className="p-4 pb-0">
-                  <div className="space-y-6">
-                    {/* Beginner Level */}
-                    <div className="border-l-2 border-green-500 pl-4">
-                      <div className="flex items-center mb-2">
-                        <Badge className="bg-green-100 text-green-800">Beginner</Badge>
-                        <span className="text-xs text-gray-500 ml-2">(0-3 Months)</span>
-                      </div>
-                      <div className="space-y-3">
-                        <div>
-                          <h4 className="text-sm font-medium">Core concepts:</h4>
-                          <p className="text-sm text-gray-600">
-                            HTML, CSS, Basic JavaScript, Responsive Design
-                          </p>
+                  {!showPathContent ? (
+                    <div className="flex justify-center">
+                      <Button onClick={() => setShowPathContent(true)} className="my-4">
+                        View Path Details
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      {/* Beginner Level */}
+                      <div className="border-l-2 border-green-500 pl-4">
+                        <div className="flex items-center mb-2">
+                          <Badge className="bg-green-100 text-green-800">Beginner</Badge>
+                          <span className="text-xs text-gray-500 ml-2">(0-3 Months)</span>
                         </div>
-                        <div>
-                          <h4 className="text-sm font-medium">Projects:</h4>
-                          <p className="text-sm text-gray-600">
-                            Personal Portfolio, Landing Page
-                          </p>
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="text-sm font-medium">Core concepts:</h4>
+                            <p className="text-sm text-gray-600">
+                              HTML, CSS, Basic JavaScript, Responsive Design
+                            </p>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-medium">Projects:</h4>
+                            <p className="text-sm text-gray-600">
+                              Personal Portfolio, Landing Page
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Intermediate Level */}
+                      <div className="border-l-2 border-blue-500 pl-4">
+                        <div className="flex items-center mb-2">
+                          <Badge className="bg-blue-100 text-blue-800">Intermediate</Badge>
+                          <span className="text-xs text-gray-500 ml-2">(3-9 Months)</span>
+                        </div>
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="text-sm font-medium">Core concepts:</h4>
+                            <p className="text-sm text-gray-600">
+                              JavaScript (DOM, Events, Async), CSS Frameworks, APIs
+                            </p>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-medium">Projects:</h4>
+                            <p className="text-sm text-gray-600">
+                              Weather App, Task Manager with API Integration
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Advanced Level */}
+                      <div className="border-l-2 border-purple-500 pl-4">
+                        <div className="flex items-center mb-2">
+                          <Badge className="bg-purple-100 text-purple-800">Advanced</Badge>
+                          <span className="text-xs text-gray-500 ml-2">(9+ Months)</span>
+                        </div>
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="text-sm font-medium">Core concepts:</h4>
+                            <p className="text-sm text-gray-600">
+                              Full-Stack Development, Server-Side Rendering, Authentication
+                            </p>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-medium">Projects:</h4>
+                            <p className="text-sm text-gray-600">
+                              E-Commerce Platform, Social Media Dashboard
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Intermediate Level */}
-                    <div className="border-l-2 border-blue-500 pl-4">
-                      <div className="flex items-center mb-2">
-                        <Badge className="bg-blue-100 text-blue-800">Intermediate</Badge>
-                        <span className="text-xs text-gray-500 ml-2">(3-9 Months)</span>
-                      </div>
-                      <div className="space-y-3">
-                        <div>
-                          <h4 className="text-sm font-medium">Core concepts:</h4>
-                          <p className="text-sm text-gray-600">
-                            JavaScript (DOM, Events, Async), CSS Frameworks, APIs
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-medium">Projects:</h4>
-                          <p className="text-sm text-gray-600">
-                            Weather App, Task Manager with API Integration
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Advanced Level */}
-                    <div className="border-l-2 border-purple-500 pl-4">
-                      <div className="flex items-center mb-2">
-                        <Badge className="bg-purple-100 text-purple-800">Advanced</Badge>
-                        <span className="text-xs text-gray-500 ml-2">(9+ Months)</span>
-                      </div>
-                      <div className="space-y-3">
-                        <div>
-                          <h4 className="text-sm font-medium">Core concepts:</h4>
-                          <p className="text-sm text-gray-600">
-                            Full-Stack Development, Server-Side Rendering, Authentication
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-medium">Projects:</h4>
-                          <p className="text-sm text-gray-600">
-                            E-Commerce Platform, Social Media Dashboard
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  )}
                 </div>
                 
                 <DrawerFooter className="pt-2">
