@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -268,6 +269,7 @@ const LearningPaths = () => {
                       duration={path.duration}
                       learningPath={path.learningPath}
                       url={path.url}
+                      category={path.category}
                     />
                   ))}
                 </div>
