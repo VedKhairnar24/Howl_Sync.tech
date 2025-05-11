@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, BookOpen } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import LearningPathModal from './LearningPathModal';
 import { learningPathsData, LearningPathCategory } from '@/data/learningPathsData';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
 
 interface LearningCardProps {
   title: string;
@@ -29,6 +31,7 @@ const LearningCard = ({
   category,
 }: LearningCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -52,6 +55,8 @@ const LearningCard = ({
     const categoryKey = category as LearningPathCategory;
     return learningPathsData[categoryKey];
   };
+
+  const pathDetails = getPathDetails();
 
   return (
     <>
@@ -82,13 +87,95 @@ const LearningCard = ({
           <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardFooter className="mt-auto">
-          <Button className="w-full tech-btn-primary" onClick={handleStartLearning}>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger asChild>
+              <Button className="w-full" variant="outline">
+                View Complete Path <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>{pathDetails?.title}</SheetTitle>
+                <SheetDescription>{pathDetails?.description}</SheetDescription>
+              </SheetHeader>
+              
+              <div className="mt-6 space-y-8">
+                {/* Beginner Level */}
+                <div className="border-l-2 border-green-500 pl-4">
+                  <div className="flex items-center mb-2">
+                    <Badge className="bg-green-100 text-green-800">Beginner</Badge>
+                    <span className="text-xs text-gray-500 ml-2">(0-3 Months)</span>
+                  </div>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-sm font-medium">Core concepts:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.beginner.concepts.join(', ')}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium">Projects:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.beginner.projects.join(', ')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Intermediate Level */}
+                <div className="border-l-2 border-blue-500 pl-4">
+                  <div className="flex items-center mb-2">
+                    <Badge className="bg-blue-100 text-blue-800">Intermediate</Badge>
+                    <span className="text-xs text-gray-500 ml-2">(3-9 Months)</span>
+                  </div>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-sm font-medium">Core concepts:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.intermediate.concepts.join(', ')}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium">Projects:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.intermediate.projects.join(', ')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Advanced Level */}
+                <div className="border-l-2 border-purple-500 pl-4">
+                  <div className="flex items-center mb-2">
+                    <Badge className="bg-purple-100 text-purple-800">Advanced</Badge>
+                    <span className="text-xs text-gray-500 ml-2">(9+ Months)</span>
+                  </div>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-sm font-medium">Core concepts:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.advanced.concepts.join(', ')}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium">Projects:</h4>
+                      <p className="text-sm text-gray-600">
+                        {pathDetails?.advanced.projects.join(', ')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+          
+          <Button className="w-full tech-btn-primary mt-2" onClick={handleStartLearning}>
             Start Learning <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
       </Card>
       
-      {/* Learning Path Modal */}
+      {/* Learning Path Modal for "Start Learning" button */}
       <LearningPathModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
