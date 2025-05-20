@@ -200,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      {/* <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <Badge variant="outline" className="mb-2">Success Stories</Badge>
@@ -227,7 +227,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */
+      
+      }
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-tech-purple to-tech-indigo text-white py-12 sm:py-16">

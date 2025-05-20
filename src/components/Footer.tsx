@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center">
               <Code className="h-8 w-8 text-tech-blue" />
-              <span className="ml-2 text-xl font-bold text-tech-blue">TechJourney</span>
+              <span className="ml-2 text-xl font-bold text-tech-blue">SyntaxSquad.Tech</span>
             </Link>
             <p className="mt-4 text-gray-600 max-w-md">
               Helping beginners navigate their tech journey with structured learning paths, 
@@ -78,10 +78,10 @@ const Footer = () => {
 
         <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} TechJourney. All rights reserved.
+            © {new Date().getFullYear()} SyntaxSquad.Tech. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm mt-4 md:mt-0">
-            Made with ❤️ for tech beginners everywhere
+            Man in...❤️(Ami..🤗) 
           </p>
         </div>
       </div>

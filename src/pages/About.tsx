@@ -1,50 +1,55 @@
-
 import React from 'react';
 import TeamMember from "../components/TeamMember";
 
 const About: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 animate-fade-in">
+    <div className=" mx-auto py-8 md:py-1 animate-fade-in">
       {/* About Section */}
-      <div className="max-w-4xl mx-auto mb-8 md:mb-16">
-        <div className="text-center mb-8 md:mb-12">
+
+      <div className="py-6 bg-gradient-to-r from-tech-blue to-tech-lightblue text-white">
+        <div className="text-center text-white mb-8 md:mb-12">
           <div className="flex justify-center mb-6">
-            <div className="bg-gradient-to-r from-tech-blue to-tech-purple p-3 md:p-4 rounded-full">
+            <div className="bg-gradient-to-r from-tech-blue to-tech-purple p-2 md:p-1 rounded-full">
               <img 
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" 
+                src="/src/dev-img/U_Syntax Squad.png" 
                 alt="Syntax Squad Logo" 
-                className="h-16 w-16 md:h-24 md:w-24 object-cover rounded-full border-4 border-white"
+                className="h-24 w-2 md:h-36 md:w-36 object-cover rounded-full  " // Updated border width
               />
             </div>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 gradient-text">Syntax Squad</h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-2 md:px-0">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 ">Syntax Squad</h1>
+          <p className="text-base text-white md:text-lg text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-2 md:px-0">
             We are a dynamic duo of passionate developers driven by innovation and a shared commitment to building impactful, user-centric digital solutions. With expertise spanning full-stack web development and core programming, our team blends creativity with technical precision.
           </p>
         </div>
       </div>
 
       {/* Team Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12 px-2 md:px-0">
+      <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12 px-2 md:px-0">
         <TeamMember 
           name="Ved Khairnar"
-          role="Full Stack Developer"
+          role="Java and Full Stack Developer"
           bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-          imageUrl="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+          imageUrl="src/dev-img/ved Profile pic 2.jpg"
           socials={{
             github: "https://github.com",
             twitter: "https://twitter.com",
-            linkedin: "https://linkedin.com"
+            linkedin: "https://linkedin.com",
+            instagram: "https://instagram.com",
+            email: "ved.khairnar@example.com"
           }}
         />
         <TeamMember 
           name="Tejas Paithane"
           role="Python Developer"
           bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-          imageUrl="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+          imageUrl="src/dev-img/tejas pic.jpg"
           socials={{
             github: "https://github.com",
-            linkedin: "https://linkedin.com"
+            twitter: "https://twitter.com",
+            linkedin: "https://linkedin.com",
+            instagram: "https://instagram.com",
+            email: "ved.khairnar@example.com"
           }}
         />
       </div>
