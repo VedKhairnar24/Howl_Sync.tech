@@ -96,16 +96,20 @@ const Blog: React.FC = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-12">
+          // <section className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-16">
+
+    <div className="">
+      <div className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold gradient-text mb-4">TechJourney Blog</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h1 className="text-4xl text-white font-bold gradient-text mb-4">SyntaxSquad.Tech Blog</h1>
+        <p className="text-lg text-white text-gray-600 max-w-2xl mx-auto">
           Insights, tutorials, and resources to help you on your tech journey. Explore our latest articles below.
         </p>
+        </div>
       </div>
 
       {/* Search */}
-      <div className="max-w-md mx-auto mb-12">
+      <div className=" max-w-md mx-auto my-4 mb-12">
         <div className="relative flex items-center">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
           <Input
@@ -129,7 +133,7 @@ const Blog: React.FC = () => {
       </div>
 
       {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className=" container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <Card key={post.id} className="card-hover overflow-hidden">

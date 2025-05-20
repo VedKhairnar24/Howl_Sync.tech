@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Code, Menu, X, BookOpen, HelpCircle, Library, Users, FileText, Info, Search } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -9,9 +8,14 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleGetStartedClick = () => {
+    navigate('/');
   };
 
   useEffect(() => {
@@ -46,7 +50,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Code className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-tech-blue" />
-            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">TechJourney</span>
+            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">SyntaxSquad.Tech</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,6 +76,7 @@ const Navbar = () => {
               variant="default" 
               size={isMobile ? "sm" : "default"}
               className="bg-tech-blue text-white hover:bg-tech-blue/90"
+              onClick={handleGetStartedClick}
             >
               Get Started
             </Button>
@@ -101,7 +106,13 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-4 border-t">
-                <Button variant="outline" className="w-full border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white">Get Started</Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white"
+                  onClick={handleGetStartedClick}
+                >
+                  Get Started
+                </Button>
               </div>
             </div>
           </div>
