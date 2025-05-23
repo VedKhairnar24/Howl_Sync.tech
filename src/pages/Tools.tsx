@@ -342,8 +342,158 @@ const aiTools = [
     note: 'Free and open-source. Can be self-hosted for privacy.',
     thumbnailUrl: 'https://images.unsplash.com/photo-1678749985115-634dd376e16e',
     logoUrl: 'https://avatars.githubusercontent.com/u/100950301'
+  },
+  {
+    title: "ml5.js",
+    description: "A beginner-friendly JavaScript library built on TensorFlow.js for creative machine learning applications in the browser, such as image classification and sound recognition.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "ml5.js Community",
+    category: "ai",
+    tags: ["AI", "Machine Learning", "JavaScript", "Browser ML", "Creative Tools"],
+    url: "https://ml5js.org/",
+    isPremium: false,
+    platform: "Browser & Node.js",
+    note: "Open-source and free. Ideal for prototyping ML-powered web apps.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
+    logoUrl: "https://ml5js.org/assets/img/ml5-logo.png"
+  },
+  {
+    title: "Brain.js",
+    description: "A lightweight JavaScript library for building and training neural networks in the browser or Node.js, with a simple API for tasks like pattern recognition.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Brain.js Community",
+    category: "ai",
+    tags: ["AI", "Machine Learning", "Neural Networks", "JavaScript", "Browser ML"],
+    url: "https://brain.js.org/",
+    isPremium: false,
+    platform: "Browser & Node.js",
+    note: "Open-source and free. Great for small-scale ML projects.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1507146426996-ef05306b995a",
+    logoUrl: "https://brain.js.org/favicon.ico"
+  },
+  {
+    title: "WebDNN",
+    description: "A JavaScript framework for running deep neural networks in the browser with WebGL, WebGPU, or WebAssembly, supporting models from TensorFlow and PyTorch.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Machine Intelligence Lab, University of Tokyo",
+    category: "ai",
+    tags: ["AI", "Machine Learning", "Deep Learning", "JavaScript", "Browser ML"],
+    url: "https://mil-tokyo.github.io/webdnn/",
+    isPremium: false,
+    platform: "Browser",
+    note: "Open-source and free. Optimized for low-latency inference.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1531266752426-aad65a93f0f5",
+    logoUrl: "https://mil-tokyo.github.io/webdnn/images/webdnn_logo.png"
+  },
+  {
+    title: "Tabnine",
+    description: "An AI-powered code completion tool that provides context-aware suggestions across multiple programming languages, integrated into popular IDEs.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Tabnine",
+    category: "ai",
+    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "Productivity"],
+    url: "https://www.tabnine.com/",
+    isPremium: true,
+    platform: "VS Code, IntelliJ, Sublime Text",
+    note: "Free tier available; premium plans offer advanced features. Great for JavaScript developers.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
+    logoUrl: "https://www.tabnine.com/static/logo.svg"
+  },
+  {
+    title: "Codeium",
+    description: "An open-source AI coding assistant offering code suggestions, autocompletions, and natural language-to-code features for JavaScript and other languages.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Codeium",
+    category: "ai",
+    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "NLP"],
+    url: "https://codeium.com/",
+    isPremium: false,
+    platform: "VS Code, JetBrains, Neovim",
+    note: "Free and open-source with a robust free tier. Privacy-focused with on-device options.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    logoUrl: "https://codeium.com/images/codeium-logo.png"
+  },
+  {
+    title: "Windsurf",
+    description: "An AI-powered IDE forked from VSCodium, offering code completion, debugging, and chat-based assistance for JavaScript and other languages.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Windsurf AI Community",
+    category: "ai",
+    tags: ["AI", "Code Completion", "IDE", "JavaScript", "Developer Tools"],
+    url: "https://github.com/windsurf-ai",
+    isPremium: false,
+    platform: "Desktop & Web",
+    note: "Open-source and free. Similar to Cursor AI with AI-driven coding features.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
+    logoUrl: "https://avatars.githubusercontent.com/u/168684656?s=200&v=4"
+  },
+  {
+    title: "aiXcoder",
+    description: "An AI coding assistant that suggests code snippets, completes code, and debugs errors, integrated into IDEs for JavaScript and other languages.",
+    type: 'Tool' as const,
+    rating: 3,
+    author: "aiXcoder",
+    category: "ai",
+    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "Debugging"],
+    url: "https://www.aixcoder.com/",
+    isPremium: true,
+    platform: "VS Code, IntelliJ, Eclipse",
+    note: "Free tier available; premium for advanced features. Enhances JavaScript coding workflows.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
+    logoUrl: "https://www.aixcoder.com/images/logo.png"
+  },
+  {
+    title: "Theia IDE",
+    description: "An open-source, extensible IDE with AI-powered features like code completion and chat, supporting JavaScript and other languages.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "Eclipse Theia Community",
+    category: "ai",
+    tags: ["AI", "Code Completion", "IDE", "JavaScript", "Developer Tools"],
+    url: "https://theia-ide.org/",
+    isPremium: false,
+    platform: "Web & Desktop",
+    note: "Open-source and free. Customizable with AI agent support.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    logoUrl: "https://theia-ide.org/theia-logo.svg"
+  },
+  {
+    title: "V0 by Vercel",
+    description: "An AI-powered tool for generating UI components and layouts from text prompts, ideal for React and Next.js development.",
+    type: 'Tool' as const,
+    rating: 5,
+    author: "Vercel",
+    category: "ai",
+    tags: ["AI", "UI Generation", "JavaScript", "React", "Creative Tools"],
+    url: "https://v0.dev/",
+    isPremium: true,
+    platform: "Web",
+    note: "Free tier with 100,000 tokens daily; premium for unlimited use. Perfect for rapid UI prototyping.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    logoUrl: "https://v0.dev/assets/logo.png"
+  },
+  {
+    title: "DeepCode",
+    description: "An AI-powered code review tool that analyzes JavaScript codebases to suggest improvements and detect vulnerabilities.",
+    type: 'Tool' as const,
+    rating: 4,
+    author: "DeepCode",
+    category: "ai",
+    tags: ["AI", "Code Review", "JavaScript", "Security", "Developer Tools"],
+    url: "https://www.deepcode.ai/",
+    isPremium: true,
+    platform: "Web, GitHub, IDEs",
+    note: "Free for open-source projects; premium for private repos. Ensures secure JavaScript code.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
+    logoUrl: "https://www.deepcode.ai/images/logo.svg"
   }
-];
+]
 
 const Tools = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -562,9 +712,11 @@ const Tools = () => {
                 </p>
               </div>
               <div className="md:w-1/3 flex justify-center md:justify-end">
-                <Button className="bg-white text-tech-blue hover:bg-blue-50">
-                  Explore AI Guides
-                </Button>
+                <a href="https://youtu.be/yHk7Vavmc7Q?si=MWVSCiRH-uXv9MP-" className="flex items-center gap-2">
+                  <Button className="bg-white text-tech-blue hover:bg-blue-50">
+                    Explore AI Guides
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

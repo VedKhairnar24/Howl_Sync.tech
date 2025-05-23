@@ -557,9 +557,11 @@ const Resources = () => {
                 </p>
               </div>
               <div className="md:w-1/3 flex justify-center md:justify-end">
-                <Button className="bg-white text-tech-indigo hover:bg-blue-50">
-                  Submit a Resource
-                </Button>
+               <a href="/about#contact" className="flex items-center gap-2">
+                 <Button className="bg-white text-tech-indigo hover:bg-blue-50">
+                   Submit a Resource
+                 </Button>
+               </a>
               </div>
             </div>
           </div>

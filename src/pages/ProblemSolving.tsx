@@ -253,9 +253,11 @@ const ProblemSolving = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-white text-tech-indigo hover:bg-blue-50">
-                  Ask a Question
-                </Button>
+                <a href="/about#contact" className="flex items-center gap-2">
+                  <Button className="bg-white text-tech-indigo hover:bg-blue-50">
+                    Ask a Question
+                  </Button>
+                </a>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[500px]">
                 <DialogHeader>
@@ -264,7 +266,7 @@ const ProblemSolving = () => {
                     Describe your problem in detail to get the best help from our community.
                   </DialogDescription>
                 </DialogHeader>
-                <div className="space-y-4 py-4">
+                {/* <div className="space-y-4 py-4">
                   <div className="space-y-2">
                     <h4 className="font-medium">Problem Title</h4>
                     <Input
@@ -282,7 +284,7 @@ const ProblemSolving = () => {
                       rows={5}
                     />
                   </div>
-                </div>
+                </div> */}
                 <DialogFooter>
                   <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
                   <Button onClick={handleSubmitProblem}>Submit Question</Button>
@@ -507,12 +509,16 @@ const ProblemSolving = () => {
                 </p>
               </div>
               <div className="flex gap-4">
-                <Button className="bg-white text-tech-indigo hover:bg-blue-50">
-                  Join Community
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                  Find a Mentor
-                </Button>
+                <a href="/community" className="flex items-center gap-2">
+                  <Button className="bg-white text-tech-indigo hover:bg-blue-50">
+                    Join Community
+                  </Button>
+                </a>
+                <a href="/about#contact" className="flex items-center gap-2">
+                  <Button variant="outline" className="border-white text-white hover:bg-white/10">
+                    Find a Mentor
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

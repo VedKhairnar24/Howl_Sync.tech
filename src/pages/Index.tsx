@@ -251,8 +251,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Team Introduction Section */}
+      <section className="bg-gray-100 dark:bg-gray-900 py-12 sm:py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">
+            Our Team
+          </h2>
+          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+            We are a dedicated and innovative team, passionate about delivering high-quality results. Our commitment to excellence drives us to create impactful solutions and exceed expectations for every project.
+          </p>
+          <Button
+            asChild
+            size={isMobile ? "responsive" : "lg"}
+            className="bg-tech-blue text-white hover:bg-tech-indigo transition-colors font-semibold px-8 py-3 rounded-md shadow-md"
+          >
+            <Link to="/about#top">Meet My Team</Link>
+          </Button>
+        </div>
+      </section>
+
       {/* Newsletter */}
-      <section className="py-12 sm:py-16 md:py-20">
+      {/* <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="mb-2">Stay Updated</Badge>
@@ -274,7 +293,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
