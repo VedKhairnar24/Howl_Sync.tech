@@ -93,7 +93,7 @@ const Community = () => {
             Connect with fellow learners, participate in events, join study groups, and find mentors to support your tech journey.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/about#contact" className="flex items-center gap-2">
+            <a href="https://discord.gg/SukSvWsC" className="flex items-center gap-2">
               <Button className="bg-white text-tech-purple hover:bg-blue-50">
                 Join Discord Server
               </Button>
