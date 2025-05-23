@@ -1,5 +1,9 @@
 # Welcome to your Lovable project
 
+# run command 
+
+PS C:\web-project\tech.web\tech-journey-navigator> npm run dev                                                                                                                    
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/777083c8-f2ac-4eed-ab42-af8350653ad0

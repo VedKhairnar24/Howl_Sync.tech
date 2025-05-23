@@ -50,7 +50,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Code className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-tech-blue" />
-            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">SyntaxSquad.Tech</span>
+            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">HowlSync.Tech</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,9 +69,9 @@ const Navbar = () => {
 
           {/* Search and CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
+            {/* <Button variant="ghost" size="icon">
               <Search className="h-5 w-5" />
-            </Button>
+            </Button> */}
             <Button 
               variant="default" 
               size={isMobile ? "sm" : "default"}

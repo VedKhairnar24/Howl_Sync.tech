@@ -1,4 +1,3 @@
-
 // Learning Path Details Data
 export const learningPathsData = {
   programming: {
@@ -186,6 +185,21 @@ export const learningPathsData = {
       projects: ["Multi-Cluster Kubernetes Setup", "Automated Disaster Recovery"],
     }
   },
+  mobile: {},
+  cybersecurity: {},
+  game: {},
+  aiml: {},
+  blockchain: {},
 };
 
-export type LearningPathCategory = keyof typeof learningPathsData;
+export type LearningPathCategory =
+  | 'web'
+  | 'programming'
+  | 'design'
+  | 'data'
+  | 'devops'
+  | 'mobile'
+  | 'cybersecurity'
+  | 'game'
+  | 'aiml'
+  | 'blockchain';

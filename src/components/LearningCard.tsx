@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -65,6 +64,13 @@ const LearningCard = ({
 
   const pathDetails = getPathDetails();
 
+  const hasPathLevels =
+    pathDetails &&
+    typeof pathDetails === 'object' &&
+    'beginner' in pathDetails &&
+    'intermediate' in pathDetails &&
+    'advanced' in pathDetails;
+
   return (
     <>
       <Card className="overflow-hidden card-hover h-full flex flex-col">
@@ -125,13 +131,13 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.beginner.concepts.join(', ')}
+                            {(pathDetails?.beginner?.concepts || []).join(', ') || 'No data available'}
                           </p>
                         </div>
                         <div>
                           <h4 className="text-sm font-medium">Projects:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.beginner.projects.join(', ')}
+                            {(pathDetails?.beginner?.projects || []).join(', ') || 'No data available'}
                           </p>
                         </div>
                       </div>
@@ -147,7 +153,7 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.intermediate.concepts.join(', ')}
+                            {(pathDetails?.intermediate?.concepts || []).join(', ') || 'No data available'}
                           </p>
                         </div>
                         <div>
@@ -169,7 +175,7 @@ const LearningCard = ({
                         <div>
                           <h4 className="text-sm font-medium">Core concepts:</h4>
                           <p className="text-sm text-gray-600">
-                            {pathDetails?.advanced.concepts.join(', ')}
+                            {(pathDetails?.advanced?.concepts || []).join(', ') || 'No data available'}
                           </p>
                         </div>
                         <div>

@@ -93,12 +93,14 @@ const Community = () => {
             Connect with fellow learners, participate in events, join study groups, and find mentors to support your tech journey.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-white text-tech-purple hover:bg-blue-50">
-              Join Discord Server
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10">
+            <a href="/about#contact" className="flex items-center gap-2">
+              <Button className="bg-white text-tech-purple hover:bg-blue-50">
+                Join Discord Server
+              </Button>
+            </a>
+            {/* <Button variant="outline" className="border-white text-white hover:bg-white/10">
               Explore Forums
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
