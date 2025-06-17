@@ -30,7 +30,7 @@ const About: React.FC = () => {
           name="Ved Khairnar"
           role="Java and Full Stack Developer"
           bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-          imageUrl="src/dev-img/Dev-Ved.jpg"
+          imageUrl="public/dev-img/Dev-Ved.jpg"
           socials={{
             github: "https://github.com/VedKhairnar24",
             linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
@@ -42,7 +42,7 @@ const About: React.FC = () => {
           name="Tejas Paithane"
           role="Python Developer"
           bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-          imageUrl="src/dev-img/Dev-Tejas.jpg"
+          imageUrl="public/dev-img/Dev-Tejas.jpg"
           socials={{
             github: "https://github.com/Chetan-tp",
             linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
