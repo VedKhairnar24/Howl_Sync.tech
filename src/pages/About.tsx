@@ -11,7 +11,7 @@ const About: React.FC = () => {
           <div className="flex justify-center mb-6">
             <div className="bg-gradient-to-r from-tech-blue to-tech-purple p-2 md:p-1 rounded-full">
               <img 
-                src="/src/imgs/Howl_Sync_Ld.png" 
+                src="./imgs/Howl_Sync_Ld.png" 
                 alt="Howl Sync Logo" 
                 className="h-36 w-36 md:h-48 md:w-48 object-cover rounded-full" // Increased size
                 />
