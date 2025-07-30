@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Code, Menu, X, BookOpen, HelpCircle, Library, Users, FileText, Info, Search } from 'lucide-react';
+import {
+  Code,
+  Menu,
+  X,
+  BookOpen,
+  HelpCircle,
+  Library,
+  Users,
+  FileText,
+  Info,
+  Search
+} from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
@@ -20,17 +31,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -47,10 +51,15 @@ const Navbar = () => {
     <nav className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          
+          {/* Logo and Brand */}
           <Link to="/" className="flex items-center">
-            <Code className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-tech-blue" />
-            <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue">HowlSync.Tech</span>
+            <img
+              src="./imgs/Howl_Sync_Ld.png"
+              alt="Website Logo"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full object-cover mr-2"
+            />
+            <span className="text-lg sm:text-xl font-bold text-tech-blue">HowlSync.Tech</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -67,11 +76,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Search and CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            {/* <Button variant="ghost" size="icon">
-              <Search className="h-5 w-5" />
-            </Button> */}
             <Button 
               variant="default" 
               size={isMobile ? "sm" : "default"}
@@ -82,7 +88,7 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
             <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
