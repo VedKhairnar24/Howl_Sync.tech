@@ -11,7 +11,7 @@ const About: React.FC = () => {
           <div className="flex justify-center mb-6">
             <div className="bg-gradient-to-r from-tech-blue to-tech-purple p-2 md:p-1 rounded-full">
               <img 
-                src="/src/dev-img/Howl_Sync_Ld.png" 
+                src="/src/imgs/Howl_Sync_Ld.png" 
                 alt="Howl Sync Logo" 
                 className="h-36 w-36 md:h-48 md:w-48 object-cover rounded-full" // Increased size
                 />
@@ -30,7 +30,7 @@ const About: React.FC = () => {
           name="Ved Khairnar"
           role="Java and Full Stack Developer"
           bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-          imageUrl="public/dev-img/Dev-Ved.jpg"
+          imageUrl="./imgs/Dev-Ved.jpg"
           socials={{
             github: "https://github.com/VedKhairnar24",
             linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
@@ -42,7 +42,7 @@ const About: React.FC = () => {
           name="Tejas Paithane"
           role="Python Developer"
           bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-          imageUrl="public/dev-img/Dev-Tejas.jpg"
+          imageUrl="./imgs/Dev-Tejas.jpg"
           socials={{
             github: "https://github.com/Chetan-tp",
             linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
