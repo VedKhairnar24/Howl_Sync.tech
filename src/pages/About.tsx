@@ -24,34 +24,67 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12 px-2 md:px-0">
-        <TeamMember 
-          name="Ved Khairnar"
-          role="Java and Full Stack Developer"
-          bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-          imageUrl="./imgs/Dev-Ved.jpg"
-          socials={{
-            github: "https://github.com/VedKhairnar24",
-            linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
-            instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
-            email: "vedkhairnar4@gmail.com"
-          }}
-          />
-        <TeamMember 
-          name="Tejas Paithane"
-          role="Python Developer"
-          bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-          imageUrl="./imgs/Dev-Tejas.jpg"
-          socials={{
-            github: "https://github.com/Chetan-tp",
-            linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
-            instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
-            email: "paithanetajas34@gmail.com"
-          }}
-          
-          />
-      </div>
+     {/* Team Section */}
+<div className="my-12 bg-gray-100 dark:bg-gray-800 py-12">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold text-tech-blue mb-4">Meet Our Team</h2>
+    <p className="text-gray-600 dark:text-gray-400 text-lg">Something about our team</p>
+  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8 relative">
+    <div className="transform translate-y-8">
+      <TeamMember 
+        name="Vedant Khairnar"
+        role="Developer"
+        bio="Web developer skilled in Java, Python, JavaScript, PHP, SQL, HTML, and CSS—building secure, responsive web applications with real-world impact."
+        imageUrl="./imgs/Dev-Vedant.jpg"
+        socials={{
+          github: "https://github.com/Vedantkhairnar729",
+          linkedin: "https://www.linkedin.com/in/vedant-khairnar?original_referer=",
+          instagram: "https://www.instagram.com/mr_vedant_24?igsh=d3h3YWFieWl2cmNv",
+          email: "vedantkhairnar041@gmail.com",
+          facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+          twitter: "https://media.tenor.com/d2jqZ7DnuA8AAAAM/my-honest-reaction-my-honest-reaction-meme.gif",
+          portfolio: "https://vedantportfolio-bice.vercel.app/"
+        }}
+      />
+    </div>
+    <div className="transform -translate-y-10 ">
+      <TeamMember 
+        name="Ved Khairnar"
+        role="Leader"
+        bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
+        imageUrl="./imgs/Dev-Ved.jpg"
+        socials={{
+          github: "https://github.com/VedKhairnar24",
+          linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
+          instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
+          email: "vedkhairnar4@gmail.com",
+          facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+          twitter: "https://i.pinimg.com/736x/77/52/5d/77525d3bbf551a36c683d3de698ba75a.jpg",
+          portfolio: "https://dev-ved-khairnar.web.app/"
+        }}
+        isLead={true}
+      />
+    </div>
+    <div className="transform translate-y-8">
+      <TeamMember 
+        name="Tejas Paithane"
+        role="Developer"
+        bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
+        imageUrl="./imgs/Dev-Tejas.jpg"
+        socials={{
+          github: "https://github.com/Chetan-tp",
+          linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
+          instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
+          email: "paithanetajas34@gmail.com",
+          facebook: "https://i.pinimg.com/736x/8c/de/9f/8cde9fab69bfcbfa7a9649e951acef05.jpg",
+          twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
+          portfolio: "https://tejas-paithane.github.io/"
+        }}
+      />
+    </div>
+  </div>
+</div>
 
       {/* Team Description */}
       <div className="bg-gray-50 p-6 md:p-8 rounded-lg max-w-4xl mx-auto mb-6 md:mb-0 mx-2 md:mx-auto">
