@@ -51,8 +51,8 @@ const tools = [
     isPremium: true,
     platform: 'Cross-platform',
     note: 'Free to try with perpetual license available. Known for speed and performance.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea',
-    logoUrl: 'https://www.sublimetext.com/images/sublime_text.png'
+    thumbnailUrl: '//upload.wikimedia.org/wikipedia/en/thumb/d/d2/Sublime_Text_3_logo.png/250px-Sublime_Text_3_logo.png',
+    logoUrl: '//upload.wikimedia.org/wikipedia/en/thumb/d/d2/Sublime_Text_3_logo.png/250px-Sublime_Text_3_logo.png'
   },
   {
     title: 'Atom',
@@ -126,8 +126,8 @@ const tools = [
     isPremium: false,
     platform: 'Web',
     note: 'Free to use with basic features. Great for quick prototyping.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713',
-    logoUrl: 'https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg'
+    thumbnailUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/3/32/CodePen_Logo.svg/250px-CodePen_Logo.svg.png',
+    logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/3/32/CodePen_Logo.svg/250px-CodePen_Logo.svg.png'
   },
   {
     title: 'Git',
@@ -171,8 +171,8 @@ const tools = [
     isPremium: false,
     platform: 'Chrome Browser',
     note: 'Free and accessible via F12 or right-click > Inspect.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef',
-    logoUrl: 'https://developer.chrome.com/static/images/chrome-logo-m100.svg'
+    thumbnailUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/120px-Google_Chrome_icon_%28February_2022%29.svg.png',
+    logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/120px-Google_Chrome_icon_%28February_2022%29.svg.png'
   },
   {
     title: 'Node.js',
@@ -186,8 +186,8 @@ const tools = [
     isPremium: false,
     platform: 'Cross-platform',
     note: 'Free and open-source. Powers modern JavaScript development.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1560800245-eae5049e1320',
-    logoUrl: 'https://nodejs.org/static/images/logo.svg'
+    thumbnailUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/250px-Node.js_logo.svg.png',
+    logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/250px-Node.js_logo.svg.png'
   },
   {
     title: 'ESLint',
@@ -201,8 +201,8 @@ const tools = [
     isPremium: false,
     platform: 'Node.js Package',
     note: 'Free and integrates with most editors and IDEs.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea',
-    logoUrl: 'https://eslint.org/assets/img/favicon.512x512.png'
+    thumbnailUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ESLint_logo.svg/250px-ESLint_logo.svg.png',
+    logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ESLint_logo.svg/250px-ESLint_logo.svg.png'
   },
   {
     title: 'Prettier',
