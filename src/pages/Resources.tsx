@@ -5,7 +5,20 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Search, Filter, BookOpen, Video, Code, Download, GitBranch, Youtube } from 'lucide-react';
 import ResourceCard from '@/components/ResourceCard';
-const resources = [
+const resources: Array<{
+  title: string;
+  description: string;
+  type:'Article' | 'Video' | 'Tutorial' | 'Tool' | 'Cheatsheet' | 'Course' | 'Playlist';
+  rating: number;
+  author: string;
+  category: string;
+  tags: string[];
+  url: string;
+  isPremium: boolean;
+  platform: string;
+  note: string;
+  thumbnailUrl?: string;
+}> = [
   // Tutorials
   {
     title: 'HTML & CSS Crash Course',
@@ -121,14 +134,14 @@ const resources = [
     description: 'Master version control with Git and GitHub in this comprehensive video course. Learn branching, merging, pull requests, and collaboration workflows for real-world projects.',
     type: 'Playlist',
     rating: 5,
-    author: 'FreeCodeCamp',
+    author: 'Apna College',
     category: 'playlists',
     tags: ['Git', 'GitHub', 'Version Control', 'Playlist'],
-    url: 'https://www.youtube.com/playlist?list=PLWKjhJtqVAbkzvvpY12jH4BxNEjP7B4U3',
+    url: 'https://youtu.be/Ez8F0nW6S-w?si=5oE6_p2rvkMv9Q4i',
     isPremium: false,
     platform: 'YouTube',
     note: 'FreeCodeCamp\'s Git and GitHub tutorials are free and include the popular "Git and GitHub for Beginners" crash course.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb'
+    thumbnailUrl: 'https://i.ytimg.com/vi/Ez8F0nW6S-w/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA6fPCgrA7WtxyXnkmP8p92K569Vw'
   },
   {
     title: 'VS Code for Beginners Playlist',
@@ -331,7 +344,7 @@ const resources = [
     category: 'tools',
     tags: ['Version Control', 'Collaboration', 'Command Line'],
     url: 'https://git-scm.com/',
-    isPremium: 'false',
+    isPremium: false,
     platform: 'Cross-platform',
     note: 'Free and open-source. Commands like commit, push, and pull streamline teamwork.',
     thumbnailUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/512px-Git-logo.svg.png'
@@ -464,7 +477,7 @@ const resources = [
 const Resources = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [tagFilter, setTagFilter] = useState<string | null>(null);
-  const [typeFilter, setTypeFilter] = useState<string | null>(null);
+  const [typeFilter, setTypeFilter] = useState<'Tutorial' | 'Video' | 'Playlist' | 'Tool' | 'Cheatsheet' | 'Course' | null>(null);
 
   // Extract unique tags from resources
   const allTags = Array.from(new Set(resources.flatMap(resource => resource.tags)));
@@ -521,7 +534,7 @@ const Resources = () => {
       {/* Resources Tabs */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="all" onValueChange={value => setTypeFilter(value === 'all' ? null : value as any)}>
+          <Tabs defaultValue="all" onValueChange={value => setTypeFilter(value === 'all' ? null : value as 'Tutorial' | 'Video' | 'Playlist' | 'Tool' | 'Cheatsheet' | 'Course')}>
             <div className="flex justify-center mb-8 overflow-x-auto">
               <TabsList className="flex-nowrap">
                 <TabsTrigger value="all" className="flex items-center gap-1">

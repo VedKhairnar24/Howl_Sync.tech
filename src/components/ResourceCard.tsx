@@ -8,7 +8,7 @@ import { ExternalLink, Star, Play, Youtube, BookOpen, Video, Code, Download, Lin
 interface ResourceCardProps {
   title: string;
   description: string;
-  type: 'Article' | 'Video' | 'Tutorial' | 'Tool' | 'Cheatsheet' | 'Course' | 'Playlist';
+  type: 'Article'|'Video' | 'Tutorial' | 'Tool' | 'Cheatsheet' | 'Course' | 'Playlist';
   rating: number;
   author: string;
   url: string;
