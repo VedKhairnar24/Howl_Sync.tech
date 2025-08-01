@@ -55,7 +55,7 @@ const Navbar = () => {
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center">
             <img
-              src="./imgs/Howl_Sync_Ld.png"
+              src="./imgs/Howl Sync.png"
               alt="Website Logo"
               className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full object-cover mr-2"
             />
