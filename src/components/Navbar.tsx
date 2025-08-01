@@ -51,13 +51,12 @@ const Navbar = () => {
     <nav className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center">
             <img
               src="./imgs/Howl Sync.png"
               alt="Website Logo"
-              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full object-cover mr-2"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-2 border-blue-500 object-cover mr-2"
             />
             <span className="text-lg sm:text-xl font-bold text-tech-blue">HowlSync.Tech</span>
           </Link>

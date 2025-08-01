@@ -6,27 +6,60 @@ const About: React.FC = () => {
   return (
     <div id="top" className="mx-auto pb-8 animate-fade-in">
       {/* About Section */}
-      <div className="py-8 bg-gradient-to-r from-tech-blue to-tech-lightblue text-white">
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="py-8 bg-gradient-to-r from-tech-blue to-tech-lightblue text-white relative overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-300 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-200 rounded-full animate-ping"></div>
+        </div>
+        
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex justify-center mb-4 sm:mb-6 relative">
-            {/* Logo with smoke effect */}
-            <div className="relative bg-white border-8 border-blue-500 p-1 sm:p-2 rounded-full shadow-lg shadow-blue-500/50">
+            {/* Logo with enhanced effects */}
+            <div className="relative bg-white border-8 border-blue-500 p-1 sm:p-2 rounded-full shadow-lg shadow-blue-500/50 animate-float">
+              {/* Glowing ring effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-white-400 opacity-75 blur-sm animate-pulse"></div>
+              
+              {/* Smoke effect layers */}
               <div className="absolute inset-0 rounded-full overflow-hidden -z-10">
-                <div
-                  className="absolute inset-0 animate-smoke bg-[radial-gradient(circle,rgba(200,200,200,0.3)_20%,transparent_60%)] bg-[length:200%_200%] opacity-50"
-                ></div>
+                <div className="absolute inset-0 animate-smoke-1 bg-[radial-gradient(circle,rgba(200,200,200,0.4)_20%,transparent_60%)] bg-[length:200%_200%] opacity-60"></div>
+                <div className="absolute inset-0 animate-smoke-2 bg-[radial-gradient(circle,rgba(150,200,255,0.3)_30%,transparent_70%)] bg-[length:150%_150%] opacity-40"></div>
+                <div className="absolute inset-0 animate-smoke-3 bg-[radial-gradient(circle,rgba(100,150,255,0.2)_40%,transparent_80%)] bg-[length:120%_120%] opacity-30"></div>
               </div>
+              
+              {/* Sparkle effects */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-sparkle-1"></div>
+              <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-cyan-400 rounded-full animate-sparkle-2"></div>
+              <div className="absolute top-1/2 -right-3 w-8 h-8 bg-pink-400 rounded-full animate-sparkle-3"></div>
+              
               <img
                 src="./imgs/Howl Sync.png"
                 alt="Howl Sync Logo"
-                className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-cover rounded-full relative z-10"
+                className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-cover rounded-full relative z-10 hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 md:mb-4">Howl Sync</h1>
-          <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0">
+          
+          {/* Enhanced title with typing effect */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 ">
+            <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">Howl Sync</span>
+          </h1>
+          
+          {/* Enhanced description with fade-in effect */}
+          <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0 animate-fade-in-up">
             We are a dynamic duo of passionate developers driven by innovation and a shared commitment to building impactful, user-centric digital solutions. With expertise spanning full-stack web development and core programming, our team blends creativity with technical precision.
           </p>
+          
+          {/* Floating action buttons */}
+          {/* <div className="flex justify-center gap-4 mt-6 animate-fade-in-up delay-500">
+            <button className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
+              Learn More
+            </button>
+            <button className="px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full text-white hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg">
+              Get Started
+            </button>
+          </div> */}
         </div>
       </div>
 
@@ -183,6 +216,159 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+          }
+          
+          @keyframes smoke-1 {
+            0% {
+              transform: translateY(0) scale(1);
+              opacity: 0.6;
+            }
+            50% {
+              transform: translateY(-15px) scale(1.2);
+              opacity: 0.4;
+            }
+            100% {
+              transform: translateY(-30px) scale(1.4);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes smoke-2 {
+            0% {
+              transform: translateY(0) scale(1);
+              opacity: 0.4;
+            }
+            50% {
+              transform: translateY(-12px) scale(1.15);
+              opacity: 0.2;
+            }
+            100% {
+              transform: translateY(-25px) scale(1.3);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes smoke-3 {
+            0% {
+              transform: translateY(0) scale(1);
+              opacity: 0.3;
+            }
+            50% {
+              transform: translateY(-8px) scale(1.1);
+              opacity: 0.15;
+            }
+            100% {
+              transform: translateY(-20px) scale(1.25);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes sparkle-1 {
+            0%, 100% {
+              opacity: 0.8;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.2);
+            }
+          }
+          
+          @keyframes sparkle-2 {
+            0%, 100% {
+              opacity: 0.6;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.3);
+            }
+          }
+          
+          @keyframes sparkle-3 {
+            0%, 100% {
+              opacity: 0.7;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.1);
+            }
+          }
+          
+          @keyframes typewriter {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+          
+          @keyframes fade-in-up {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          .animate-float {
+            animation: float 3s ease-in-out infinite;
+          }
+          
+          .animate-smoke-1 {
+            animation: smoke-1 4s infinite ease-in-out;
+          }
+          
+          .animate-smoke-2 {
+            animation: smoke-2 4.5s infinite ease-in-out;
+          }
+          
+          .animate-smoke-3 {
+            animation: smoke-3 5s infinite ease-in-out;
+          }
+          
+          .animate-sparkle-1 {
+            animation: sparkle-1 2s infinite ease-in-out;
+          }
+          
+          .animate-sparkle-2 {
+            animation: sparkle-2 2.5s infinite ease-in-out;
+          }
+          
+          .animate-sparkle-3 {
+            animation: sparkle-3 3s infinite ease-in-out;
+          }
+          
+          .animate-typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid;
+            animation: typewriter 2s steps(20) 1s both;
+          }
+          
+          .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+          }
+          
+          .delay-500 {
+            animation-delay: 0.5s;
+          }
+        `
+      }} />
       </div>
   );
 };
