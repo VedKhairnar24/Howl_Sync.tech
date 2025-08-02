@@ -666,11 +666,19 @@ const Resources = () => {
                 </TabsTrigger>
                 <TabsTrigger value="Video" className="flex items-center gap-1">
                   <Video className="h-4 w-4" /> Videos
-
                 </TabsTrigger>
-
-
-              
+                <TabsTrigger value="Playlist" className="flex items-center gap-1">
+                  <Youtube className="h-4 w-4" /> Playlists
+                </TabsTrigger>
+                <TabsTrigger value="Tool" className="flex items-center gap-1">
+                  <Code className="h-4 w-4" /> Tools
+                </TabsTrigger>
+                <TabsTrigger value="Cheatsheet" className="flex items-center gap-1">
+                  <Download className="h-4 w-4" /> Cheatsheets
+                </TabsTrigger>
+                <TabsTrigger value="Course" className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" /> Courses
+                </TabsTrigger>
               </TabsList>
             </div>
             <TabsContent value="all" className="mt-0">
