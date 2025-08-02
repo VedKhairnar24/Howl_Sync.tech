@@ -101,7 +101,7 @@ const Blog: React.FC = () => {
     <div className="">
       <div className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="text-center mb-8 sm:mb-12">
-        <h1 className="responsive-heading text-white font-bold gradient-text mb-4">SyntaxSquad.Tech Blog</h1>
+        <h1 className="responsive-heading text-white font-bold gradient-text mb-4">Tech Blog</h1>
         <p className="responsive-text text-white text-gray-600 max-w-2xl mx-auto">
           Insights, tutorials, and resources to help you on your tech journey. Explore our latest articles below.
         </p>

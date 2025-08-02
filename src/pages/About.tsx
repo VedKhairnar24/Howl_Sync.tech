@@ -63,14 +63,51 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Team Section - Unchanged */}
-      <div className="my-12 bg-gray-100 dark:bg-gray-800 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-tech-blue mb-4">Meet Our Team</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">Something about our team</p>
+      {/* Enhanced Team Section with Background Effects */}
+      <div className="my-8 sm:my-12 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Animated Background Effects */}
+        <div className="absolute inset-0 opacity-30">
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-10 w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-float-1 blur-sm"></div>
+          <div className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-float-2 blur-sm"></div>
+          <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-float-3 blur-sm"></div>
+          <div className="absolute bottom-40 right-1/3 w-14 h-14 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-float-4 blur-sm"></div>
+          
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.15)_1px,transparent_0)] bg-[length:20px_20px] animate-grid-float"></div>
+          </div>
+          
+          {/* Glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-400/20 rounded-full animate-pulse blur-xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-purple-400/20 rounded-full animate-pulse blur-xl delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-cyan-400/10 rounded-full animate-pulse blur-2xl delay-500"></div>
+          
+          {/* Particle effects */}
+          <div className="absolute top-10 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-particle-1"></div>
+          <div className="absolute top-20 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-particle-2"></div>
+          <div className="absolute bottom-10 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-particle-3"></div>
+          <div className="absolute bottom-20 right-1/2 w-1 h-1 bg-pink-400 rounded-full animate-particle-4"></div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8 relative">
-          <div className="transform translate-y-8">
+        
+        {/* Content with backdrop blur */}
+        <div className="relative z-10">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-block mb-3 sm:mb-4">
+              <div className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                🚀 Our Amazing Team
+              </div>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-tech-blue via-tech-purple to-tech-indigo bg-clip-text text-transparent mb-3 sm:mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
+              Passionate developers dedicated to creating innovative solutions and helping others on their tech journey.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative">
+          <div className="transform translate-y-4 sm:translate-y-8">
             <TeamMember 
               name="Vedant Khairnar"
               role="Developer"
@@ -87,7 +124,7 @@ const About: React.FC = () => {
               }}
             />
           </div>
-          <div className="transform -translate-y-10">
+          <div className="transform -translate-y-6 sm:-translate-y-10">
             <TeamMember 
               name="Ved Khairnar"
               role="Leader"
@@ -105,7 +142,7 @@ const About: React.FC = () => {
               isLead={true}
             />
           </div>
-          <div className="transform translate-y-8">
+          <div className="transform translate-y-4 sm:translate-y-8">
             <TeamMember 
               name="Tejas Paithane"
               role="Developer"
@@ -124,7 +161,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-
+      
       {/* Team Description */}
       <div className="bg-gray-50 p-4 sm:p-6 md:p-8 rounded-lg max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12 px-4 sm:px-6">
         <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Our Approach</h3>
@@ -215,6 +252,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
+    </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -369,7 +407,7 @@ const About: React.FC = () => {
           }
         `
       }} />
-      </div>
+    </div>
   );
 };
 export default About;

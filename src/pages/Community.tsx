@@ -92,15 +92,16 @@ const Community = () => {
           <p className="responsive-text max-w-2xl mx-auto mb-8 text-blue-100">
             Connect with fellow learners, participate in events, join study groups, and find mentors to support your tech journey.
           </p>
-          <div className="btn-group-responsive">
-            <a href="https://discord.gg/SukSvWsC" className="flex items-center gap-2">
-              <Button className="bg-white text-tech-purple hover:bg-blue-50 btn-responsive">
-                Join Discord Server
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 btn-group-responsive">
+            <a href="https://discord.gg/SukSvWsC" target="_blank" rel="noopener noreferrer" className="group">
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-responsive flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Join Discord Community
               </Button>
             </a>
-            {/* <Button variant="outline" className="border-white text-white hover:bg-white/10">
-              Explore Forums
-            </Button> */}
+           
           </div>
         </div>
       </section>
@@ -351,22 +352,78 @@ const Community = () => {
         </div>
       </section>
 
-      {/* Join CTA */}
-      <section className="py-16 bg-gray-50">
+      {/* Enhanced Join CTA */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-tech-blue to-tech-purple text-white rounded-xl p-8 md:p-12">
-            <div className="text-center max-w-2xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to join our community?</h3>
-              <p className="text-xl text-blue-100 mb-8">
-                Connect with fellow learners, find mentors, and accelerate your tech journey together.
+          <div className="bg-gradient-to-r from-tech-blue via-tech-purple to-tech-indigo text-white rounded-2xl p-8 md:p-12 relative overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
+              <div className="absolute bottom-10 right-10 w-16 h-16 bg-cyan-300 rounded-full animate-bounce"></div>
+              <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-blue-200 rounded-full animate-ping"></div>
+            </div>
+            
+            <div className="text-center max-w-3xl mx-auto relative z-10">
+              <Badge className="bg-white/20 text-white mb-4 backdrop-blur-sm">🚀 Join Now</Badge>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+                Ready to Accelerate Your Tech Journey?
+              </h3>
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                Join 2,500+ learners, connect with mentors, and participate in exclusive events. 
+                Your next breakthrough is just one click away!
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" className="bg-white text-tech-indigo hover:bg-blue-50">
-                  Join Discord Community
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              
+              {/* Enhanced Button Group */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                <a 
+                  href="https://discord.gg/SukSvWsC" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group transform hover:scale-105 transition-all duration-300"
+                  onClick={() => {
+                    // Analytics tracking
+                    console.log('CTA Discord clicked');
+                    // You can add Google Analytics or other tracking here
+                  }}
+                >
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 flex items-center gap-3"
+                  >
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    Join Discord Community
+                  </Button>
+                </a>
+                
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-tech-purple font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300"
+                  onClick={() => {
+                    console.log('CTA Forums clicked');
+                    // Add modal or redirect functionality
+                  }}
+                >
                   Explore Forums
                 </Button>
+              </div>
+              
+              {/* Social Proof */}
+              <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-blue-200">
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  <span>2,500+ Members</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Active Discussions</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Weekly Events</span>
+                </div>
               </div>
             </div>
           </div>
