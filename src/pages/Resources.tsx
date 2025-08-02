@@ -21,14 +21,98 @@ const resources: Array<{
 }> = [
   // Tutorials
   {
+    title: "Git and GitHub for Beginners - Crash Course",
+    description: "A beginner-friendly playlist covering the essentials of Git and GitHub, including setup, commits, branching, and collaboration on projects.",
+    type: "Playlist",
+    rating: 4.9,
+    author: "freeCodeCamp.org",
+    category: "playlists",
+    tags: ["Git", "GitHub", "Version Control", "Beginner", "Playlist"],
+    url: "https://youtu.be/RGOj5yH7evk?si=3kQzY7pL2zY8vW3",
+    isPremium: false,
+    platform: "YouTube",
+    note: "Free crash course by freeCodeCamp, ideal for beginners learning version control.",
+    thumbnailUrl: "https://i.ytimg.com/vi/RGOj5yH7evk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFryq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB8z3z7k3z5z7w8X9kQzY7pL2zY8vW3"
+  },
+  {
+    title: 'JavaScript for Absolute Beginners Playlist',
+    description: 'Start your JavaScript journey with this easy-to-follow tutorial series. Designed for beginners, it covers core JavaScript concepts like variables, functions, and DOM manipulation in a clear, engaging way.',
+    type: 'Playlist',
+    rating: 4,
+    author: 'Programming with Mosh',
+    category: 'playlists',
+    tags: ['JavaScript', 'Web Development', 'Beginner', 'Playlist'],
+    url: 'https://www.youtube.com/playlist?list=PLTjRvDozrdlz3_FPXwbHvo0KzKo9Wz0dW',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Includes Mosh\'s free JavaScript tutorials, such as "JavaScript Tutorial for Beginners." Additional premium content may be available on his website.',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3'
+  },
+  {
+    title: 'React Crash Course 2024 Playlist',
+    description: 'Learn React.js fundamentals in this in-depth video tutorial series for beginners. Covers components, props, state, and hooks to build dynamic user interfaces.',
+    type: 'Playlist',
+    rating: 5,
+    author: 'Traversy Media',
+    category: 'playlists',
+    tags: ['React', 'JavaScript', 'Frontend', 'Playlist'],
+    url: 'https://youtu.be/LDB4uaJ87e0?si=yfvTTPyJy_W45pY3',
+    isPremium: false,
+    platform: 'YouTube',
+    note: 'Traversy Media\'s React tutorials, including the 2024 crash course, are free on YouTube. Check for the latest videos in the playlist for updates.',
+    thumbnailUrl: 'https://i.ytimg.com/vi/LDB4uaJ87e0/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBV7kUBo-v5J9CmhIcgwpw1LNDplQ'
+  },
+  {
+      title: "Git & GitHub - The Complete Guide Playlist",
+      description: "Master version control with Git and GitHub in this comprehensive video course. Learn branching, merging, pull requests, and collaboration workflows for real-world projects.",
+      type: "Playlist",
+      rating: 5,
+      author: "Apna College",
+      category: "playlists",
+      tags: ["Git", "GitHub", "Version Control", "Playlist"],
+      url: "https://youtu.be/Ez8F0nW6S-w?si=5oE6_p2rvkMv9Q4i",
+      isPremium: false,
+      platform: "YouTube",
+      note: "FreeCodeCamp's Git and GitHub tutorials are free and include the popular 'Git and GitHub for Beginners' crash course.",
+      thumbnailUrl: "https://i.ytimg.com/vi/Ez8F0nW6S-w/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA6fPCgrA7WtxyXnkmP8p92K569Vw"
+    },
+  {
+    title: "Git for Professionals Tutorial - Tools & Concepts",
+    description: "A detailed playlist diving into advanced Git concepts like branching strategies, rebasing, and collaborative workflows on GitHub for professional development.",
+    type: "Playlist",
+    rating: 4.7,
+    author: "freeCodeCamp.org",
+    category: "playlists",
+    tags: ["Git", "GitHub", "Version Control", "Advanced", "Playlist"],
+    url: "https://youtu.be/Uszj_k0DGsg?si=O2e5yK3z5z7w8X9",
+    isPremium: false,
+    platform: "YouTube",
+    note: "Free playlist for developers looking to go beyond the basics of Git and GitHub.",
+    thumbnailUrl: "https://i.ytimg.com/vi/Uszj_k0DGsg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFryq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB8z3z7k3z5z7w8X9kQzY7pL2zY8vW3"
+  },
+  {
+    title: "Git & GitHub Crash Course For Beginners",
+    description: "A concise playlist teaching the fundamentals of Git and GitHub, including commits, branches, and pull requests, with hands-on examples.",
+    type: "Playlist",
+    rating: 4.6,
+    author: "Traversy Media",
+    category: "playlists",
+    tags: ["Git", "GitHub", "Version Control", "Beginner", "Playlist"],
+    url: "https://youtu.be/SWYqp7iY_Tc?si=9kQzX7pL2zY8vW3",
+    isPremium: false,
+    platform: "YouTube",
+    note: "Free crash course with practical examples for quick learning.",
+    thumbnailUrl: "https://i.ytimg.com/vi/SWYqp7iY_Tc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFryq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB8z3z7k3z5z7w8X9kQzY7pL2zY8vW3"
+  },
+  {
     title: 'HTML & CSS Crash Course',
-    description: 'A beginner-friendly guide to building your first webpage with HTML and CSS.',
+    description: 'Start your web development career with HTML/CSS! This beginner-friendly tutorial covers the essentials..',
     type: 'Tutorial',
     rating: 5,
-    author: 'Web Dev Simplified',
+    author: 'Programming with Mosh',
     category: 'tutorials',
-    tags: ['HTML', 'CSS', 'Web Development'],
-    url: 'https://www.youtube.com/watch?v=G3e-cpL7ofc',
+    tags: ['HTML', 'CSS', 'Web Development', 'Beginner'],
+    url: 'https://youtu.be/qz0aGYrrlhU?si=irFRyNngUFxNW7Of',
     isPremium: false,
     platform: 'YouTube',
     note: 'Free tutorial series.'
@@ -102,48 +186,85 @@ const resources: Array<{
     thumbnailUrl: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb'
   },
   {
-    title: 'JavaScript for Absolute Beginners Playlist',
-    description: 'Start your JavaScript journey with this easy-to-follow tutorial series. Designed for beginners, it covers core JavaScript concepts like variables, functions, and DOM manipulation in a clear, engaging way.',
-    type: 'Playlist',
-    rating: 4,
-    author: 'Programming with Mosh',
-    category: 'playlists',
-    tags: ['JavaScript', 'Web Development', 'Beginner', 'Playlist'],
-    url: 'https://www.youtube.com/playlist?list=PLTjRvDozrdlz3_FPXwbHvo0KzKo9Wz0dW',
-    isPremium: false,
-    platform: 'YouTube',
-    note: 'Includes Mosh\'s free JavaScript tutorials, such as "JavaScript Tutorial for Beginners." Additional premium content may be available on his website.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3'
-  },
-  {
-    title: 'React Crash Course 2024 Playlist',
-    description: 'Learn React.js fundamentals in this in-depth video tutorial series for beginners. Covers components, props, state, and hooks to build dynamic user interfaces.',
-    type: 'Playlist',
-    rating: 5,
-    author: 'Traversy Media',
-    category: 'playlists',
-    tags: ['React', 'JavaScript', 'Frontend', 'Playlist'],
-    url: 'https://youtu.be/LDB4uaJ87e0?si=yfvTTPyJy_W45pY3',
-    isPremium: false,
-    platform: 'YouTube',
-    note: 'Traversy Media\'s React tutorials, including the 2024 crash course, are free on YouTube. Check for the latest videos in the playlist for updates.',
-    thumbnailUrl: 'https://i.ytimg.com/vi/LDB4uaJ87e0/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBV7kUBo-v5J9CmhIcgwpw1LNDplQ'
-  },
-  {
-    title: 'Git & GitHub - The Complete Guide Playlist',
-    description: 'Master version control with Git and GitHub in this comprehensive video course. Learn branching, merging, pull requests, and collaboration workflows for real-world projects.',
-    type: 'Playlist',
-    rating: 5,
-    author: 'Apna College',
-    category: 'playlists',
-    tags: ['Git', 'GitHub', 'Version Control', 'Playlist'],
-    url: 'https://youtu.be/Ez8F0nW6S-w?si=5oE6_p2rvkMv9Q4i',
-    isPremium: false,
-    platform: 'YouTube',
-    note: 'FreeCodeCamp\'s Git and GitHub tutorials are free and include the popular "Git and GitHub for Beginners" crash course.',
-    thumbnailUrl: 'https://i.ytimg.com/vi/Ez8F0nW6S-w/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA6fPCgrA7WtxyXnkmP8p92K569Vw'
-  },
-  {
+      title: "HTML & CSS Crash Course",
+      description: "Start your web development career with HTML/CSS! This beginner-friendly tutorial covers the essentials.",
+      type: "Tutorial",
+      rating: 5,
+      author: "Programming with Mosh",
+      category: "tutorials",
+      tags: ["HTML", "CSS", "Web Development", "Beginner"],
+      url: "https://youtu.be/qz0aGYrrlhU?si=irFRyNngUFxNW7Of",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free tutorial series."
+    },
+    {
+      title: "HTML & CSS Full Course - Beginner to Pro",
+      description: "A comprehensive course covering HTML and CSS from scratch, including layouts, responsive design, and modern techniques like Flexbox and CSS Grid.",
+      type: "Tutorial",
+      rating: 4.8,
+      author: "SuperSimpleDev",
+      category: "tutorials",
+      tags: ["HTML", "CSS", "Web Development", "Beginner", "Responsive Design"],
+      url: "https://youtu.be/G3e-cpL7ofc?si=2h0QzB7Z8V7lXz9g",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free course with certificate of completion available."
+    },
+    {
+      title: "CSS Tutorial – Full Course for Beginners",
+      description: "In-depth course covering all key features of CSS, including selectors, layouts, and advanced styling techniques, perfect for beginners.",
+      type: "Tutorial",
+      rating: 4.9,
+      author: "freeCodeCamp.org",
+      category: "tutorials",
+      tags: ["CSS", "Web Development", "Beginner", "Styling"],
+      url: "https://youtu.be/OXO132Q04Y?si=7k5gYpL8zXz7k1z",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free comprehensive CSS course by a non-profit organization."
+    },
+    {
+      title: "HTML Full Course - Build a Website Tutorial",
+      description: "Learn HTML5 basics and build a website from scratch in this beginner-friendly course, covering structure, elements, and more.",
+      type: "Tutorial",
+      rating: 4.7,
+      author: "freeCodeCamp.org",
+      category: "tutorials",
+      tags: ["HTML", "Web Development", "Beginner", "Website Building"],
+      url: "https://youtu.be/pQN-pnXPaVg?si=3m9zYvX1z2qW8l0",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free course with hands-on website-building project."
+    },
+    {
+      title: "HTML and CSS Tutorial - Create a Website for Beginners",
+      description: "A complete tutorial to learn HTML and CSS by building a band website, focusing on modern design and practical application.",
+      type: "Tutorial",
+      rating: 4.6,
+      author: "Traversy Media",
+      category: "tutorials",
+      tags: ["HTML", "CSS", "Web Development", "Beginner", "Project-Based"],
+      url: "https://youtu.be/Wm6CUkswMCA?si=O2e5yK3z5z7w8X9",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free project-based tutorial series."
+    },
+    {
+      title: "Learn HTML5 and CSS3 From Scratch - Full Course",
+      description: "A beginner-friendly course covering HTML5 and CSS3 essentials, with step-by-step guidance to create responsive websites.",
+      type: "Tutorial",
+      rating: 4.8,
+      author: "Academind",
+      category: "tutorials",
+      tags: ["HTML5", "CSS3", "Web Development", "Beginner", "Responsive Design"],
+      url: "https://youtu.be/mU6anWqZJcc?si=9kQzX7pL2zY8vW3",
+      isPremium: false,
+      platform: "YouTube",
+      note: "Free course with practical examples and responsive design focus."
+    },
+    
+    {
     title: 'VS Code for Beginners Playlist',
     description: 'Set up and customize Visual Studio Code for an optimal coding experience. This series covers extensions, debugging, and productivity tips for beginners.',
     type: 'Playlist',
@@ -496,33 +617,33 @@ const Resources = () => {
   });
   return <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tech-blue to-tech-lightblue text-white py-16">
+      <section className="bg-gradient-to-r from-tech-blue to-tech-lightblue text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Learning Materials</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Resources Library</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-6 text-blue-100">
+          <Badge className="bg-white/20 text-white mb-4 badge-responsive">Learning Materials</Badge>
+          <h1 className="responsive-heading font-bold mb-4">Resources Library</h1>
+          <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100">
             Discover free learning materials to accelerate your tech journey.
           </p>
         </div>
       </section>
 
       {/* Search and Filters */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 sm:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
-              <Input placeholder="Search resources..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10" />
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="relative w-full lg:w-96 search-responsive">
+              <Search className="absolute top-3 left-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+              <Input placeholder="Search resources..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 input-responsive" />
             </div>
             
             <div className="flex flex-wrap items-center gap-2">
-              <Filter className="h-5 w-5 text-gray-500" />
+              <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
               <span className="text-sm font-medium">Filter by tag:</span>
               <div className="flex flex-wrap gap-2">
-                <Button variant={tagFilter === null ? 'secondary' : 'outline'} size="sm" onClick={() => setTagFilter(null)}>
+                <Button variant={tagFilter === null ? 'secondary' : 'outline'} size="sm" onClick={() => setTagFilter(null)} className="badge-responsive">
                   All
                 </Button>
-                {allTags.slice(0, 6).map(tag => <Button key={tag} variant={tagFilter === tag ? 'secondary' : 'outline'} size="sm" onClick={() => setTagFilter(tag)}>
+                {allTags.slice(0, 6).map(tag => <Button key={tag} variant={tagFilter === tag ? 'secondary' : 'outline'} size="sm" onClick={() => setTagFilter(tag)} className="badge-responsive">
                     {tag}
                   </Button>)}
               </div>

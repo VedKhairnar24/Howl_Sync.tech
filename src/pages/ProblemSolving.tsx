@@ -243,18 +243,18 @@ const ProblemSolving = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tech-purple to-tech-indigo text-white py-16">
+      <section className="bg-gradient-to-r from-tech-purple to-tech-indigo text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Get Unstuck</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Problem-Solving Hub</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-6 text-blue-100">
+          <Badge className="bg-white/20 text-white mb-4 badge-responsive">Get Unstuck</Badge>
+          <h1 className="responsive-heading font-bold mb-4">Problem-Solving Hub</h1>
+          <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100">
             Find solutions to common challenges faced by beginners in programming and technology.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="btn-group-responsive">
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
                 <a href="/about#contact" className="flex items-center gap-2">
-                  <Button className="bg-white text-tech-indigo hover:bg-blue-50">
+                  <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
                     Ask a Question
                   </Button>
                 </a>
@@ -292,7 +292,7 @@ const ProblemSolving = () => {
               </DialogContent>
             </Dialog>
             
-            <Button variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button variant="outline" className="border-white text-white hover:bg-white/10 btn-responsive">
               Browse FAQ
             </Button>
           </div>
@@ -300,27 +300,28 @@ const ProblemSolving = () => {
       </section>
 
       {/* Search and Filters */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 sm:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="relative w-full lg:w-96 search-responsive">
+              <Search className="absolute top-3 left-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
               <Input
                 placeholder="Search problems and solutions..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
+                className="pl-10 input-responsive"
               />
             </div>
             
-            <div className="flex items-center">
-              <Filter className="h-5 w-5 text-gray-500 mr-2" />
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500 mr-2" />
               <span className="text-sm font-medium mr-2">Filter by:</span>
               <div className="flex flex-wrap gap-2">
                 <Button
                   variant={categoryFilter === null ? 'secondary' : 'outline'} 
                   size="sm"
                   onClick={() => setCategoryFilter(null)}
+                  className="badge-responsive"
                 >
                   All
                 </Button>
@@ -330,6 +331,7 @@ const ProblemSolving = () => {
                     variant={categoryFilter === category ? 'secondary' : 'outline'} 
                     size="sm"
                     onClick={() => setCategoryFilter(category)}
+                    className="badge-responsive"
                   >
                     {category}
                   </Button>

@@ -85,16 +85,16 @@ const Community = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tech-pink to-tech-purple text-white py-16">
+      <section className="bg-gradient-to-r from-tech-pink to-tech-purple text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Learn Together</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Join Our Community</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-8 text-blue-100">
+          <Badge className="bg-white/20 text-white mb-4 badge-responsive">Learn Together</Badge>
+          <h1 className="responsive-heading font-bold mb-4">Join Our Community</h1>
+          <p className="responsive-text max-w-2xl mx-auto mb-8 text-blue-100">
             Connect with fellow learners, participate in events, join study groups, and find mentors to support your tech journey.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="btn-group-responsive">
             <a href="https://discord.gg/SukSvWsC" className="flex items-center gap-2">
-              <Button className="bg-white text-tech-purple hover:bg-blue-50">
+              <Button className="bg-white text-tech-purple hover:bg-blue-50 btn-responsive">
                 Join Discord Server
               </Button>
             </a>
@@ -106,34 +106,34 @@ const Community = () => {
       </section>
 
       {/* Community Highlights */}
-      <section className="py-16">
+      <section className="py-8 sm:py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="card-hover">
+          <div className="card-grid-responsive">
+            <Card className="card-hover card-responsive">
               <CardHeader>
-                <Users className="h-10 w-10 text-tech-blue mb-2" />
-                <CardTitle>2,500+ Members</CardTitle>
-                <CardDescription>
+                <Users className="h-8 w-8 sm:h-10 sm:w-10 text-tech-blue mb-2" />
+                <CardTitle className="responsive-subheading">2,500+ Members</CardTitle>
+                <CardDescription className="responsive-text">
                   Join a growing community of learners at all stages of their tech journey
                 </CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="card-hover">
+            <Card className="card-hover card-responsive">
               <CardHeader>
-                <MessageSquare className="h-10 w-10 text-tech-purple mb-2" />
-                <CardTitle>Active Discussions</CardTitle>
-                <CardDescription>
+                <MessageSquare className="h-8 w-8 sm:h-10 sm:w-10 text-tech-purple mb-2" />
+                <CardTitle className="responsive-subheading">Active Discussions</CardTitle>
+                <CardDescription className="responsive-text">
                   Engage in meaningful conversations across various tech topics
                 </CardDescription>
               </CardHeader>
             </Card>
             
-            <Card className="card-hover">
+            <Card className="card-hover card-responsive">
               <CardHeader>
-                <Calendar className="h-10 w-10 text-tech-pink mb-2" />
-                <CardTitle>Weekly Events</CardTitle>
-                <CardDescription>
+                <Calendar className="h-8 w-8 sm:h-10 sm:w-10 text-tech-pink mb-2" />
+                <CardTitle className="responsive-subheading">Weekly Events</CardTitle>
+                <CardDescription className="responsive-text">
                   Participate in workshops, coding challenges, and Q&A sessions
                 </CardDescription>
               </CardHeader>

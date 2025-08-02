@@ -6,15 +6,15 @@ import { Code, ExternalLink } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center">
-              <Code className="h-8 w-8 text-tech-blue" />
-              <span className="ml-2 text-xl font-bold text-tech-blue">HowlSync.Tech</span>
+            <Link to="/" className="flex items-center group">
+              <Code className="h-6 w-6 sm:h-8 sm:w-8 text-tech-blue" />
+              <span className="ml-2 text-lg sm:text-xl font-bold text-tech-blue group-hover:text-tech-indigo transition-colors">HowlSync.Tech</span>
             </Link>
-            <p className="mt-4 text-gray-600 max-w-md">
+            <p className="mt-4 text-gray-600 max-w-md responsive-text">
               Helping beginners navigate their tech journey with structured learning paths, 
               problem-solving resources, and a supportive community.
             </p>
@@ -46,10 +46,10 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Learn</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link to="/learning-paths" className="text-gray-600 hover:text-tech-blue">Learning Paths</Link></li>
-              <li><Link to="/problem-solving" className="text-gray-600 hover:text-tech-blue">Problem-Solving Hub</Link></li>
-              <li><Link to="/resources" className="text-gray-600 hover:text-tech-blue">Resources Library</Link></li>
-              <li><Link to="/blog" className="text-gray-600 hover:text-tech-blue">Blog</Link></li>
+              <li><Link to="/learning-paths" className="text-gray-600 hover:text-tech-blue responsive-text">Learning Paths</Link></li>
+              <li><Link to="/problem-solving" className="text-gray-600 hover:text-tech-blue responsive-text">Problem-Solving Hub</Link></li>
+              <li><Link to="/resources" className="text-gray-600 hover:text-tech-blue responsive-text">Resources Library</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-tech-blue responsive-text">Blog</Link></li>
             </ul>
           </div>
 
@@ -57,10 +57,10 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Community</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link to="/community" className="text-gray-600 hover:text-tech-blue">Join Forum</Link></li>
-              <li><Link to="/community/mentorship" className="text-gray-600 hover:text-tech-blue">Find a Mentor</Link></li>
-              <li><Link to="/community/groups" className="text-gray-600 hover:text-tech-blue">Study Groups</Link></li>
-              <li><Link to="/community/success-stories" className="text-gray-600 hover:text-tech-blue">Success Stories</Link></li>
+              <li><Link to="/community" className="text-gray-600 hover:text-tech-blue responsive-text">Join Forum</Link></li>
+              <li><Link to="/community/mentorship" className="text-gray-600 hover:text-tech-blue responsive-text">Find a Mentor</Link></li>
+              <li><Link to="/community/groups" className="text-gray-600 hover:text-tech-blue responsive-text">Study Groups</Link></li>
+              <li><Link to="/community/success-stories" className="text-gray-600 hover:text-tech-blue responsive-text">Success Stories</Link></li>
             </ul>
           </div>
 
@@ -68,15 +68,15 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Company</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link to="/about" className="text-gray-600 hover:text-tech-blue">About Us</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-tech-blue">Contact</Link></li>
-              <li><Link to="/privacy" className="text-gray-600 hover:text-tech-blue">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-600 hover:text-tech-blue">Terms of Service</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-tech-blue responsive-text">About Us</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-tech-blue responsive-text">Contact</Link></li>
+              <li><Link to="/privacy" className="text-gray-600 hover:text-tech-blue responsive-text">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-gray-600 hover:text-tech-blue responsive-text">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between">
+        <div className="mt-8 sm:mt-12 border-t pt-6 sm:pt-8 flex flex-col md:flex-row justify-between">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} HowlSync.Tech. All rights reserved.
           </p>

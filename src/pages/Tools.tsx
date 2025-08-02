@@ -223,21 +223,81 @@ const tools = [
 
 // AI Research and Development Tools
 const aiTools = [
-  {
-    title: 'OpenAI GPT-4o',
-    description: 'Advanced large language model with multimodal capabilities. Ideal for natural language processing, code generation, and content creation.',
-    type: 'Tool' as const,
-    rating: 5,
-    author: 'OpenAI',
-    category: 'ai',
-    tags: ['AI', 'LLM', 'Natural Language Processing', 'Code Generation'],
-    url: 'https://openai.com/gpt-4o',
-    isPremium: true,
-    platform: 'API & Web',
-    note: 'Premium API with usage-based pricing. Powers many AI applications.',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1677442135126-21d0d0e8e292',
-    logoUrl: 'https://seeklogo.com/images/O/open-ai-logo-8B9BFEDC26-seeklogo.com.png'
-  },
+    {
+      title: "OpenAI GPT-4o",
+      description: "Advanced large language model with multimodal capabilities. Ideal for natural language processing, code generation, and content creation.",
+      type: "Tool",
+      rating: 5,
+      author: "OpenAI",
+      category: "ai",
+      tags: ["AI", "LLM", "Natural Language Processing", "Code Generation"],
+      url: "https://openai.com/gpt-4o",
+      isPremium: true,
+      platform: "API & Web",
+      note: "Premium API with usage-based pricing. Powers many AI applications.",
+      thumbnailUrl: "https://images.unsplash.com/photo-1677442135126-21d0d0e8e292",
+      logoUrl: "https://seeklogo.com/images/O/open-ai-logo-8B9BFEDC26-seeklogo.com.png"
+    },
+    {
+      title: "Grok 3",
+      description: "A powerful AI model designed for real-time data analysis, advanced reasoning, and image generation. Integrates with X for live insights and excels in math, science, and coding tasks.",
+      type: "Tool",
+      rating: 4.9,
+      author: "xAI",
+      category: "ai",
+      tags: ["AI", "LLM", "Real-Time Data", "Code Generation", "Image Generation"],
+      url: "https://x.ai/grok",
+      isPremium: true,
+      platform: "Web, iOS, Android, X",
+      note: "Available with X Premium+ ($16-$22/month) or SuperGrok ($30/month). Free limited access on X platform.",
+      thumbnailUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e175b",
+      logoUrl: "data:image/png;base64,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"
+    },
+    {
+      title: "DeepSeek R1",
+      description: "An open-source AI model specializing in advanced reasoning, particularly for STEM tasks like mathematical problem-solving and code generation. Offers cost-effective solutions for developers.",
+      type: "Tool",
+      rating: 4.8,
+      author: "DeepSeek",
+      category: "ai",
+      tags: ["AI", "LLM", "Open-Source", "Code Generation", "Mathematical Reasoning"],
+      url: "https://www.deepseek.com/",
+      isPremium: false,
+      platform: "Web, API",
+      note: "Free web app and API trials. Paid API at $0.0008 per 1,000 tokens. Ideal for cost-sensitive applications.",
+      thumbnailUrl: "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d",
+      logoUrl: "data:image/png;base64,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"
+    },
+    {
+      title: "Claude 3.7",
+      description: "A versatile AI model excelling in long-form content creation, coding, and conversational tasks. Known for its safe and context-aware responses, ideal for enterprise use.",
+      type: "Tool",
+      rating: 4.8,
+      author: "Anthropic",
+      category: "ai",
+      tags: ["AI", "LLM", "Content Creation", "Code Generation", "Conversational AI"],
+      url: "https://www.anthropic.com/claude",
+      isPremium: true,
+      platform: "Web, API",
+      note: "Available via Anthropic’s API or Claude Pro ($20/month). Strong for document analysis and customer service.",
+      thumbnailUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/330px-Claude_AI_logo.svg.png'
+    },
+    {
+      title: "Google Gemini 2.0",
+      description: "A multimodal AI model integrated with Google’s ecosystem, excelling in text, image, audio, and video processing. Ideal for productivity tools and complex problem-solving.",
+      type: "Tool",
+      rating: 4.7,
+      author: "Google",
+      category: "ai",
+      tags: ["AI", "LLM", "Multimodal", "Code Generation", "Productivity"],
+      url: "https://deepmind.google/technologies/gemini/",
+      isPremium: true,
+      platform: "Web, API, Google Services",
+      note: "Available via Google’s Bard and Vertex AI. Free preview tiers, with API pricing expected to be competitive.",
+      thumbnailUrl: "https://images.unsplash.com/photo-1618773928121-c3222922b9f3",
+      logoUrl: "https://st1.techlusive.in/wp-content/uploads/2024/09/Gemini.jpg?impolicy=Medium_Widthonly&w=400"
+    },
   {
     title: 'Hugging Face Transformers',
     description: 'Open-source library providing thousands of pre-trained models for NLP, computer vision, speech processing, and more.',
@@ -281,7 +341,7 @@ const aiTools = [
     platform: 'Web & API',
     note: 'Free with premium options. Great for research and fact-checking.',
     thumbnailUrl: 'https://images.unsplash.com/photo-1639322537504-6427a16b0a28',
-    logoUrl: 'https://assets-global.website-files.com/64760069e93084646c9ee428/64cbaecf601ec37f3434ff8b_Icon%20(bloated)%20(1).png'
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Perplexity_AI_logo.svg/500px-Perplexity_AI_logo.svg.png'
   },
   {
     title: 'Claude',
@@ -296,7 +356,7 @@ const aiTools = [
     platform: 'API & Web',
     note: 'Free tier with premium options. Excellent for complex reasoning tasks.',
     thumbnailUrl: 'https://images.unsplash.com/photo-1673002084129-3148452f9e44',
-    logoUrl: 'https://images.ctfassets.net/x7nx2r7d3pz4/7pnilxn2iAy5NSFli2Q8BC/a5cc8a8615e39e11b106398222480943/claude-logo.png'
+    logoUrl: '//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/330px-Claude_AI_logo.svg.png'
   },
   {
     title: 'LangChain',
@@ -343,22 +403,7 @@ const aiTools = [
     thumbnailUrl: 'https://images.unsplash.com/photo-1678749985115-634dd376e16e',
     logoUrl: 'https://avatars.githubusercontent.com/u/100950301'
   },
-  {
-    title: "ml5.js",
-    description: "A beginner-friendly JavaScript library built on TensorFlow.js for creative machine learning applications in the browser, such as image classification and sound recognition.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "ml5.js Community",
-    category: "ai",
-    tags: ["AI", "Machine Learning", "JavaScript", "Browser ML", "Creative Tools"],
-    url: "https://ml5js.org/",
-    isPremium: false,
-    platform: "Browser & Node.js",
-    note: "Open-source and free. Ideal for prototyping ML-powered web apps.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
-    logoUrl: "https://ml5js.org/assets/img/ml5-logo.png"
-  },
-  {
+   {
     title: "Brain.js",
     description: "A lightweight JavaScript library for building and training neural networks in the browser or Node.js, with a simple API for tasks like pattern recognition.",
     type: 'Tool' as const,
@@ -374,96 +419,6 @@ const aiTools = [
     logoUrl: "https://brain.js.org/favicon.ico"
   },
   {
-    title: "WebDNN",
-    description: "A JavaScript framework for running deep neural networks in the browser with WebGL, WebGPU, or WebAssembly, supporting models from TensorFlow and PyTorch.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "Machine Intelligence Lab, University of Tokyo",
-    category: "ai",
-    tags: ["AI", "Machine Learning", "Deep Learning", "JavaScript", "Browser ML"],
-    url: "https://mil-tokyo.github.io/webdnn/",
-    isPremium: false,
-    platform: "Browser",
-    note: "Open-source and free. Optimized for low-latency inference.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1531266752426-aad65a93f0f5",
-    logoUrl: "https://mil-tokyo.github.io/webdnn/images/webdnn_logo.png"
-  },
-  {
-    title: "Tabnine",
-    description: "An AI-powered code completion tool that provides context-aware suggestions across multiple programming languages, integrated into popular IDEs.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "Tabnine",
-    category: "ai",
-    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "Productivity"],
-    url: "https://www.tabnine.com/",
-    isPremium: true,
-    platform: "VS Code, IntelliJ, Sublime Text",
-    note: "Free tier available; premium plans offer advanced features. Great for JavaScript developers.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
-    logoUrl: "https://www.tabnine.com/static/logo.svg"
-  },
-  {
-    title: "Codeium",
-    description: "An open-source AI coding assistant offering code suggestions, autocompletions, and natural language-to-code features for JavaScript and other languages.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "Codeium",
-    category: "ai",
-    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "NLP"],
-    url: "https://codeium.com/",
-    isPremium: false,
-    platform: "VS Code, JetBrains, Neovim",
-    note: "Free and open-source with a robust free tier. Privacy-focused with on-device options.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-    logoUrl: "https://codeium.com/images/codeium-logo.png"
-  },
-  {
-    title: "Windsurf",
-    description: "An AI-powered IDE forked from VSCodium, offering code completion, debugging, and chat-based assistance for JavaScript and other languages.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "Windsurf AI Community",
-    category: "ai",
-    tags: ["AI", "Code Completion", "IDE", "JavaScript", "Developer Tools"],
-    url: "https://github.com/windsurf-ai",
-    isPremium: false,
-    platform: "Desktop & Web",
-    note: "Open-source and free. Similar to Cursor AI with AI-driven coding features.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
-    logoUrl: "https://avatars.githubusercontent.com/u/168684656?s=200&v=4"
-  },
-  {
-    title: "aiXcoder",
-    description: "An AI coding assistant that suggests code snippets, completes code, and debugs errors, integrated into IDEs for JavaScript and other languages.",
-    type: 'Tool' as const,
-    rating: 3,
-    author: "aiXcoder",
-    category: "ai",
-    tags: ["AI", "Code Completion", "Developer Tools", "JavaScript", "Debugging"],
-    url: "https://www.aixcoder.com/",
-    isPremium: true,
-    platform: "VS Code, IntelliJ, Eclipse",
-    note: "Free tier available; premium for advanced features. Enhances JavaScript coding workflows.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
-    logoUrl: "https://www.aixcoder.com/images/logo.png"
-  },
-  {
-    title: "Theia IDE",
-    description: "An open-source, extensible IDE with AI-powered features like code completion and chat, supporting JavaScript and other languages.",
-    type: 'Tool' as const,
-    rating: 4,
-    author: "Eclipse Theia Community",
-    category: "ai",
-    tags: ["AI", "Code Completion", "IDE", "JavaScript", "Developer Tools"],
-    url: "https://theia-ide.org/",
-    isPremium: false,
-    platform: "Web & Desktop",
-    note: "Open-source and free. Customizable with AI agent support.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-    logoUrl: "https://theia-ide.org/theia-logo.svg"
-  },
-  {
     title: "V0 by Vercel",
     description: "An AI-powered tool for generating UI components and layouts from text prompts, ideal for React and Next.js development.",
     type: 'Tool' as const,
@@ -476,7 +431,7 @@ const aiTools = [
     platform: "Web",
     note: "Free tier with 100,000 tokens daily; premium for unlimited use. Perfect for rapid UI prototyping.",
     thumbnailUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    logoUrl: "https://v0.dev/assets/logo.png"
+    logoUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAXVBMVEUAAAD///84ODjx8fG4uLhhYWH39/dGRkaVlZVDQ0PGxsbl5eUgICAxMTFQUFB7e3sTExPW1tafn59zc3OKioqqqqrd3d0oKCiwsLDNzc1tbW2Dg4O/v79bW1s9PT1CnBjoAAABYUlEQVRoge3YW3aCQBCEYUsQVBCCRlFz2f8yTaKTcJOZaHfzUv8GvuM5lDMwmzHGGGOMMcYYY4yxsdLlRHCM1SRuAawngSsAiwnc3ZeLbAI4+obxau4uf1wk1m6OW3tjOHYwNqZu8evi3RSu/mDTSZUNFwc7N4+asOGkti0XUW3krpI2jKMRvEa3wsRd9FycTOBDH8bZwH0bcE1Oqe6TdU3/FrQfdAFtt77jqk+qPyVXquoOTMmlO6mhKbl2iu7glFzZi5pbR2Ow4qTuTelWonULSsddvVvQyQfjQ8U9e11UKnDmh1EquMsAF5G8mw+fSt224vAxyAWk/0U2gS5iYbjyk7dkL367YFd4UiFTcklOKmhKriwXc+fjp1I3uUnFfqxZIvX5q/Bb7aROqfApuWTe1Us/1E3mxeJ/T9Y1iXf1rZ/pJ/D5q44eKXl+Uvnn/KGe/8mMMcYYY4wxxhhjYl0ANZcLq5Ha9CYAAAAASUVORK5CYII="
   },
   {
     title: "DeepCode",
@@ -491,7 +446,7 @@ const aiTools = [
     platform: "Web, GitHub, IDEs",
     note: "Free for open-source projects; premium for private repos. Ensures secure JavaScript code.",
     thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-ffd91a31e4e8",
-    logoUrl: "https://www.deepcode.ai/images/logo.svg"
+    logoUrl: "https://snyk.io/_next/static/media/default-blog.f4eb278b.svg"
   }
 ]
 
@@ -583,27 +538,27 @@ const Tools = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tech-indigo to-tech-purple text-white py-16">
+      <section className="bg-gradient-to-r from-tech-indigo to-tech-purple text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4">Development & AI Tools</Badge>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Essential Tools for Developers</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-6 text-blue-100">
+          <Badge className="bg-white/20 text-white mb-4 badge-responsive">Development & AI Tools</Badge>
+          <h1 className="responsive-heading font-bold mb-4">Essential Tools for Developers</h1>
+          <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100">
             Discover the best development and AI tools to enhance your workflow, productivity, and innovation.
           </p>
         </div>
       </section>
 
       {/* Search */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-6 sm:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+            <div className="relative w-full sm:w-80 md:w-96 search-responsive">
+              <Search className="absolute top-3 left-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
               <Input 
                 placeholder="Search tools..." 
                 value={searchQuery} 
                 onChange={e => setSearchQuery(e.target.value)} 
-                className="pl-10" 
+                className="pl-10 input-responsive" 
               />
             </div>
           </div>

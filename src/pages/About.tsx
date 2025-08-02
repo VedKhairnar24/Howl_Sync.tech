@@ -9,15 +9,15 @@ const About: React.FC = () => {
       <div className="py-8 bg-gradient-to-r from-tech-blue to-tech-lightblue text-white relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
-          <div className="absolute top-20 right-20 w-16 h-16 bg-cyan-300 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-blue-200 rounded-full animate-ping"></div>
+          <div className="absolute top-10 left-10 w-12 h-12 sm:w-20 sm:h-20 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute top-20 right-20 w-8 h-8 sm:w-16 sm:h-16 bg-cyan-300 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-10 left-1/4 w-6 h-6 sm:w-12 sm:h-12 bg-blue-200 rounded-full animate-ping"></div>
         </div>
         
         <div className="text-center mb-6 sm:mb-8 md:mb-10 max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex justify-center mb-4 sm:mb-6 relative">
             {/* Logo with enhanced effects */}
-            <div className="relative bg-white border-8 border-blue-500 p-1 sm:p-2 rounded-full shadow-lg shadow-blue-500/50 animate-float">
+            <div className="relative bg-white border-4 sm:border-8 border-blue-500 p-1 sm:p-2 rounded-full shadow-lg shadow-blue-500/50 animate-float">
               {/* Glowing ring effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-white-400 opacity-75 blur-sm animate-pulse"></div>
               
@@ -29,25 +29,25 @@ const About: React.FC = () => {
               </div>
               
               {/* Sparkle effects */}
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-sparkle-1"></div>
-              <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-cyan-400 rounded-full animate-sparkle-2"></div>
-              <div className="absolute top-1/2 -right-3 w-8 h-8 bg-pink-400 rounded-full animate-sparkle-3"></div>
+              <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-3 h-3 sm:w-6 sm:h-6 bg-yellow-400 rounded-full animate-sparkle-1"></div>
+              <div className="absolute -bottom-0.5 -left-0.5 sm:-bottom-1 sm:-left-1 w-2 h-2 sm:w-4 sm:h-4 bg-cyan-400 rounded-full animate-sparkle-2"></div>
+              <div className="absolute top-1/2 -right-1.5 sm:-right-3 w-4 h-4 sm:w-8 sm:h-8 bg-pink-400 rounded-full animate-sparkle-3"></div>
               
               <img
                 src="./imgs/Howl Sync.png"
                 alt="Howl Sync Logo"
-                className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-cover rounded-full relative z-10 hover:scale-105 transition-transform duration-300"
+                className="h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 xl:h-48 xl:w-48 object-cover rounded-full relative z-10 hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
           
           {/* Enhanced title with typing effect */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 ">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4">
             <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">Howl Sync</span>
           </h1>
           
           {/* Enhanced description with fade-in effect */}
-          <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0 animate-fade-in-up">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0 animate-fade-in-up">
             We are a dynamic duo of passionate developers driven by innovation and a shared commitment to building impactful, user-centric digital solutions. With expertise spanning full-stack web development and core programming, our team blends creativity with technical precision.
           </p>
           

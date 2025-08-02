@@ -99,23 +99,23 @@ const Blog: React.FC = () => {
           // <section className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-16">
 
     <div className="">
-      <div className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl text-white font-bold gradient-text mb-4">SyntaxSquad.Tech Blog</h1>
-        <p className="text-lg text-white text-gray-600 max-w-2xl mx-auto">
+      <div className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="responsive-heading text-white font-bold gradient-text mb-4">SyntaxSquad.Tech Blog</h1>
+        <p className="responsive-text text-white text-gray-600 max-w-2xl mx-auto">
           Insights, tutorials, and resources to help you on your tech journey. Explore our latest articles below.
         </p>
         </div>
       </div>
 
       {/* Search */}
-      <div className=" max-w-md mx-auto my-4 mb-12">
+      <div className="max-w-md mx-auto my-4 mb-8 sm:mb-12">
         <div className="relative flex items-center">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
           <Input
             type="text"
             placeholder="Search articles..."
-            className="pl-10 pr-4 py-2 border rounded-lg"
+            className="pl-10 pr-4 py-2 border rounded-lg input-responsive"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -133,33 +133,33 @@ const Blog: React.FC = () => {
       </div>
 
       {/* Blog Posts Grid */}
-      <div className=" container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className="container mx-auto px-4 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <Card key={post.id} className="card-hover overflow-hidden">
-              <div className="h-48 overflow-hidden">
+              <div className="h-40 sm:h-48 overflow-hidden">
                 <img 
                   src={post.imageUrl} 
                   alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 img-responsive"
                 />
               </div>
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-500">{post.date}</span>
-                  <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{post.category}</span>
+                  <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full badge-responsive">{post.category}</span>
                 </div>
-                <CardTitle className="text-xl hover:text-tech-blue transition-colors">
+                <CardTitle className="text-lg sm:text-xl hover:text-tech-blue transition-colors">
                   <a href={`/blog/${post.id}`}>{post.title}</a>
                 </CardTitle>
-                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+                <CardDescription className="line-clamp-3 responsive-text">{post.excerpt}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors"
+                      className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors badge-responsive"
                     >
                       {tag}
                     </span>
@@ -181,7 +181,7 @@ const Blog: React.FC = () => {
             <p className="text-gray-500 mt-2">Try a different search term or browse all articles.</p>
             <Button 
               variant="outline" 
-              className="mt-4" 
+              className="mt-4 btn-responsive" 
               onClick={() => setSearchQuery('')}
             >
               View all articles
