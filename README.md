@@ -25,7 +25,7 @@ Howl Sync is a comprehensive learning platform that provides structured learning
 - **Structured Learning Paths**: Step-by-step roadmaps for various tech domains
 - **Problem-Solving Hub**: Solutions to common programming challenges
 - **Resource Library**: Curated learning materials and tools
-- **Community Support**: Connect with fellow learners and mentors
+- **Community Support**: Connect with fellow learners
 - **Modern UI/UX**: Engaging animations and responsive design
 
 ## ✨ Features

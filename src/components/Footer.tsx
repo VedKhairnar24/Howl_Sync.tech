@@ -58,7 +58,6 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Community</h3>
             <ul className="mt-4 space-y-2">
               <li><Link to="/community" className="text-gray-600 hover:text-tech-blue responsive-text">Join Forum</Link></li>
-              <li><Link to="/community/mentorship" className="text-gray-600 hover:text-tech-blue responsive-text">Find a Mentor</Link></li>
               <li><Link to="/community/groups" className="text-gray-600 hover:text-tech-blue responsive-text">Study Groups</Link></li>
               <li><Link to="/community/success-stories" className="text-gray-600 hover:text-tech-blue responsive-text">Success Stories</Link></li>
             </ul>

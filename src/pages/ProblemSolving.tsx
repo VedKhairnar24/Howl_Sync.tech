@@ -507,18 +507,13 @@ const ProblemSolving = () => {
               <div className="mb-6 md:mb-0">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">Need more help?</h3>
                 <p className="text-blue-100">
-                  Connect with our community of mentors and fellow learners for personalized assistance.
+                  Connect with our community of fellow learners for personalized assistance.
                 </p>
               </div>
               <div className="flex gap-4">
                 <a href="/community" className="flex items-center gap-2">
                   <Button className="bg-white text-tech-indigo hover:bg-blue-50">
                     Join Community
-                  </Button>
-                </a>
-                <a href="/about#contact" className="flex items-center gap-2">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                    Find a Mentor
                   </Button>
                 </a>
               </div>

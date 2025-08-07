@@ -107,7 +107,7 @@ const About: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative">
-          <div className="transform translate-y-4 sm:translate-y-8">
+          <div className="transform translate-y-4 sm:translate-y-6">
             <TeamMember 
               name="Vedant Khairnar"
               role="Developer"
@@ -124,7 +124,7 @@ const About: React.FC = () => {
               }}
             />
           </div>
-          <div className="transform -translate-y-6 sm:-translate-y-10">
+          <div className="transform -translate-y-6 sm:-translate-y-7">
             <TeamMember 
               name="Ved Khairnar"
               role="Leader"
@@ -142,7 +142,7 @@ const About: React.FC = () => {
               isLead={true}
             />
           </div>
-          <div className="transform translate-y-4 sm:translate-y-8">
+          <div className="transform translate-y-4 sm:translate-y-6">
             <TeamMember 
               name="Tejas Paithane"
               role="Developer"

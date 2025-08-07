@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import About from "./pages/About"; // Added About import
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <div className="flex-grow">

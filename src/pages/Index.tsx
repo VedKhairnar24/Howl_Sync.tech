@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Code, HelpCircle, Library, Users } from 'lucide-react';
 import LearningCard from '@/components/LearningCard';
+import TypewriterText from '@/components/TypewriterText';
 import { useIsMobile, useIsTablet, useIsDesktop } from '@/hooks/use-mobile';
 
 const featuredPaths = [
@@ -79,7 +80,7 @@ const features = [
   },
   {
     title: "Supportive Community",
-    description: "Connect with fellow learners, mentors, and participate in study groups",
+    description: "Connect with fellow learners and participate in study groups",
     icon: <Users className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-pink" />,
     url: "/community",
   },
@@ -119,20 +120,20 @@ const Index = () => {
               <Badge className="bg-white/20 text-white mb-3 sm:mb-4 md:mb-6 backdrop-blur-sm animate-fade-in-up badge-responsive text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2">
                 For Beginners & Tech Students
               </Badge>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 animate-typewriter leading-tight">
-                <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
-                  Start Your Tech Journey <br className="hidden sm:block"/> 
-                  with Confidence
-                </span>
-              </h1>
+              <TypewriterText
+                firstText="Start Your Tech Journey"
+                secondText="with Confidence"
+                speed={80}
+                delay={800}
+              />
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 animate-fade-in-up delay-300 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none mb-4 sm:mb-6 md:mb-8 leading-relaxed">
                 Clear learning paths, problem-solving resources, and a supportive community to help you navigate the world of technology.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 animate-fade-in-up delay-500 justify-center lg:justify-start">
-                <Link to="/learning-paths" className="btn-responsive bg-white/20 backdrop-blur-sm rounded-full text-white border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105 inline-block text-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium">
+                <Link to="/learning-paths" className="btn-responsive bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105 inline-block text-center font-medium">
                   Start Learning
                 </Link>
-                <Link to="/community" className="btn-responsive bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full text-white hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg inline-block text-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium">
+                <Link to="/community" className="btn-responsive bg-gradient-to-r from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg inline-block text-center font-medium">
                   Join Community
                 </Link>
               </div>
@@ -312,10 +313,10 @@ const Index = () => {
             Join thousands of beginners who are learning technology the right way.
           </p>
           <div className="btn-group-responsive animate-fade-in-up delay-500">
-            <Button size={isMobile ? "responsive" : "lg"} className="bg-white text-tech-indigo hover:bg-blue-50 hover:scale-105 transition-transform duration-300 shadow-lg">
+            <Button className="btn-responsive bg-white text-tech-indigo hover:bg-blue-50 hover:scale-105 transition-transform duration-300 shadow-lg">
               <Link to="/learning-paths">Explore Learning Paths</Link>
             </Button>
-            <Button size={isMobile ? "responsive" : "lg"} variant="outline" className="border-white text-white hover:bg-white/20 hover:border-white hover:scale-105 transition-transform duration-300 backdrop-blur-sm">
+            <Button variant="outline" className="btn-responsive border-white text-white hover:bg-white/20 hover:border-white hover:scale-105 transition-transform duration-300 backdrop-blur-sm">
               <Link to="/problem-solving">Visit Problem-Solving Hub</Link>
             </Button>
           </div>
@@ -339,8 +340,7 @@ const Index = () => {
           </p>
           <Button
             asChild
-            size={isMobile ? "responsive" : "lg"}
-            className="bg-tech-blue text-white hover:bg-tech-indigo transition-colors font-semibold px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-md shadow-md hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-500 btn-responsive"
+            className="btn-responsive bg-tech-blue text-white hover:bg-tech-indigo transition-colors font-semibold shadow-md hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-500"
           >
             <Link to="/about#top">Meet My Team</Link>
           </Button>

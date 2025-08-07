@@ -627,18 +627,13 @@ const LearningPaths = () => {
               <div className="mb-6 lg:mb-0 lg:pr-8">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">Can't find what you're looking for?</h3>
                 <p className="text-blue-100 responsive-text">
-                  Request a custom learning path or get personalized guidance from our mentors.
+                  Request a custom learning path or get personalized guidance from our team.
                 </p>
               </div>
               <div className="btn-group-responsive">
                 <a href="/about#contact" className="flex items-center gap-2">
                   <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
                     Request Path
-                  </Button>
-                </a>
-                <a href="/about#contact" className="flex items-center gap-2">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10 btn-responsive">
-                    Contact Mentor
                   </Button>
                 </a>
               </div>
