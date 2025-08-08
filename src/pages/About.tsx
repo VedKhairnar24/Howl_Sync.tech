@@ -1,8 +1,32 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import TeamMember from "../components/TeamMember";
 
 const About: React.FC = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    formData.append("access_key", "d0061018-5b55-4399-9a90-24a3ae499fa9");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      (event.target as HTMLFormElement).reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <div id="top" className="mx-auto pb-8 animate-fade-in">
       {/* About Section */}
@@ -50,16 +74,6 @@ const About: React.FC = () => {
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0 animate-fade-in-up">
             We are a dynamic duo of passionate developers driven by innovation and a shared commitment to building impactful, user-centric digital solutions. With expertise spanning full-stack web development and core programming, our team blends creativity with technical precision.
           </p>
-          
-          {/* Floating action buttons */}
-          {/* <div className="flex justify-center gap-4 mt-6 animate-fade-in-up delay-500">
-            <button className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
-              Learn More
-            </button>
-            <button className="px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full text-white hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg">
-              Get Started
-            </button>
-          </div> */}
         </div>
       </div>
 
@@ -107,57 +121,58 @@ const About: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative">
-          <div className="transform translate-y-4 sm:translate-y-6">
-            <TeamMember 
-              name="Vedant Khairnar"
-              role="Developer"
-              bio="Web developer skilled in Java, Python, JavaScript, PHP, SQL, HTML, and CSS—building secure, responsive web applications with real-world impact."
-              imageUrl="./imgs/Dev-Vedant.jpg"
-              socials={{
-                github: "https://github.com/Vedantkhairnar729",
-                linkedin: "https://www.linkedin.com/in/vedant-khairnar?original_referer=",
-                instagram: "https://www.instagram.com/mr_vedant_24?igsh=d3h3YWFieWl2cmNv",
-                email: "vedantkhairnar041@gmail.com",
-                facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
-                twitter: "https://media.tenor.com/d2jqZ7DnuA8AAAAM/my-honest-reaction-my-honest-reaction-meme.gif",
-                portfolio: "https://vedantportfolio-bice.vercel.app/"
-              }}
-            />
-          </div>
-          <div className="transform -translate-y-6 sm:-translate-y-7">
-            <TeamMember 
-              name="Ved Khairnar"
-              role="Leader"
-              bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-              imageUrl="./imgs/Dev-Ved.jpg"
-              socials={{
-                github: "https://github.com/VedKhairnar24",
-                linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
-                instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
-                email: "vedkhairnar4@gmail.com",
-                facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
-                twitter: "https://i.pinimg.com/736x/77/52/5d/77525d3bbf551a36c683d3de698ba75a.jpg",
-                portfolio: "https://dev-ved-khairnar.web.app/"
-              }}
-              isLead={true}
-            />
-          </div>
-          <div className="transform translate-y-4 sm:translate-y-6">
-            <TeamMember 
-              name="Tejas Paithane"
-              role="Developer"
-              bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-              imageUrl="./imgs/Dev-Tejas.jpg"
-              socials={{
-                github: "https://github.com/Chetan-tp",
-                linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
-                instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
-                email: "paithanetajas34@gmail.com",
-                facebook: "https://i.pinimg.com/736x/8c/de/9f/8cde9fab69bfcbfa7a9649e951acef05.jpg",
-                twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
-                portfolio: "https://tejas-paithane.github.io/"
-              }}
-            />
+            <div className="transform translate-y-4 sm:translate-y-6">
+              <TeamMember 
+                name="Vedant Khairnar"
+                role="Developer"
+                bio="Web developer skilled in Java, Python, JavaScript, PHP, SQL, HTML, and CSS—building secure, responsive web applications with real-world impact."
+                imageUrl="./imgs/Dev-Vedant.jpg"
+                socials={{
+                  github: "https://github.com/Vedantkhairnar729",
+                  linkedin: "https://www.linkedin.com/in/vedant-khairnar?original_referer=",
+                  instagram: "https://www.instagram.com/mr_vedant_24?igsh=d3h3YWFieWl2cmNv",
+                  email: "vedantkhairnar041@gmail.com",
+                  facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+                  twitter: "https://media.tenor.com/d2jqZ7DnuA8AAAAM/my-honest-reaction-my-honest-reaction-meme.gif",
+                  portfolio: "https://vedantportfolio-bice.vercel.app/"
+                }}
+              />
+            </div>
+            <div className="transform -translate-y-6 sm:-translate-y-7">
+              <TeamMember 
+                name="Ved Khairnar"
+                role="Leader"
+                bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
+                imageUrl="./imgs/Dev-Ved.jpg"
+                socials={{
+                  github: "https://github.com/VedKhairnar24",
+                  linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
+                  instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
+                  email: "vedkhairnar4@gmail.com",
+                  facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+                  twitter: "https://i.pinimg.com/736x/77/52/5d/77525d3bbf551a36c683d3de698ba75a.jpg",
+                  portfolio: "https://dev-ved-khairnar.web.app/"
+                }}
+                isLead={true}
+              />
+            </div>
+            <div className="transform translate-y-4 sm:translate-y-6">
+              <TeamMember 
+                name="Tejas Paithane"
+                role="Developer"
+                bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
+                imageUrl="./imgs/Dev-Tejas.jpg"
+                socials={{
+                  github: "https://github.com/Chetan-tp",
+                  linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
+                  instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
+                  email: "paithanetajas34@gmail.com",
+                  facebook: "https://i.pinimg.com/736x/8c/de/9f/8cde9fab69bfcbfa7a9649e951acef05.jpg",
+                  twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
+                  portfolio: "https://tejas-paithane.github.io/"
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -182,8 +197,7 @@ const About: React.FC = () => {
           <div className="mx-auto w-16 sm:w-24 h-1 bg-gradient-to-r from-tech-blue to-tech-purple rounded-full mb-4 sm:mb-6"></div>
         </div>
         <div className="max-w-lg sm:max-w-xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
-          <div className="space-y-4 sm:space-y-6">
-            <input type="hidden" name="access_key" value="5253416d-07ed-40b9-8ce3-692fe13155f0" />
+          <form onSubmit={onSubmit} className="space-y-4 sm:space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                 Full Name
@@ -211,19 +225,6 @@ const About: React.FC = () => {
               />
             </div>
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                required
-                placeholder="Enter subject"
-                className="w-full px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-tech-blue bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-sm sm:text-base"
-              />
-            </div>
-            <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                 Message
               </label>
@@ -237,11 +238,7 @@ const About: React.FC = () => {
               ></textarea>
             </div>
             <button
-              type="button"
-              onClick={() => {
-                const form = document.getElementById('contactForm') as HTMLFormElement;
-                if (form) form.submit();
-              }}
+              type="submit"
               className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-tech-blue to-tech-purple text-white font-semibold py-2 sm:py-2.5 rounded-md shadow-md hover:from-tech-indigo hover:to-tech-blue transition-colors text-sm sm:text-base"
             >
               <span>Send Message</span>
@@ -249,10 +246,10 @@ const About: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-          </div>
+          </form>
+          <div className="text-center mt-4 text-sm sm:text-base text-gray-700 dark:text-gray-200">{result}</div>
         </div>
       </section>
-    </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -410,4 +407,5 @@ const About: React.FC = () => {
     </div>
   );
 };
+
 export default About;
