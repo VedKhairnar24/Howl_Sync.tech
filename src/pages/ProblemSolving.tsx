@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Search, Filter, HelpCircle } from 'lucide-react';
 import ProblemSolutionCard from '@/components/ProblemSolutionCard';
 
@@ -202,6 +202,7 @@ Remember to pull before pushing to avoid unnecessary merge conflicts!`,
 const ProblemSolving = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [result, setResult] = useState("");
 
   const categories = [
     'JavaScript', 'Python', 'CSS', 'HTML', 'React', 
@@ -226,6 +227,29 @@ const ProblemSolving = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    formData.append("access_key", "d0061018-5b55-4399-9a90-24a3ae499fa9");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      (event.target as HTMLFormElement).reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -237,12 +261,72 @@ const ProblemSolving = () => {
             Find solutions to common challenges faced by beginners in programming and technology.
           </p>
           <div className="btn-group-responsive justify-center">
-            <a href="/about#contact" className="flex items-center gap-2">
-              <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
-                Ask a Question
-              </Button>
-            </a>
-      </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
+                  Ask a Question
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px] bg-white dark:bg-gray-900 rounded-lg">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold text-tech-blue">Ask a Question</DialogTitle>
+                </DialogHeader>
+                <form onSubmit={onSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                      Full Name
+                    </label>
+                    <Input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Enter your name"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-tech-blue bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                      Email Address
+                    </label>
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="Enter your email"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-tech-blue bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                      Your Question
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      placeholder="Type your question here..."
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-tech-blue bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-sm"
+                    ></textarea>
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-tech-blue to-tech-purple text-white font-semibold py-2 rounded-md shadow-md hover:from-tech-indigo hover:to-tech-blue transition-colors text-sm"
+                  >
+                    <span>Send Question</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Button>
+                </form>
+                {result && (
+                  <div className="text-center mt-4 text-sm text-gray-700 dark:text-gray-200">{result}</div>
+                )}
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
       </section>
 
