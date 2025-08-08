@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ArrowRight, Calendar, MessageSquare, Users } from 'lucide-react';
+import { ArrowRight, Calendar, MessageSquare, Users, Code, Target } from 'lucide-react';
 
 const Community = () => {
   const upcomingEvents = [
@@ -37,24 +37,54 @@ const Community = () => {
       members: 124,
       description: 'A friendly group for those just starting with JavaScript. Weekly challenges and discussions.',
       category: 'Web Development',
+      meetingTime: 'Every Tuesday, 7:00 PM EST',
+      level: 'Beginner',
+      topics: ['ES6+', 'DOM Manipulation', 'Async Programming'],
     },
     {
       name: 'Python Coders',
       members: 87,
       description: 'Learn Python together through projects, code reviews, and collaborative coding.',
       category: 'Programming',
+      meetingTime: 'Every Thursday, 6:30 PM EST',
+      level: 'All Levels',
+      topics: ['Data Structures', 'Web Scraping', 'API Development'],
     },
     {
       name: 'Web Design Showcase',
       members: 65,
       description: 'Share your designs, get feedback, and discuss latest web design trends and tools.',
       category: 'Web Design',
+      meetingTime: 'Every Saturday, 2:00 PM EST',
+      level: 'Intermediate',
+      topics: ['UI/UX Design', 'Figma', 'Responsive Design'],
     },
     {
       name: 'Data Science Explorers',
-      members: 93,
+      members: 92,
       description: 'Analyze datasets together and learn data science concepts and tools as a group.',
       category: 'Data Science',
+      meetingTime: 'Every Sunday, 4:00 PM EST',
+      level: 'Intermediate',
+      topics: ['Machine Learning', 'Data Visualization', 'Statistics'],
+    },
+    {
+      name: 'React Developers',
+      members: 156,
+      description: 'Build React applications together, share best practices, and solve common challenges.',
+      category: 'Frontend Development',
+      meetingTime: 'Every Wednesday, 8:00 PM EST',
+      level: 'Intermediate',
+      topics: ['Hooks', 'State Management', 'Performance'],
+    },
+    {
+      name: 'Backend Builders',
+      members: 78,
+      description: 'Learn server-side development, databases, and API design with fellow developers.',
+      category: 'Backend Development',
+      meetingTime: 'Every Friday, 7:30 PM EST',
+      level: 'Intermediate',
+      topics: ['Node.js', 'Databases', 'Authentication'],
     },
   ];
 
@@ -144,30 +174,49 @@ const Community = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {studyGroups.map((group, index) => (
-                  <Card key={index} className="card-hover">
+                  <Card key={index} className="card-hover hover:shadow-lg transition-all duration-300">
                     <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <Badge className="mb-2 bg-purple-100 text-purple-800 hover:bg-purple-100">{group.category}</Badge>
-                          <CardTitle>{group.name}</CardTitle>
-                        </div>
+                      <div className="flex justify-between items-start mb-3">
+                        <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-100">{group.category}</Badge>
                         <Badge variant="outline" className="flex items-center">
                           <Users className="h-3 w-3 mr-1" /> {group.members}
                         </Badge>
                       </div>
+                      <CardTitle className="text-lg">{group.name}</CardTitle>
+                      <CardDescription className="flex items-center gap-2 mt-2">
+                        <Calendar className="h-4 w-4" />
+                        {group.meetingTime}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600">{group.description}</p>
+                      <p className="text-gray-600 mb-4">{group.description}</p>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Target className="h-4 w-4 text-blue-500" />
+                          <span className="text-sm font-medium">Level: {group.level}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-700 mb-1">Topics:</p>
+                          <div className="flex flex-wrap gap-1">
+                            {group.topics.map((topic, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {topic}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </CardContent>
                     <CardFooter className="flex justify-between">
-                      <Button variant="outline">View Group</Button>
-                      <Button>Join Group</Button>
+                      <Button variant="outline" size="sm">View Details</Button>
+                      <Button size="sm">Join Group</Button>
                     </CardFooter>
                   </Card>
                 ))}
               </div>
+              
              </TabsContent>
           </Tabs>
         </div>
