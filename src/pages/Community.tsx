@@ -168,13 +168,7 @@ const Community = () => {
                   </Card>
                 ))}
               </div>
-              
-              <div className="mt-8 text-center">
-                <Button className="tech-btn-primary" size="lg">
-                  Create a New Study Group
-                </Button>
-              </div>
-            </TabsContent>
+             </TabsContent>
           </Tabs>
         </div>
       </section>

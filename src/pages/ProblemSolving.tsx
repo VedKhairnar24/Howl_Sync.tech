@@ -2,11 +2,9 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Search, Filter, HelpCircle } from 'lucide-react';
 import ProblemSolutionCard from '@/components/ProblemSolutionCard';
 
@@ -204,9 +202,6 @@ Remember to pull before pushing to avoid unnecessary merge conflicts!`,
 const ProblemSolving = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
-  const [problemTitle, setProblemTitle] = useState('');
-  const [problemDescription, setProblemDescription] = useState('');
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const categories = [
     'JavaScript', 'Python', 'CSS', 'HTML', 'React', 
@@ -231,15 +226,6 @@ const ProblemSolving = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const handleSubmitProblem = () => {
-    // Here you would typically send the problem to your backend
-    // For now, just show a success message and reset the form
-    alert('Your problem has been submitted! Our community will help solve it soon.');
-    setProblemTitle('');
-    setProblemDescription('');
-    setIsDialogOpen(false);
-  };
-
   return (
     <div>
       {/* Hero Section */}
@@ -250,52 +236,13 @@ const ProblemSolving = () => {
           <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100">
             Find solutions to common challenges faced by beginners in programming and technology.
           </p>
-          <div className="btn-group-responsive">
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <a href="/about#contact" className="flex items-center gap-2">
-                  <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
-                    Ask a Question
-                  </Button>
-                </a>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px]">
-                <DialogHeader>
-                  <DialogTitle>Submit Your Question</DialogTitle>
-                  <DialogDescription>
-                    Describe your problem in detail to get the best help from our community.
-                  </DialogDescription>
-                </DialogHeader>
-                {/* <div className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium">Problem Title</h4>
-                    <Input
-                      placeholder="E.g., How to fix React state not updating?"
-                      value={problemTitle}
-                      onChange={(e) => setProblemTitle(e.target.value)}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium">Problem Description</h4>
-                    <Textarea
-                      placeholder="Describe your problem in detail. Include code snippets, error messages, and what you've tried so far."
-                      value={problemDescription}
-                      onChange={(e) => setProblemDescription(e.target.value)}
-                      rows={5}
-                    />
-                  </div>
-                </div> */}
-                <DialogFooter>
-                  <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
-                  <Button onClick={handleSubmitProblem}>Submit Question</Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-            
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 btn-responsive">
-              Browse FAQ
-            </Button>
-          </div>
+          <div className="btn-group-responsive justify-center">
+            <a href="/about#contact" className="flex items-center gap-2">
+              <Button className="bg-white text-tech-indigo hover:bg-blue-50 btn-responsive">
+                Ask a Question
+              </Button>
+            </a>
+      </div>
         </div>
       </section>
 

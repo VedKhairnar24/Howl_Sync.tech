@@ -312,7 +312,7 @@ const Index = () => {
           <p className="responsive-text text-blue-100 max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-up delay-300">
             Join thousands of beginners who are learning technology the right way.
           </p>
-          <div className="btn-group-responsive animate-fade-in-up delay-500">
+          <div className="btn-group-responsive animate-fade-in-up delay-500 justify-center">
             <Button className="btn-responsive bg-white text-tech-indigo hover:bg-blue-50 hover:scale-105 transition-transform duration-300 shadow-lg">
               <Link to="/learning-paths">Explore Learning Paths</Link>
             </Button>
