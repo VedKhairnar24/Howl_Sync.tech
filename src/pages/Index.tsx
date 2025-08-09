@@ -46,34 +46,35 @@ const featuredPaths = [
 const features = [
   {
     title: 'Structured Learning Paths',
-    description: 'Follow step-by-step roadmaps designed for beginners in various tech domains',
+    description: 'Follow comprehensive, step-by-step roadmaps tailored for beginners and intermediate learners across multiple tech domains. Each path includes curated resources, hands-on exercises, and milestone projects to ensure steady progress and skill mastery.',
     icon: <BookOpen className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-blue" aria-hidden="true" />,
     url: '/learning-paths',
   },
   {
     title: 'Problem-Solving Hub',
-    description: 'Get solutions to common challenges faced by beginners in programming',
+    description: 'Access a growing collection of real-world programming challenges and solutions designed to sharpen your problem-solving skills. Learn practical approaches, debug effectively, and apply proven strategies used by experienced developers.',
     icon: <HelpCircle className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-purple" aria-hidden="true" />,
     url: '/problem-solving',
   },
   {
     title: 'Resource Library',
-    description: 'Access curated learning materials, tools, and cheat sheets',
+    description: 'Explore an extensive library of handpicked learning materials, coding tools, cheat sheets, and tutorials. Organized by topics and skill levels, this library helps you quickly find trusted resources to accelerate your learning journey.',
     icon: <Library className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-lightblue" aria-hidden="true" />,
     url: '/resources',
   },
   {
     title: 'Supportive Community',
-    description: 'Connect with fellow learners and participate in study groups',
+    description: 'Join a welcoming network of fellow learners, mentors, and tech enthusiasts. Participate in study groups, share your projects, ask questions, and collaborate on coding challenges in a positive, growth-focused environment.',
     icon: <Users className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-pink" aria-hidden="true" />,
     url: '/community',
   },
   {
     title: 'Tools',
-    description: 'Access tools and resources to help you learn and grow',
+    description: 'Access a curated collection of powerful development tools, online editors, code generators, and productivity resources to streamline your workflow. Designed to help you practice efficiently and bring your ideas to life faster.',
     icon: <Wrench className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-tech-lightblue" aria-hidden="true" />,
     url: '/tools',
   },
+  
 ];
 
 // TypeScript interfaces for the memoized components
@@ -104,30 +105,54 @@ interface LearningPathCardProps {
 // Memoized FeatureCard component to prevent unnecessary re-renders
 const FeatureCard = memo<FeatureCardProps>(({ feature, index }) => (
   <Card
-    className="card-hover animate-fade-in-up hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl card-responsive"
+    className="group relative overflow-hidden card-hover animate-fade-in-up hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:shadow-2xl backdrop-blur-sm flex flex-col h-full"
     style={{ animationDelay: `${index * 200}ms` }}
     role="article"
     aria-labelledby={`feature-title-${index}`}
   >
-    <CardHeader className="p-4 sm:p-6">
-      <div className="mb-3 sm:mb-4 animate-pulse">{feature.icon}</div>
-      <CardTitle id={`feature-title-${index}`} className="hover:text-tech-blue transition-colors duration-300 responsive-subheading">
+    {/* Animated background elements */}
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-tech-blue to-tech-purple rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:scale-150"></div>
+      <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-tech-purple to-tech-pink rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:scale-150"></div>
+    </div>
+
+    {/* Shimmer effect on hover */}
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+    <CardHeader className="p-4 sm:p-6 relative z-10">
+      <div className="mb-3 sm:mb-4 relative">
+        <div className="group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative z-10">
+          {feature.icon}
+        </div>
+        {/* Icon background glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-tech-blue to-tech-purple opacity-0  transition-opacity duration-300 rounded-full"></div>
+      </div>
+      <CardTitle 
+        id={`feature-title-${index}`} 
+        className="hover:text-tech-blue transition-colors duration-300 responsive-subheading group-hover:scale-105 transition-transform duration-300"
+      >
         {feature.title}
       </CardTitle>
     </CardHeader>
-    <CardContent className="p-4 sm:p-6 pt-0">
-      <CardDescription className="responsive-text">{feature.description}</CardDescription>
+    
+    <CardContent className="p-4 sm:p-6 pt-0 relative z-10 flex-1">
+      <CardDescription className="responsive-text leading-relaxed">{feature.description}</CardDescription>
     </CardContent>
-    <CardFooter className="p-4 sm:p-6 pt-0">
+    
+    <CardFooter className="p-4 sm:p-6 pt-0 relative z-10 mt-auto">
       <Link
         to={feature.url}
-        className="text-tech-blue hover:text-tech-purple flex items-center group"
+        className="text-tech-blue hover:text-tech-purple flex items-center group font-semibold transition-all duration-300 hover:scale-105 relative overflow-hidden bg-gradient-to-r from-tech-blue/5 to-tech-purple/5 hover:from-tech-blue/10 hover:to-tech-purple/10 px-4 py-2 rounded-lg"
         aria-label={`Learn more about ${feature.title}`}
       >
-        Learn More
-        <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
+        <span className="relative z-10">Learn More</span>
+        <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-2 transition-transform duration-300 relative z-10" aria-hidden="true" />
+        
+        {/* Button background animation */}
+        <div className="absolute inset-0 bg-gradient-to-r from-tech-blue/10 to-tech-purple/10 opacity-0  transition-opacity duration-300 rounded-lg"></div>
       </Link>
     </CardFooter>
+
   </Card>
 ));
 
@@ -254,7 +279,7 @@ const Index = () => {
             </Badge>
             <h2
               id="features-heading"
-              className="responsive-heading font-bold mb-4 gradient-text animate-fade-in-up delay-200"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 gradient-text animate-fade-in-up delay-200"
             >
               How We Help You Succeed
             </h2>

@@ -129,7 +129,7 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
 
   return (
     <Card 
-      className="group relative overflow-hidden card-hover animate-fade-in-up hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:shadow-2xl backdrop-blur-sm"
+      className="group relative overflow-hidden card-hover animate-fade-in-up hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:shadow-2xl backdrop-blur-sm flex flex-col h-full"
       style={{ animationDelay: `${index * 150}ms` }}
       role="article"
       aria-labelledby={`type-card-title-${index}`}
@@ -151,7 +151,7 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
       {/* Top accent line */}
       <div className={`absolute top-0 left-0 right-0 h-1 ${color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
 
-      <CardHeader className="relative z-10 p-6">
+      <CardHeader className="relative z-10 p-6 flex-shrink-0">
         <div className="flex items-center justify-between mb-4">
           <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white ${color} shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 relative overflow-hidden`}>
             <div className="group-hover:rotate-12 transition-transform duration-300 relative z-10">
@@ -182,7 +182,7 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="relative z-10 p-6 pt-0">
+      <CardContent className="relative z-10 p-6 pt-0 flex-shrink-0">
         {stats && (
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
@@ -197,7 +197,7 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
         )}
       </CardContent>
 
-      <CardFooter className="relative z-10 p-6 pt-0">
+      <CardFooter className="relative z-10 p-6 pt-0 mt-auto">
         <Button 
           className="w-full bg-gradient-to-r from-tech-blue to-tech-purple hover:from-tech-purple hover:to-tech-blue text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
           onClick={handleClick}
