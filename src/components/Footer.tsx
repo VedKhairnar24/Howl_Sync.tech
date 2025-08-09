@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Mail, Instagram, Github, Linkedin } from 'lucide-react';
+import { Mail, Instagram, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -10,7 +10,11 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center group">
-              <Code className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-tech-blue" />
+              <img 
+                src="./imgs/Howl Sync.png" 
+                alt="HowlSync.Tech Logo" 
+                className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-2 border-blue-500 object-cover mr-2 group-hover:scale-110 transition-transform duration-300"
+                 />
               <span className="ml-2 text-base sm:text-lg lg:text-xl font-bold text-tech-blue group-hover:text-tech-indigo transition-colors">HowlSync.Tech</span>
             </Link>
             <p className="mt-3 text-gray-600 text-xs sm:text-sm lg:text-base max-w-md">
@@ -30,8 +34,6 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/ved-khairnar-193889355/" className="text-gray-400 hover:text-tech-blue transition-colors">
                 <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
               </a> 
-
-             
             </div>
           </div>
 
@@ -52,7 +54,7 @@ const Footer = () => {
             <ul className="mt-3 space-y-1.5 sm:space-y-2">
               <li><Link to="/community" className="text-gray-600 hover:text-tech-blue text-xs sm:text-sm transition-colors">Join Forum</Link></li>
               <li><Link to="/community/groups" className="text-gray-600 hover:text-tech-blue text-xs sm:text-sm transition-colors">Study Groups</Link></li>
-           </ul>
+            </ul>
           </div>
 
           {/* Company */}

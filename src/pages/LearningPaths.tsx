@@ -1,22 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Search, Filter, BookOpen, Code, Database, Layers, PenTool, Terminal, X, ShieldCheck } from 'lucide-react';
+import { Search, Filter, BookOpen, Code, Database, Layers, PenTool, Terminal, X, ShieldCheck, ArrowRight, Clock, Users, Star, TrendingUp } from 'lucide-react';
 import { LearningPathCategory, learningPathsData } from '@/data/learningPathsData';
 import { Link } from 'react-router-dom';
 
 // Chart.js will be loaded via CDN in index.html
 
-const domainCategories: { id: LearningPathCategory; title: string; icon: React.ReactNode; description: string; color: string }[] = [
+const domainCategories: { id: LearningPathCategory; title: string; icon: React.ReactNode; description: string; color: string; stats?: { students: number; rating: number; duration: string } }[] = [
   {
     id: 'web',
     title: 'Web Development',
     description: 'Build dynamic, responsive websites and web applications',
     icon: <Code className="h-6 w-6" />,
-    color: 'bg-blue-500'
+    color: 'bg-blue-500',
+    stats: { students: 15420, rating: 4.8, duration: '6-12 months' }
   },
   // {
   //   id: 'programming',
@@ -30,58 +31,207 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     title: 'UI/UX Design',
     description: 'Design intuitive, user-centered interfaces and experiences',
     icon: <PenTool className="h-6 w-6" />,
-    color: 'bg-purple-500'
+    color: 'bg-purple-500',
+    stats: { students: 8920, rating: 4.7, duration: '4-8 months' }
   },
   {
     id: 'data',
     title: 'Data Science',
     description: 'Analyze data to derive insights and build predictive models',
     icon: <Database className="h-6 w-6" />,
-    color: 'bg-yellow-500'
+    color: 'bg-yellow-500',
+    stats: { students: 12340, rating: 4.9, duration: '8-15 months' }
   },
   {
     id: 'devops',
     title: 'DevOps',
     description: 'Automate and manage infrastructure for scalable applications',
     icon: <Layers className="h-6 w-6" />,
-    color: 'bg-red-500'
+    color: 'bg-red-500',
+    stats: { students: 6780, rating: 4.6, duration: '6-10 months' }
   },
   {
     id: 'mobile',
     title: 'Mobile Development',
     description: 'Build cross-platform mobile apps with Flutter or React Native',
     icon: <BookOpen className="h-6 w-6" />,
-    color: 'bg-pink-500'
+    color: 'bg-pink-500',
+    stats: { students: 9450, rating: 4.8, duration: '5-9 months' }
   },
   {
     id: 'cybersecurity',
     title: 'Cybersecurity',
     description: 'Protect systems and data through security best practices',
     icon: <ShieldCheck className="h-6 w-6" />,
-    color: 'bg-gray-700'
+    color: 'bg-gray-700',
+    stats: { students: 5670, rating: 4.7, duration: '7-12 months' }
   },
   {
     id: 'game',
     title: 'Game Development',
     description: 'Create interactive games using Unity, Unreal, and more',
     icon: <Layers className="h-6 w-6" />,
-    color: 'bg-orange-500'
+    color: 'bg-orange-500',
+    stats: { students: 7890, rating: 4.5, duration: '8-14 months' }
   },
   {
     id: 'aiml',
     title: 'AI/ML Engineering',
     description: 'Build intelligent systems and machine learning models',
     icon: <Database className="h-6 w-6" />,
-    color: 'bg-indigo-500'
+    color: 'bg-indigo-500',
+    stats: { students: 11230, rating: 4.9, duration: '10-18 months' }
   },
   {
     id: 'blockchain',
     title: 'Blockchain Development',
     description: 'Develop decentralized apps and smart contracts',
     icon: <Code className="h-6 w-6" />,
-    color: 'bg-emerald-600'
+    color: 'bg-emerald-600',
+    stats: { students: 4560, rating: 4.4, duration: '6-12 months' }
   }
 ];
+
+// Enhanced TypeCard Component
+interface TypeCardProps {
+  category: LearningPathCategory;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  stats?: { students: number; rating: number; duration: string };
+  onClick: () => void;
+  index: number;
+}
+
+const TypeCard = memo(({ category, title, description, icon, color, stats, onClick, index }: TypeCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const formatNumber = (num: number) => {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'k';
+    }
+    return num.toString();
+  };
+
+  const handleClick = () => {
+    setIsLoading(true);
+    // Simulate loading for better UX
+    setTimeout(() => {
+      setIsLoading(false);
+      onClick();
+    }, 300);
+  };
+
+  return (
+    <Card 
+      className="group relative overflow-hidden card-hover animate-fade-in-up hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:shadow-2xl backdrop-blur-sm"
+      style={{ animationDelay: `${index * 150}ms` }}
+      role="article"
+      aria-labelledby={`type-card-title-${index}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Gradient overlay */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className={`absolute -top-4 -right-4 w-8 h-8 ${color} rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:scale-150`}></div>
+        <div className={`absolute -bottom-4 -left-4 w-6 h-6 ${color} rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:scale-150`}></div>
+      </div>
+
+      {/* Shimmer effect on hover */}
+      <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000`}></div>
+
+      {/* Top accent line */}
+      <div className={`absolute top-0 left-0 right-0 h-1 ${color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+
+      <CardHeader className="relative z-10 p-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white ${color} shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 relative overflow-hidden`}>
+            <div className="group-hover:rotate-12 transition-transform duration-300 relative z-10">
+              {icon}
+            </div>
+            {/* Icon background glow */}
+            <div className={`absolute inset-0 ${color} opacity-0 group-hover:opacity-30 blur-sm transition-opacity duration-300`}></div>
+          </div>
+          {stats && (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-sm text-gray-500 bg-white/80 dark:bg-gray-800/80 px-2 py-1 rounded-full backdrop-blur-sm border border-gray-200 dark:border-gray-700">
+                <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                <span className="font-semibold">{stats.rating}</span>
+              </div>
+            </div>
+          )}
+        </div>
+        
+        <CardTitle 
+          id={`type-card-title-${index}`}
+          className="text-xl font-bold mb-2 group-hover:text-tech-blue transition-colors duration-300"
+        >
+          {title}
+        </CardTitle>
+        
+        <CardDescription className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          {description}
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent className="relative z-10 p-6 pt-0">
+        {stats && (
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+              <Users className="h-4 w-4 text-blue-500" />
+              <span className="font-medium">{formatNumber(stats.students)} students</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+              <Clock className="h-4 w-4 text-green-500" />
+              <span className="font-medium">{stats.duration}</span>
+            </div>
+          </div>
+        )}
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="h-4 w-4 text-green-500" />
+            <span className="text-sm text-gray-500">Popular path</span>
+          </div>
+        </div>
+      </CardContent>
+
+      <CardFooter className="relative z-10 p-6 pt-0">
+        <Button 
+          className="w-full bg-gradient-to-r from-tech-blue to-tech-purple hover:from-tech-purple hover:to-tech-blue text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
+          onClick={handleClick}
+          disabled={isLoading}
+          aria-label={`View complete ${title} learning path`}
+        >
+          {/* Button background animation */}
+          <div className="absolute inset-0 bg-gradient-to-r from-tech-purple to-tech-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          {isLoading ? (
+            <div className="flex items-center gap-2 relative z-10">
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              <span>Loading...</span>
+            </div>
+          ) : (
+            <>
+              <span className="relative z-10">Explore Path</span>
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+            </>
+          )}
+        </Button>
+      </CardFooter>
+
+      {/* Hover effect overlay */}
+      <div className={`absolute inset-0 bg-gradient-to-br from-tech-blue/5 to-tech-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>
+    </Card>
+  );
+});
+
+TypeCard.displayName = 'TypeCard';
 
 // Helper component to display a learning path level
 interface PathLevelProps {
@@ -485,16 +635,18 @@ const LearningPaths = () => {
   const [modalPath, setModalPath] = useState<any>(null);
   const [modalDomain, setModalDomain] = useState<any>(null);
 
-  // Filter domains based on search and tab
-  const filteredDomains = domainCategories.filter((domain) => {
-    const matchesSearch =
-      domain.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      domain.description.toLowerCase().includes(searchQuery.toLowerCase());
+  // Memoize filtered domains for better performance
+  const filteredDomains = useMemo(() => {
+    return domainCategories.filter((domain) => {
+      const matchesSearch =
+        domain.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        domain.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesTab = activeTab === 'all' ? true : domain.id === activeTab;
+      const matchesTab = activeTab === 'all' ? true : domain.id === activeTab;
 
-    return matchesSearch && matchesTab;
-  });
+      return matchesSearch && matchesTab;
+    });
+  }, [searchQuery, activeTab]);
 
   // When a card is clicked, open modal with detailed info
   const handlePathSelect = (category: LearningPathCategory) => {
@@ -506,20 +658,27 @@ const LearningPaths = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-8 sm:py-12 md:py-16 lg:py-20">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/20 text-white mb-4 badge-responsive">Step-by-Step Guides</Badge>
-          <h1 className="responsive-heading font-bold mb-4">Learning Paths</h1>
-          <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100">
+      <section className="bg-gradient-to-r from-tech-blue to-tech-indigo text-white py-8 sm:py-12 md:py-16 lg:py-20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-4 left-4 sm:top-10 sm:left-10 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute top-8 right-8 sm:top-20 sm:right-20 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-cyan-300 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-4 left-1/4 sm:bottom-10 sm:left-1/4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-blue-800 rounded-full animate-ping"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <Badge className="bg-white/20 text-white mb-4 badge-responsive animate-fade-in-up">Step-by-Step Guides</Badge>
+          <h1 className="responsive-heading font-bold mb-4 animate-fade-in-up delay-200">Learning Paths</h1>
+          <p className="responsive-text max-w-2xl mx-auto mb-6 text-blue-100 animate-fade-in-up delay-400">
             Structured roadmaps to help you master different areas of technology, designed for beginners.
           </p>
         </div>
       </section>
 
       {/* Search and Filters */}
-      <section className="py-6 sm:py-8 bg-gray-50">
+      <section className="py-6 sm:py-8 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="relative w-full sm:w-80 md:w-96 mx-auto">
             <Search className="absolute top-3 left-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
@@ -527,7 +686,7 @@ const LearningPaths = () => {
               placeholder="Search learning paths..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 input-responsive"
+              className="pl-10 input-responsive bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-tech-blue focus:border-transparent"
             />
           </div>
         </div>
@@ -540,31 +699,41 @@ const LearningPaths = () => {
             <TabsContent value="all" className="mt-0">
               {filteredDomains.length > 0 ? (
                 <div className="card-grid-responsive">
-                  {filteredDomains.map((domain) => (
-                    <DomainCard
+                  {filteredDomains.map((domain, index) => (
+                    <TypeCard
                       key={domain.id}
                       category={domain.id}
                       title={domain.title}
                       description={domain.description}
                       icon={domain.icon}
                       color={domain.color}
+                      stats={domain.stats}
                       onClick={() => handlePathSelect(domain.id)}
+                      index={index}
                     />
                   ))}
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <p className="text-xl text-gray-500">No learning paths found matching your criteria.</p>
-                  <Button
-                    variant="outline"
-                    className="mt-4 btn-responsive"
-                    onClick={() => {
-                      setSearchQuery('');
-                      setActiveTab('all');
-                    }}
-                  >
-                    Reset Filters
-                  </Button>
+                  <div className="max-w-md mx-auto">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
+                      <Search className="h-8 w-8 text-gray-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No learning paths found</h3>
+                    <p className="text-gray-500 dark:text-gray-400 mb-6">
+                      Try adjusting your search terms or filters to find what you're looking for.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="btn-responsive"
+                      onClick={() => {
+                        setSearchQuery('');
+                        setActiveTab('all');
+                      }}
+                    >
+                      Reset Filters
+                    </Button>
+                  </div>
                 </div>
               )}
             </TabsContent>
