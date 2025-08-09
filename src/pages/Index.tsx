@@ -14,7 +14,7 @@ const featuredPaths = [
     title: 'Web Development Fundamentals',
     description: 'Learn HTML, CSS, and JavaScript to build interactive websites from scratch.',
     imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-    level: 'Beginner',
+    level: 'Beginner' as const,
     duration: '8 weeks',
     learningPath: 'Web Development',
     url: '/learning-paths/web-development',
@@ -24,7 +24,7 @@ const featuredPaths = [
     title: 'Python Programming Essentials',
     description: 'Master Python fundamentals and solve real-world problems with code.',
     imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-    level: 'Beginner',
+    level: 'Beginner' as const,
     duration: '6 weeks',
     learningPath: 'Programming',
     url: '/learning-paths/python',
@@ -34,7 +34,7 @@ const featuredPaths = [
     title: 'Mobile App Development with React Native',
     description: 'Create cross-platform mobile apps using JavaScript and React Native.',
     imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-    level: 'Intermediate',
+    level: 'Intermediate' as const,
     duration: '10 weeks',
     learningPath: 'Mobile Development',
     url: '/learning-paths/react-native',
@@ -76,8 +76,33 @@ const features = [
   },
 ];
 
+// TypeScript interfaces for the memoized components
+interface FeatureCardProps {
+  feature: {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+    url: string;
+  };
+  index: number;
+}
+
+interface LearningPathCardProps {
+  path: {
+    title: string;
+    description: string;
+    imageSrc: string;
+    level: 'Beginner' | 'Intermediate' | 'Advanced';
+    duration: string;
+    learningPath: string;
+    url: string;
+    category: string;
+  };
+  index: number;
+}
+
 // Memoized FeatureCard component to prevent unnecessary re-renders
-const FeatureCard = memo(({ feature, index }) => (
+const FeatureCard = memo<FeatureCardProps>(({ feature, index }) => (
   <Card
     className="card-hover animate-fade-in-up hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl card-responsive"
     style={{ animationDelay: `${index * 200}ms` }}
@@ -106,8 +131,10 @@ const FeatureCard = memo(({ feature, index }) => (
   </Card>
 ));
 
+FeatureCard.displayName = 'FeatureCard';
+
 // Memoized LearningPathCard component
-const LearningPathCard = memo(({ path, index }) => (
+const LearningPathCard = memo<LearningPathCardProps>(({ path, index }) => (
   <div
     className="animate-fade-in-up hover:scale-105 transition-transform duration-300"
     style={{ animationDelay: `${index * 300}ms` }}
@@ -126,6 +153,8 @@ const LearningPathCard = memo(({ path, index }) => (
     />
   </div>
 ));
+
+LearningPathCard.displayName = 'LearningPathCard';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -309,12 +338,14 @@ const Index = () => {
           </p>
           <div className="btn-group-responsive flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-fade-in-up delay-500">
             <Button
+              asChild
               className="btn-responsive bg-white text-tech-indigo hover:bg-blue-50 hover:scale-105 transition-transform duration-300 shadow-lg"
               aria-label="Explore learning paths"
             >
               <Link to="/learning-paths">Explore Learning Paths</Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               className="btn-responsive border-white text-white hover:bg-white/20 hover:border-white hover:scale-105 transition-transform duration-300 backdrop-blur-sm"
               aria-label="Visit problem-solving hub"
@@ -355,201 +386,203 @@ const Index = () => {
       </section>
 
       {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
           }
-          50% {
-            transform: translateY(-10px);
+          @keyframes sparkle-1 {
+            0%, 100% {
+              opacity: 0.8;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.2);
+            }
           }
-        }
-        @keyframes sparkle-1 {
-          0%, 100% {
-            opacity: 0.8;
-            transform: scale(1);
+          @keyframes sparkle-2 {
+            0%, 100% {
+              opacity: 0.6;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.3);
+            }
           }
-          50% {
-            opacity: 1;
-            transform: scale(1.2);
+          @keyframes sparkle-3 {
+            0%, 100% {
+              opacity: 0.7;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.1);
+            }
           }
-        }
-        @keyframes sparkle-2 {
-          0%, 100% {
-            opacity: 0.6;
-            transform: scale(1);
+          @keyframes typewriter {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
           }
-          50% {
-            opacity: 1;
-            transform: scale(1.3);
+          @keyframes fade-in-up {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
-        }
-        @keyframes sparkle-3 {
-          0%, 100% {
-            opacity: 0.7;
-            transform: scale(1);
+          @keyframes bounce-x {
+            0%, 100% {
+              transform: translateX(0);
+            }
+            50% {
+              transform: translateX(3px);
+            }
           }
-          50% {
-            opacity: 1;
-            transform: scale(1.1);
+          .animate-float {
+            animation: float 3s ease-in-out infinite;
           }
-        }
-        @keyframes typewriter {
-          0% {
-            width: 0;
+          .animate-sparkle-1 {
+            animation: sparkle-1 2s infinite ease-in-out;
           }
-          100% {
-            width: 100%;
+          .animate-sparkle-2 {
+            animation: sparkle-2 2.5s infinite ease-in-out;
           }
-        }
-        @keyframes fade-in-up {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
+          .animate-sparkle-3 {
+            animation: sparkle-3 3s infinite ease-in-out;
           }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
+          .animate-typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid;
+            animation: typewriter 2s steps(20) 1s both;
           }
-        }
-        @keyframes bounce-x {
-          0%, 100% {
-            transform: translateX(0);
+          .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
           }
-          50% {
-            transform: translateX(3px);
+          .animate-bounce-x {
+            animation: bounce-x 1s infinite ease-in-out;
           }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-sparkle-1 {
-          animation: sparkle-1 2s infinite ease-in-out;
-        }
-        .animate-sparkle-2 {
-          animation: sparkle-2 2.5s infinite ease-in-out;
-        }
-        .animate-sparkle-3 {
-          animation: sparkle-3 3s infinite ease-in-out;
-        }
-        .animate-typewriter {
-          overflow: hidden;
-          white-space: nowrap;
-          border-right: 2px solid;
-          animation: typewriter 2s steps(20) 1s both;
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-        }
-        .animate-bounce-x {
-          animation: bounce-x 1s infinite ease-in-out;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-        .delay-400 {
-          animation-delay: 0.4s;
-        }
-        .delay-500 {
-          animation-delay: 0.5s;
-        }
-        .delay-600 {
-          animation-delay: 0.6s;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-        @keyframes float-slow {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
+          .delay-200 {
+            animation-delay: 0.2s;
           }
-          50% {
-            transform: translateY(-15px) rotate(5deg);
+          .delay-300 {
+            animation-delay: 0.3s;
           }
-        }
-        @keyframes rotate-slow {
-          0% {
-            transform: rotate(0deg);
+          .delay-400 {
+            animation-delay: 0.4s;
           }
-          100% {
-            transform: rotate(360deg);
+          .delay-500 {
+            animation-delay: 0.5s;
           }
-        }
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0px);
+          .delay-600 {
+            animation-delay: 0.6s;
           }
-          50% {
-            transform: translateY(-20px);
+          .delay-1000 {
+            animation-delay: 1s;
           }
-        }
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.2;
-            transform: scale(1);
+          @keyframes float-slow {
+            0%, 100% {
+              transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+              transform: translateY(-15px) rotate(5deg);
+            }
           }
-          50% {
-            opacity: 0.4;
-            transform: scale(1.1);
+          @keyframes rotate-slow {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
           }
-        }
-        @keyframes particle-1 {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
+          @keyframes bounce-slow {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-20px);
+            }
           }
-          100% {
-            transform: translate(100px, -100px) scale(0);
-            opacity: 0;
+          @keyframes pulse-slow {
+            0%, 100% {
+              opacity: 0.2;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 0.4;
+              transform: scale(1.1);
+            }
           }
-        }
-        @keyframes particle-2 {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
+          @keyframes particle-1 {
+            0% {
+              transform: translate(0, 0) scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(100px, -100px) scale(0);
+              opacity: 0;
+            }
           }
-          100% {
-            transform: translate(-80px, -120px) scale(0);
-            opacity: 0;
+          @keyframes particle-2 {
+            0% {
+              transform: translate(0, 0) scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(-80px, -120px) scale(0);
+              opacity: 0;
+            }
           }
-        }
-        @keyframes particle-3 {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
+          @keyframes particle-3 {
+            0% {
+              transform: translate(0, 0) scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(60px, -80px) scale(0);
+              opacity: 0;
+            }
           }
-          100% {
-            transform: translate(60px, -80px) scale(0);
-            opacity: 0;
+          .animate-float-slow {
+            animation: float-slow 4s ease-in-out infinite;
           }
-        }
-        .animate-float-slow {
-          animation: float-slow 4s ease-in-out infinite;
-        }
-        .animate-rotate-slow {
-          animation: rotate-slow 8s linear infinite;
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-        .animate-particle-1 {
-          animation: particle-1 4s ease-out infinite;
-        }
-        .animate-particle-2 {
-          animation: particle-2 5s ease-out infinite;
-          animation-delay: 1s;
-        }
-        .animate-particle-3 {
-          animation: particle-3 6s ease-out infinite;
-          animation-delay: 2s;
-        }
-      `}</style>
+          .animate-rotate-slow {
+            animation: rotate-slow 8s linear infinite;
+          }
+          .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+          }
+          .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+          }
+          .animate-particle-1 {
+            animation: particle-1 4s ease-out infinite;
+          }
+          .animate-particle-2 {
+            animation: particle-2 5s ease-out infinite;
+            animation-delay: 1s;
+          }
+          .animate-particle-3 {
+            animation: particle-3 6s ease-out infinite;
+            animation-delay: 2s;
+          }
+        `
+      }} />
     </div>
   );
 };

@@ -101,11 +101,7 @@ const LearningCard = ({
         </CardHeader>
         <CardFooter className="mt-auto flex flex-col gap-2">
           <Sheet>
-            <SheetTrigger asChild>
-              <Button className="w-full" variant="outline">
-                View Complete Path <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </SheetTrigger>
+           
             <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto">
               <SheetHeader>
                 <SheetTitle>{pathDetails?.title}</SheetTitle>
