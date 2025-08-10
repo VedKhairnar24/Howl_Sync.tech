@@ -11,9 +11,9 @@ import { useIsMobile, useIsTablet, useIsDesktop } from '@/hooks/use-mobile';
 // Data for featured learning paths
 const featuredPaths = [
   {
-    title: 'Web Development Fundamentals',
-    description: 'Learn HTML, CSS, and JavaScript to build interactive websites from scratch.',
-    imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+    title: 'Web Development',
+    description: 'Learn to create modern, responsive, and dynamic websites from scratch using HTML, CSS, JavaScript, and popular frameworks. Gain skills in front-end, back-end, and full-stack development to build user-friendly and scalable web applications.',
+    imageSrc: 'https://cdn.prod.website-files.com/6344c9cef89d6f2270a38908/673f2a3b44c1ed4901bb43bb_6386328bea96dffacc89946b_d1.webp',
     level: 'Beginner' as const,
     duration: '8 weeks',
     learningPath: 'Web Development',
@@ -21,9 +21,9 @@ const featuredPaths = [
     category: 'web',
   },
   {
-    title: 'Python Programming Essentials',
-    description: 'Master Python fundamentals and solve real-world problems with code.',
-    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+    title: 'Programming',
+    description: 'Master the art of writing efficient, clean, and scalable code in multiple programming languages. Learn problem-solving techniques, algorithms, and data structures to tackle real-world challenges in software development.',
+    imageSrc: 'https://www.naukri.com/campus/career-guidance/wp-content/uploads/2024/03/Top-Programming-Languages-to-Learn-in-2024.png',
     level: 'Beginner' as const,
     duration: '6 weeks',
     learningPath: 'Programming',
@@ -31,9 +31,9 @@ const featuredPaths = [
     category: 'programming',
   },
   {
-    title: 'Mobile App Development with React Native',
-    description: 'Create cross-platform mobile apps using JavaScript and React Native.',
-    imageSrc: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+    title: 'App Development ',
+    description: 'Build high-performance, cross-platform mobile applications using frameworks like Flutter and React Native. Learn mobile UI design, API integration, and deployment for both Android and iOS platforms.',
+    imageSrc: 'https://www.aceinfoway.com/blog/wp-content/uploads/2020/04/why-should-you-choose-react-native-for-your-next-mobile-development-project.jpg',
     level: 'Intermediate' as const,
     duration: '10 weeks',
     learningPath: 'Mobile Development',

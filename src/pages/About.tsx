@@ -120,60 +120,61 @@ const About: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative">
-            <div className="transform translate-y-4 sm:translate-y-6">
-              <TeamMember 
-                name="Vedant Khairnar"
-                role="Developer"
-                bio="Web developer skilled in Java, Python, JavaScript, PHP, SQL, HTML, and CSS—building secure, responsive web applications with real-world impact."
-                imageUrl="./imgs/Dev-Vedant.jpg"
-                socials={{
-                  github: "https://github.com/Vedantkhairnar729",
-                  linkedin: "https://www.linkedin.com/in/vedant-khairnar?original_referer=",
-                  instagram: "https://www.instagram.com/mr_vedant_24?igsh=d3h3YWFieWl2cmNv",
-                  email: "vedantkhairnar041@gmail.com",
-                  facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
-                  twitter: "https://media.tenor.com/d2jqZ7DnuA8AAAAM/my-honest-reaction-my-honest-reaction-meme.gif",
-                  portfolio: "https://vedantportfolio-bice.vercel.app/"
-                }}
-              />
-            </div>
-            <div className="transform -translate-y-6 sm:-translate-y-7">
-              <TeamMember 
-                name="Ved Khairnar"
-                role="Leader"
-                bio="An innovative web developer proficient in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL—skilled at crafting clean, scalable code and delivering seamless digital experiences."
-                imageUrl="./imgs/Dev-Ved.jpg"
-                socials={{
-                  github: "https://github.com/VedKhairnar24",
-                  linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
-                  instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
-                  email: "vedkhairnar4@gmail.com",
-                  facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
-                  twitter: "https://i.pinimg.com/736x/77/52/5d/77525d3bbf551a36c683d3de698ba75a.jpg",
-                  portfolio: "https://dev-ved-khairnar.web.app/"
-                }}
-                isLead={true}
-              />
-            </div>
-            <div className="transform translate-y-4 sm:translate-y-6">
-              <TeamMember 
-                name="Tejas Paithane"
-                role="Developer"
-                bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications."
-                imageUrl="./imgs/Dev-Tejas.jpg"
-                socials={{
-                  github: "https://github.com/Chetan-tp",
-                  linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
-                  instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
-                  email: "paithanetajas34@gmail.com",
-                  facebook: "https://i.pinimg.com/736x/8c/de/9f/8cde9fab69bfcbfa7a9649e951acef05.jpg",
-                  twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
-                  portfolio: "https://tejas-paithane.github.io/"
-                }}
-              />
-            </div>
-          </div>
+                     <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative">
+                     <div className="transform translate-y-4 sm:translate-y-6">
+               <TeamMember 
+                 name="Ved Khairnar"
+                 role="Leader"
+                 bio="A passionate and forward-thinking web developer with expertise in Java, C, Data Structures, HTML, CSS, JavaScript, PHP, and MySQL. Dedicated to writing clean, efficient, and scalable code while transforming ideas into seamless, high-performing digital experiences that engage and inspire users."
+                 imageUrl="./imgs/Dev-Ved.jpg"
+                 socials={{
+                   github: "https://github.com/VedKhairnar24",
+                   linkedin: "https://www.linkedin.com/in/ved-khairnar-193889355/",
+                   instagram: "https://www.instagram.com/mr.vedkhairnar_officials?igsh=MTRpYzJwcXZ2Y20yaQ==",
+                   email: "vedkhairnar4@gmail.com",
+                   facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+                   twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
+                   portfolio: "https://dev-ved-khairnar.web.app/"
+                 }}
+                //  isLead={true}
+               />
+             </div>
+             <div className="transform translate-y-4 sm:translate-y-6">
+               <TeamMember 
+                 name="Vedant Khairnar"
+                 role="Developer"
+                 bio="Web developer skilled in Java, Python, JavaScript, PHP, SQL, HTML, and CSS—building secure, responsive web applications with real-world impact and a passion for creating innovative solutions."
+                 imageUrl="./imgs/Dev-Vedant.jpg"
+                 socials={{
+                   github: "https://github.com/Vedantkhairnar729",
+                   linkedin: "https://www.linkedin.com/in/vedant-khairnar?original_referer=",
+                   instagram: "https://www.instagram.com/mr_vedant_24?igsh=d3h3YWFieWl2cmNv",
+                   email: "vedantkhairnar041@gmail.com",
+                   facebook: "https://i.pinimg.com/736x/e1/f7/1a/e1f71a417b9b8df4e5fd8ccf7cc02969.jpg",
+                   twitter: "https://media.tenor.com/d2jqZ7DnuA8AAAAM/my-honest-reaction-my-honest-reaction-meme.gif",
+                   portfolio: "https://vedantportfolio-bice.vercel.app/"
+                 }}
+               />
+             </div>
+            
+             <div className="transform translate-y-4 sm:translate-y-6">
+               <TeamMember 
+                 name="Tejas Paithane"
+                 role="Developer"
+                 bio="A Python developer with strong problem-solving skills, capable of designing efficient algorithms and backend systems that power intelligent applications and a passion for creating innovative solutions."
+                 imageUrl="./imgs/Dev-Tejas.jpg"
+                 socials={{
+                   github: "https://github.com/Chetan-tp",
+                   linkedin: "https://www.linkedin.com/in/tejas-paithane-5634a0306/",
+                   instagram: "https://www.instagram.com/tejas_paithane_official?igsh=MTdrbWhlNWdxamNzNA==",
+                   email: "paithanetajas34@gmail.com",
+                   facebook: "https://i.pinimg.com/736x/8c/de/9f/8cde9fab69bfcbfa7a9649e951acef05.jpg",
+                   twitter: "https://i.pinimg.com/564x/e1/d4/45/e1d445cb64f3eb7ec425e0ff6b01886a.jpg",
+                   portfolio: "https://tejas-paithane.github.io/"
+                 }}
+               />
+             </div>
+           </div>
         </div>
       </div>
       

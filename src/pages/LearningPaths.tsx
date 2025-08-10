@@ -12,14 +12,14 @@ import { ChevronDown } from 'lucide-react';
 
 // Chart.js will be loaded via CDN in index.html
 
-const domainCategories: { id: LearningPathCategory; title: string; icon: React.ReactNode; description: string; color: string; stats?: { students: number; rating: number; duration: string } }[] = [
+const domainCategories: { id: LearningPathCategory; title: string; icon: React.ReactNode; description: string; color: string; stats?: { rating: number; duration: string } }[] = [
   {
     id: 'web',
     title: 'Web Development',
     description: 'Learn to create modern, responsive, and dynamic websites from scratch using HTML, CSS, JavaScript, and popular frameworks. Gain skills in front-end, back-end, and full-stack development to build user-friendly and scalable web applications.',
     icon: <Code className="h-6 w-6" />,
     color: 'bg-blue-500',
-    stats: { students: 15420, rating: 4.8, duration: '6-12 months' }
+    stats: { rating: 4.8, duration: '6-12 months' }
   },
   {
     id: 'programming',
@@ -27,7 +27,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Master the art of writing efficient, clean, and scalable code in multiple programming languages. Learn problem-solving techniques, algorithms, and data structures to tackle real-world challenges in software development.',
     icon: <Terminal className="h-6 w-6" />,
     color: 'bg-green-500',
-    stats: { students: 15420, rating: 4.8, duration: '6-12 months' }
+    stats: { rating: 4.8, duration: '6-12 months' }
   },
   {
     id: 'design',
@@ -35,7 +35,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Develop skills to design visually appealing, user-centered interfaces that provide a seamless experience. Learn wireframing, prototyping, design systems, and usability testing to create products users love.',
     icon: <PenTool className="h-6 w-6" />,
     color: 'bg-purple-500',
-    stats: { students: 8920, rating: 4.7, duration: '4-8 months' }
+    stats: { rating: 4.7, duration: '4-8 months' }
   },
   {
     id: 'data',
@@ -43,7 +43,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Gain expertise in collecting, processing, and analyzing large datasets to extract valuable insights. Learn statistical analysis, data visualization, machine learning, and predictive modeling for data-driven decision-making.',
     icon: <Database className="h-6 w-6" />,
     color: 'bg-yellow-500',
-    stats: { students: 12340, rating: 4.9, duration: '8-15 months' }
+    stats: { rating: 4.9, duration: '8-15 months' }
   },
   {
     id: 'devops',
@@ -51,7 +51,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Learn to integrate development and operations for faster, more reliable software delivery. Master tools for automation, CI/CD pipelines, cloud infrastructure, and monitoring to streamline the entire development lifecycle.',
     icon: <Layers className="h-6 w-6" />,
     color: 'bg-red-500',
-    stats: { students: 6780, rating: 4.6, duration: '6-10 months' }
+    stats: { rating: 4.6, duration: '6-10 months' }
   },
   {
     id: 'mobile',
@@ -59,7 +59,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Build high-performance, cross-platform mobile applications using frameworks like Flutter and React Native. Learn mobile UI design, API integration, and deployment for both Android and iOS platforms.',
     icon: <BookOpen className="h-6 w-6" />,
     color: 'bg-pink-500',
-    stats: { students: 9450, rating: 4.8, duration: '5-9 months' }
+    stats: { rating: 4.8, duration: '5-9 months' }
   },
   {
     id: 'cybersecurity',
@@ -67,7 +67,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Develop the skills to safeguard systems, networks, and data from cyber threats. Learn ethical hacking, encryption, risk assessment, and security best practices to protect against vulnerabilities and attacks.',
     icon: <ShieldCheck className="h-6 w-6" />,
     color: 'bg-gray-700',
-    stats: { students: 5670, rating: 4.7, duration: '7-12 months' }
+    stats: { rating: 4.7, duration: '7-12 months' }
   },
   {
     id: 'game',
@@ -75,7 +75,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Learn to design and develop immersive, interactive games using popular engines like Unity and Unreal. Master gameplay mechanics, 3D modeling, physics, and storytelling to create engaging gaming experiences.',
     icon: <Layers className="h-6 w-6" />,
     color: 'bg-orange-500',
-    stats: { students: 7890, rating: 4.5, duration: '8-14 months' }
+    stats: { rating: 4.5, duration: '8-14 months' }
   },
   {
     id: 'aiml',
@@ -83,7 +83,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Master artificial intelligence and machine learning concepts to build intelligent systems. Learn to create algorithms, train models, and apply AI/ML techniques for tasks like prediction, automation, and decision-making.',
     icon: <Database className="h-6 w-6" />,
     color: 'bg-indigo-500',
-    stats: { students: 11230, rating: 4.9, duration: '10-18 months' }
+    stats: { rating: 4.9, duration: '10-18 months' }
   },
   {
     id: 'blockchain',
@@ -91,7 +91,7 @@ const domainCategories: { id: LearningPathCategory; title: string; icon: React.R
     description: 'Learn to develop decentralized applications (dApps) and smart contracts using blockchain technology. Understand blockchain architecture, cryptocurrencies, and secure transaction systems for innovative solutions.',
     icon: <Code className="h-6 w-6" />,
     color: 'bg-emerald-600',
-    stats: { students: 4560, rating: 4.4, duration: '6-12 months' }
+    stats: { rating: 4.4, duration: '6-12 months' }
   }
 ];
 
@@ -102,7 +102,7 @@ interface TypeCardProps {
   description: string;
   icon: React.ReactNode;
   color: string;
-  stats?: { students: number; rating: number; duration: string };
+  stats?: { rating: number; duration: string };
   onClick: () => void;
   index: number;
 }
@@ -111,12 +111,7 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
   const [isHovered, setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const formatNumber = (num: number) => {
-    if (num >= 1000) {
-      return (num / 1000).toFixed(1) + 'k';
-    }
-    return num.toString();
-  };
+
 
   const handleClick = () => {
     setIsLoading(true);
@@ -184,15 +179,9 @@ const TypeCard = memo(({ category, title, description, icon, color, stats, onCli
 
       <CardContent className="relative z-10 p-6 pt-0 flex-shrink-0">
         {stats && (
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
-              <Users className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">{formatNumber(stats.students)} students</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
-              <Clock className="h-4 w-4 text-green-500" />
-              <span className="font-medium">{stats.duration}</span>
-            </div>
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 mb-4">
+            <Clock className="h-4 w-4 text-green-500" />
+            <span className="font-medium">{stats.duration}</span>
           </div>
         )}
       </CardContent>
